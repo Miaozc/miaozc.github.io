@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-14T11:48:13.073Z</updated>
+  <updated>2019-04-14T12:06:42.546Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,15 @@
     <link href="http://yoursite.com/2019/04/14/%E6%90%AD%E5%BB%BAhexo-blog%E9%87%87%E5%9D%91%E5%B0%8F%E8%AE%B0/"/>
     <id>http://yoursite.com/2019/04/14/搭建hexo-blog采坑小记/</id>
     <published>2019-04-14T11:32:20.000Z</published>
-    <updated>2019-04-14T11:48:13.073Z</updated>
+    <updated>2019-04-14T12:06:42.546Z</updated>
     
-    <content type="html"><![CDATA[<p>##采坑小记</p><h3 id="git-SSH创建失败"><a href="#git-SSH创建失败" class="headerlink" title="git SSH创建失败"></a>git SSH创建失败</h3><ul><li>原因：git bash在window10 创建 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 解决办法：cmd-&gt;cd到指定位置后-&gt;```md ~ssh</span><br></pre></td></tr></table></figure></li></ul><h3 id="hexo-config-yml配置"><a href="#hexo-config-yml配置" class="headerlink" title="hexo _config.yml配置"></a>hexo _config.yml配置</h3><ul><li>每个参数后面“：”紧接着要写一个空格，不能直接跟value。<br>##基本语法</li><li><code>hexo clean</code> 清空public文件夹</li><li><code>hexo g</code> 构建</li><li><code>hexo s</code> 启动server</li><li><code>hexo d</code> 推送到git hub</li><li><code>hexo new xx</code>创建xx文章</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="一、blog-采坑小记"><a href="#一、blog-采坑小记" class="headerlink" title="一、blog 采坑小记"></a>一、blog 采坑小记</h2><h4 id="1-git-ssh创建失败"><a href="#1-git-ssh创建失败" class="headerlink" title="1.git ssh创建失败"></a>1.git ssh创建失败</h4><ul><li>原因：git bash在window10 创建“~ssh”文件夹失败，window不允许文件夹名称以~开头</li><li>解决办法：cmd命令  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ..</span><br><span class="line">$ md ~ssh         </span><br></pre></td></tr></table></figure></li></ul><h4 id="2-hexo-config-yml配置"><a href="#2-hexo-config-yml配置" class="headerlink" title="2.hexo _config.yml配置"></a>2.hexo _config.yml配置</h4><ul><li>每个参数后面“：”紧接着要写一个空格，不能直接跟value，否则构建失败</li></ul><h2 id="二、hexo-基本语法"><a href="#二、hexo-基本语法" class="headerlink" title="二、hexo 基本语法"></a>二、hexo 基本语法</h2><ul><li><code>hexo clean</code> 清空public文件夹</li><li><code>hexo g</code> 构建</li><li><code>hexo s</code> 启动server</li><li><code>hexo d</code> 推送到git hub</li><li><code>hexo new xx</code>创建名为“xx”的文章</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;##采坑小记&lt;/p&gt;
-&lt;h3 id=&quot;git-SSH创建失败&quot;&gt;&lt;a href=&quot;#git-SSH创建失败&quot; class=&quot;headerlink&quot; title=&quot;git SSH创建失败&quot;&gt;&lt;/a&gt;git SSH创建失败&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;原因：git bash在wi
+        &lt;h2 id=&quot;一、blog-采坑小记&quot;&gt;&lt;a href=&quot;#一、blog-采坑小记&quot; class=&quot;headerlink&quot; title=&quot;一、blog 采坑小记&quot;&gt;&lt;/a&gt;一、blog 采坑小记&lt;/h2&gt;&lt;h4 id=&quot;1-git-ssh创建失败&quot;&gt;&lt;a href=&quot;#1-gi
       
     
     </summary>
@@ -40,27 +38,6 @@
     
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2019/04/14/hello-world/"/>
-    <id>http://yoursite.com/2019/04/14/hello-world/</id>
-    <published>2019-04-14T04:38:28.324Z</published>
-    <updated>2019-04-14T04:38:28.325Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
     
   </entry>
   
