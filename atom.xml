@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>MZC&#39;s Blog</title>
+  <title>缪志城&#39;s Blog</title>
   
-  <subtitle>__城</subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-14T04:38:28.325Z</updated>
+  <updated>2019-04-14T11:48:13.073Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>miaozc</name>
+    <name>缪志城</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建hexo blog</title>
+    <link href="http://yoursite.com/2019/04/14/%E6%90%AD%E5%BB%BAhexo-blog%E9%87%87%E5%9D%91%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://yoursite.com/2019/04/14/搭建hexo-blog采坑小记/</id>
+    <published>2019-04-14T11:32:20.000Z</published>
+    <updated>2019-04-14T11:48:13.073Z</updated>
+    
+    <content type="html"><![CDATA[<p>##采坑小记</p><h3 id="git-SSH创建失败"><a href="#git-SSH创建失败" class="headerlink" title="git SSH创建失败"></a>git SSH创建失败</h3><ul><li>原因：git bash在window10 创建 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 解决办法：cmd-&gt;cd到指定位置后-&gt;```md ~ssh</span><br></pre></td></tr></table></figure></li></ul><h3 id="hexo-config-yml配置"><a href="#hexo-config-yml配置" class="headerlink" title="hexo _config.yml配置"></a>hexo _config.yml配置</h3><ul><li>每个参数后面“：”紧接着要写一个空格，不能直接跟value。<br>##基本语法</li><li><code>hexo clean</code> 清空public文件夹</li><li><code>hexo g</code> 构建</li><li><code>hexo s</code> 启动server</li><li><code>hexo d</code> 推送到git hub</li><li><code>hexo new xx</code>创建xx文章</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;##采坑小记&lt;/p&gt;
+&lt;h3 id=&quot;git-SSH创建失败&quot;&gt;&lt;a href=&quot;#git-SSH创建失败&quot; class=&quot;headerlink&quot; title=&quot;git SSH创建失败&quot;&gt;&lt;/a&gt;git SSH创建失败&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;原因：git bash在wi
+      
+    
+    </summary>
+    
+      <category term="业余杂记" scheme="http://yoursite.com/categories/%E4%B8%9A%E4%BD%99%E6%9D%82%E8%AE%B0/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
