@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="love">
-<meta property="og:url" content="http://yoursite.com/love/index.html">
+<meta name="description" content="linux四剑客grep 查找文件内容  grep hello test.txt 在某个文件中查找包含hello的内容，只要一行中有hello会把整行显示 grep -niv helle test.txt n显示查找到的内容行号，i查找时不区分大小写，v反向查找（查找不包含hello的行） grep -n hello home/admin -r 查找整个目录中的所有文件，包含hello的内容">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习（四）：四剑客之二（grep、find）">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/Linux学习（四）：四剑客之二（grep、find）/index.html">
 <meta property="og:site_name" content="缪志城&#39;s Blog">
+<meta property="og:description" content="linux四剑客grep 查找文件内容  grep hello test.txt 在某个文件中查找包含hello的内容，只要一行中有hello会把整行显示 grep -niv helle test.txt n显示查找到的内容行号，i查找时不区分大小写，v反向查找（查找不包含hello的行） grep -n hello home/admin -r 查找整个目录中的所有文件，包含hello的内容">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-14T07:25:21.242Z">
+<meta property="og:updated_time" content="2019-05-06T06:21:45.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="love">
+<meta name="twitter:title" content="Linux学习（四）：四剑客之二（grep、find）">
+<meta name="twitter:description" content="linux四剑客grep 查找文件内容  grep hello test.txt 在某个文件中查找包含hello的内容，只要一行中有hello会把整行显示 grep -niv helle test.txt n显示查找到的内容行号，i查找时不区分大小写，v反向查找（查找不包含hello的行） grep -n hello home/admin -r 查找整个目录中的所有文件，包含hello的内容">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/love/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/Linux学习（四）：四剑客之二（grep、find）/">
 
 
 
 
 
-  <title>love | 缪志城's Blog</title>
+  <title>Linux学习（四）：四剑客之二（grep、find） | 缪志城's Blog</title>
   
 
 
@@ -247,33 +251,182 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/Linux学习（四）：四剑客之二（grep、find）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="缪志城">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="缪志城's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">love</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">Linux学习（四）：四剑客之二（grep、find）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-06T14:21:30+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="linux四剑客"><a href="#linux四剑客" class="headerlink" title="linux四剑客"></a>linux四剑客</h2><h3 id="grep-查找文件内容"><a href="#grep-查找文件内容" class="headerlink" title="grep 查找文件内容"></a><code>grep</code> 查找文件内容</h3><blockquote>
+<ul>
+<li><code>grep hello test.txt</code> 在某个文件中查找包含hello的内容，只要一行中有hello会把整行显示</li>
+<li><code>grep -niv helle test.txt</code> <code>n</code>显示查找到的内容行号，<code>i</code>查找时不区分大小写，<code>v</code>反向查找（查找不包含hello的行）</li>
+<li><code>grep -n hello home/admin -r</code> 查找整个目录中的所有文件，包含hello的内容</li>
+</ul>
+</blockquote>
+<h3 id="find-查找文件"><a href="#find-查找文件" class="headerlink" title="find 查找文件"></a><code>find</code> 查找文件</h3><blockquote>
+<ul>
+<li><code>find /home -name 1.txt</code> 在/home目录下查找文件名为1.txt的文件，输出文件路径</li>
+<li><code>find /home -name &#39;*.txt&#39;</code>在/home目录下查找所有后缀为.txt的文件。注意：如果查找模糊文件名，需对文件名参数加上引号。</li>
+</ul>
+</blockquote>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/06/Linux学习（三）：管道和链接/" rel="next" title="Linux学习（三）：管道和链接">
+                <i class="fa fa-chevron-left"></i> Linux学习（三）：管道和链接
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/06/Linux学习（五）：文件解压缩/" rel="prev" title="Linux学习（五）：文件解压缩">
+                Linux学习（五）：文件解压缩 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -306,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -369,6 +531,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux四剑客"><span class="nav-number">1.</span> <span class="nav-text">linux四剑客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grep-查找文件内容"><span class="nav-number">1.1.</span> <span class="nav-text">grep 查找文件内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#find-查找文件"><span class="nav-number">1.2.</span> <span class="nav-text">find 查找文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

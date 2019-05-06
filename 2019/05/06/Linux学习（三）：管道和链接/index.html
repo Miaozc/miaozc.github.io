@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="love">
-<meta property="og:url" content="http://yoursite.com/love/index.html">
+<meta name="description" content="管道和链接1.|管道  ls -l / | more 一个命令的输出可以通过管道交给另一个命令的输出    2.ln链接 软链接：软链接不占用磁盘空间，源文件删除则软链接失效。  ln -s 源文件 链接文件 注意：如果软链接文件和源文件不在统一目录，源文件要使用绝对路径，不能使用相对路径，因为软链接只会记录路径名称。     硬链接：硬链接只能链接普通文件，不能链接目录。本身占用空间，与源文件同">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习（三）：管道和链接">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/Linux学习（三）：管道和链接/index.html">
 <meta property="og:site_name" content="缪志城&#39;s Blog">
+<meta property="og:description" content="管道和链接1.|管道  ls -l / | more 一个命令的输出可以通过管道交给另一个命令的输出    2.ln链接 软链接：软链接不占用磁盘空间，源文件删除则软链接失效。  ln -s 源文件 链接文件 注意：如果软链接文件和源文件不在统一目录，源文件要使用绝对路径，不能使用相对路径，因为软链接只会记录路径名称。     硬链接：硬链接只能链接普通文件，不能链接目录。本身占用空间，与源文件同">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-14T07:25:21.242Z">
+<meta property="og:updated_time" content="2019-05-06T06:21:01.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="love">
+<meta name="twitter:title" content="Linux学习（三）：管道和链接">
+<meta name="twitter:description" content="管道和链接1.|管道  ls -l / | more 一个命令的输出可以通过管道交给另一个命令的输出    2.ln链接 软链接：软链接不占用磁盘空间，源文件删除则软链接失效。  ln -s 源文件 链接文件 注意：如果软链接文件和源文件不在统一目录，源文件要使用绝对路径，不能使用相对路径，因为软链接只会记录路径名称。     硬链接：硬链接只能链接普通文件，不能链接目录。本身占用空间，与源文件同">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/love/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/Linux学习（三）：管道和链接/">
 
 
 
 
 
-  <title>love | 缪志城's Blog</title>
+  <title>Linux学习（三）：管道和链接 | 缪志城's Blog</title>
   
 
 
@@ -247,33 +251,188 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/Linux学习（三）：管道和链接/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="缪志城">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="缪志城's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">love</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">Linux学习（三）：管道和链接</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-06T14:20:28+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="管道和链接"><a href="#管道和链接" class="headerlink" title="管道和链接"></a>管道和链接</h2><h3 id="1-管道"><a href="#1-管道" class="headerlink" title="1.|管道"></a>1.<code>|</code>管道</h3><ol>
+<li><blockquote>
+<p><code>ls -l / | more</code> 一个命令的输出可以通过管道交给另一个命令的输出</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="2-ln链接"><a href="#2-ln链接" class="headerlink" title="2.ln链接"></a>2.<code>ln</code>链接</h3><ol>
+<li><p>软链接：软链接不占用磁盘空间，源文件删除则软链接失效。</p>
+<blockquote>
+<p><code>ln -s 源文件 链接文件</code><br> 注意：如果软链接文件和源文件不在统一目录，源文件要使用绝对路径，不能使用相对路径，因为软链接只会记录路径名称。</p>
+</blockquote>
+</li>
+</ol>
+<ol start="2">
+<li>硬链接：硬链接只能链接普通文件，不能链接目录。本身占用空间，与源文件同步发生变化，使用<code>ll</code>查看文件时，有一个数字，代表有几个文件能同步发生变化。<blockquote>
+<p><code>ln 源文件 链接文件</code> </p>
+</blockquote>
+</li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/06/Linux学习（二）：权限及通配符/" rel="next" title="Linux学习（二）：权限及通配符">
+                <i class="fa fa-chevron-left"></i> Linux学习（二）：权限及通配符
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/06/Linux学习（四）：四剑客之二（grep、find）/" rel="prev" title="Linux学习（四）：四剑客之二（grep、find）">
+                Linux学习（四）：四剑客之二（grep、find） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -306,8 +465,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -369,6 +537,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#管道和链接"><span class="nav-number">1.</span> <span class="nav-text">管道和链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-管道"><span class="nav-number">1.1.</span> <span class="nav-text">1.|管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-ln链接"><span class="nav-number">1.2.</span> <span class="nav-text">2.ln链接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
