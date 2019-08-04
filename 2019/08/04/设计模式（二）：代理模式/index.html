@@ -17,14 +17,14 @@
     
 
     <meta name="description" content="代理模式（Proxy Pattern）定义是指为其他对象提供一种代理，以控制对这个对象的访问。代理对象在客服端和目标对象之间起到中介作用，代理模式属于结构型设计模式。使用代理模式主要有两个目的：一、保护目标对象，二、增强目标对象。 常见实现SpringAop 静态代理（static proxy）抽象的说，就是代理对象持有被代理对象的引用进行方法增强。举个例子：在深圳租房子，我们自己去找房很难直接联">
-<meta name="keywords" content="Java,设计模式,代理">
+<meta name="keywords" content="设计模式,Java,代理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式（二）：代理模式 | ZhiCheng&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/2019/08/04/设计模式（二）：代理模式/index.html">
 <meta property="og:site_name" content="ZhiCheng&#39;s Blog">
 <meta property="og:description" content="代理模式（Proxy Pattern）定义是指为其他对象提供一种代理，以控制对这个对象的访问。代理对象在客服端和目标对象之间起到中介作用，代理模式属于结构型设计模式。使用代理模式主要有两个目的：一、保护目标对象，二、增强目标对象。 常见实现SpringAop 静态代理（static proxy）抽象的说，就是代理对象持有被代理对象的引用进行方法增强。举个例子：在深圳租房子，我们自己去找房很难直接联">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-04T16:36:10.893Z">
+<meta property="og:updated_time" content="2019-08-04T16:39:24.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式（二）：代理模式 | ZhiCheng&#39;s Blog">
 <meta name="twitter:description" content="代理模式（Proxy Pattern）定义是指为其他对象提供一种代理，以控制对这个对象的访问。代理对象在客服端和目标对象之间起到中介作用，代理模式属于结构型设计模式。使用代理模式主要有两个目的：一、保护目标对象，二、增强目标对象。 常见实现SpringAop 静态代理（static proxy）抽象的说，就是代理对象持有被代理对象的引用进行方法增强。举个例子：在深圳租房子，我们自己去找房很难直接联">
@@ -207,19 +207,19 @@ classes that you can use:
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//利用 cglib 的代理类可以将内存中的 class 文件写入本地磁盘 </span></span><br><span class="line"></span><br><span class="line">System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY,<span class="string">"E://cglib_proxy_class/"</span>);</span><br><span class="line">ICustomer jdkCustomer = (ICustomer) <span class="keyword">new</span> ExpressCompanyJDKProxy().getInstance(<span class="keyword">new</span> Customer(<span class="string">"李四"</span>));</span><br></pre></td></tr></table></figure>
 <p>我们会发现在 E://cglib_proxy_class 目录下多了三个 class 文件</p>
 <ul>
-<li>ObjectName$$EnhancerByCGLIB$$3feeb52a.class</li>
+<li><code>ObjectName$$EnhancerByCGLIB$$3feeb52a.class</code></li>
 </ul>
 <blockquote>
 <p>CGLib生成的代理类，继承了被代理对象。重写了 被代理对象类的所有方法，并且生成代理的方法的增强逻辑以及增强逻辑所需要的方法。这直接导致了我们如果在拦截器里直接调用<code>method.invoke()</code>会死循环。所以我们切记在代理拦截器中应该使用<code>methodProxy.invokeSuper(o,objects)</code>。</p>
 </blockquote>
 <ul>
-<li>ObjectName$$EnhancerByCGLIB$$3feeb52a$$FastClassByCGLIB$$6aad62f1.class</li>
+<li><code>ObjectName$$EnhancerByCGLIB$$3feeb52a$$FastClassByCGLIB$$6aad62f1.class</code></li>
 </ul>
 <blockquote>
 <p>代理类的 FastClass。</p>
 </blockquote>
 <ul>
-<li>Customer$$FastClassByCGLIB$$2669574a.class</li>
+<li><code>Customer$$FastClassByCGLIB$$2669574a.class</code></li>
 </ul>
 <blockquote>
 <p>被代理类的FastClass。</p>
