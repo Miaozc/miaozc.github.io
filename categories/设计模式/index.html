@@ -2,274 +2,1358 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>Categoria: 设计模式 - ZhiCheng&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
 
-    <title>
-      Category: 设计模式 
-    </title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
-      <meta name="author" content="ZhiCheng Miao">
-    
-    
 
     <meta property="og:type" content="website">
-<meta property="og:title" content="Category: 设计模式">
+<meta property="og:title" content="ZhiCheng&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/categories/设计模式/index.html">
 <meta property="og:site_name" content="ZhiCheng&#39;s Blog">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Category: 设计模式">
-    
-    
-    
-      <link rel="icon" type="image/x-icon" href="/favicon.png">
-    
-    <link rel="stylesheet" href="/css/uno.css">
-    <link rel="stylesheet" href="/css/highlight.css">
-    <link rel="stylesheet" href="/css/archive.css">
-    <link rel="stylesheet" href="/css/china-social-icon.css">
+<meta name="twitter:title" content="ZhiCheng&#39;s Blog">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-
-    <span class="mobile btn-mobile-menu">
-        <i class="icon icon-list btn-mobile-menu__icon"></i>
-        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
-    </span>
-
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/mzc_logo.svg" alt="ZhiCheng&#39;s Blog" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
     
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">Categorias</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">设计模式</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
 
-<header class="panel-cover panel-cover--collapsed">
-
-
-  <div class="panel-main">
-
-  
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
-
+    <div class="card">
+    
+    <div class="card-content article ">
         
-
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">ZhiCheng&#39;s Blog</a></h1>
-        <hr class="panel-cover__divider">
-
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-04T15:12:58.000Z">2019-08-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 minutes read (About 1912 words)
+                </span>
+                
+                
+            </div>
+        </div>
         
-
-        <div class="navigation-wrapper">
-
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-
-              
-                
-                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
-              
-                
-                <li class="navigation__item"><a href="/archive" title class>导航</a></li>
-              
-                
-                <li class="navigation__item"><a href="/about" title class>关于</a></li>
-              
-
-            </ul>
-          </nav>
-
-          <!-- ----------------------------
-To add a new social icon simply duplicate one of the list items from below
-and change the class in the <i> tag to match the desired social network
-and then add your link to the <a>. Here is a full list of social network
-classes that you can use:
-
-    icon-social-500px
-    icon-social-behance
-    icon-social-delicious
-    icon-social-designer-news
-    icon-social-deviant-art
-    icon-social-digg
-    icon-social-dribbble
-    icon-social-facebook
-    icon-social-flickr
-    icon-social-forrst
-    icon-social-foursquare
-    icon-social-github
-    icon-social-google-plus
-    icon-social-hi5
-    icon-social-instagram
-    icon-social-lastfm
-    icon-social-linkedin
-    icon-social-medium
-    icon-social-myspace
-    icon-social-path
-    icon-social-pinterest
-    icon-social-rdio
-    icon-social-reddit
-    icon-social-skype
-    icon-social-spotify
-    icon-social-stack-overflow
-    icon-social-steam
-    icon-social-stumbleupon
-    icon-social-treehouse
-    icon-social-tumblr
-    icon-social-twitter
-    icon-social-vimeo
-    icon-social-xbox
-    icon-social-yelp
-    icon-social-youtube
-    icon-social-zerply
-    icon-mail
-
--------------------------------->
-
-<!-- add social info here -->
-
-
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/04/设计模式（二）：代理模式/">设计模式（二）：代理模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="代理模式（Proxy-Pattern）"><a href="#代理模式（Proxy-Pattern）" class="headerlink" title="代理模式（Proxy Pattern）"></a>代理模式（Proxy Pattern）</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>是指为其他对象提供一种代理，以控制对这个对象的访问。代理对象在客服端和目标对象之间起到中介作用，代理模式属于结构型设计模式。使用代理模式主要有两个目的：一、保护目标对象，二、增强目标对象。</p>
+<h3 id="常见实现"><a href="#常见实现" class="headerlink" title="常见实现"></a>常见实现</h3><p>SpringAop</p>
+<h3 id="静态代理（static-proxy）"><a href="#静态代理（static-proxy）" class="headerlink" title="静态代理（static proxy）"></a>静态代理（static proxy）</h3><p>抽象的说，就是代理对象持有被代理对象的引用进行方法增强。<br>举个例子：在深圳租房子，我们自己去找房很难直接联系上房东。一般会联系中介或者管理处（<code>proxy</code>），间接的租房。有的全权代理的房东坐等收钱，而中介可以在收租前后做各种不需要告诉老板的事，比如装修一番再涨个价赚取中间商差价。</p>
+<h3 id="动态代理（dynamic-proxy）"><a href="#动态代理（dynamic-proxy）" class="headerlink" title="动态代理（dynamic proxy）"></a>动态代理（dynamic proxy）</h3><p>动态，指的是不直接引用被代理对象，并且可以代理不同的对象。Spring AOP面向切面编程的原理正是如此。<br>举个例子，快递公司要帮人寄送快递，但他不需要知道那个人是谁。只要按流程填写快递单就行了。“快递单”在这里就是被代理对象。沿用这个例子展开分析。</p>
+<h4 id="1-JDK-Proxy"><a href="#1-JDK-Proxy" class="headerlink" title="1.JDK Proxy"></a>1.JDK Proxy</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-2.</span></span><br><span class="line"><span class="hljs-comment"> * 快递公司-动态代理发送快递</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExpressCompanyJDKProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InvocationHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> Object target;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getInstance</span><span class="hljs-params">(Object object)</span><span class="hljs-keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.target = object;</span><br><span class="line">        Class&lt;?&gt; clazz = target.getClass();</span><br><span class="line">        <span class="hljs-keyword">return</span> Proxy.newProxyInstance(clazz.getClassLoader(),clazz.getInterfaces(),<span class="hljs-keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        Object object = method.invoke(<span class="hljs-keyword">this</span>.target,args);</span><br><span class="line">        send();</span><br><span class="line">        <span class="hljs-keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">send</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"jdk动态代理-快递公司发出快递！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试代码：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ICustomer jdkCustomer = (ICustomer) <span class="hljs-keyword">new</span> ExpressCompanyJDKProxy().getInstance(<span class="hljs-keyword">new</span> Customer(<span class="hljs-string">"李四"</span>));</span><br><span class="line">jdkCustomer.send();</span><br></pre></td></tr></table></figure></p>
+<p> JDK Proxy 采用字节重组，重新生的对象来替代原始的对象以达到动态代理 的目的。JDK Proxy 生成对象的步骤如下：</p>
+<ol>
+<li>拿到被代理对象的引用，反射获取它所有的接口。</li>
+<li>JDK Proxy 类重新生成一个新的类、同时新的类要实现被代理类所有实现的所有的接口。</li>
+<li>动态生成 Java 代码，把新加的业务逻辑方法由一定的逻辑代码去调用（在代码中体现）。</li>
+<li>编译新生成的 Java 代码: $Proxy***.class。</li>
+<li>再重新加载到 JVM 中运行。 </li>
+</ol>
+<p>以上这个过程就叫字节码重组。JDK 中有一个规范，在 ClassPath 下只要是$开头的 class文件一般都是自动生成的。查看代替后对象方式如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ICustomer jdkCustomer = (ICustomer) <span class="hljs-keyword">new</span> ExpressCompanyJDKProxy().getInstance(<span class="hljs-keyword">new</span> Customer(<span class="hljs-string">"李四"</span>));</span><br><span class="line"><span class="hljs-keyword">byte</span> [] bytes = ProxyGenerator.generateProxyClass(<span class="hljs-string">"$Proxy0"</span>,<span class="hljs-keyword">new</span> Class[]&#123;Person.class&#125;); FileOutputStream os = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-string">"E://$Proxy0.class"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="2-CGLib-Proxy"><a href="#2-CGLib-Proxy" class="headerlink" title="2. CGLib Proxy"></a>2. CGLib Proxy</h4><p>与JDK代理不同，CGLib 代理的目标对象不需要实现任何接口，它是通过动态继承目标对象实现的动态代理。这样的做法弊端就是<code>无法代理final关键字修饰的方法。</code>.好处则更加明显，在频繁调用代理的情况下，省去了反射带来的开销。</p>
+<p>代理实现：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExpressCompanyCGLibProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MethodInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getInstance</span><span class="hljs-params">(Class&lt;?&gt; clazz,Class[] argumentTypes, Object[] arguments)</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        Enhancer enhancer = <span class="hljs-keyword">new</span> Enhancer();</span><br><span class="line">        enhancer.setSuperclass(clazz);</span><br><span class="line">        enhancer.setCallback(<span class="hljs-keyword">this</span>);</span><br><span class="line">        <span class="hljs-keyword">if</span>(argumentTypes==<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> enhancer.create();</span><br><span class="line">        &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> enhancer.create(argumentTypes, arguments);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">intercept</span><span class="hljs-params">(Object o, Method method, Object[] objects, MethodProxy methodProxy)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        Object object = methodProxy.invokeSuper(o,objects);</span><br><span class="line">        send();</span><br><span class="line">        <span class="hljs-keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">send</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"cglib动态代理-快递公司发出快递！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试代码：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//构造方法所需参数</span></span><br><span class="line">Class[] argumentTypes = <span class="hljs-keyword">new</span> Class[]&#123;String.class&#125;;</span><br><span class="line">Object[] personArguments = <span class="hljs-keyword">new</span> Object[]&#123;<span class="hljs-string">"王五"</span>&#125;;</span><br><span class="line">Object[] robotArguments = <span class="hljs-keyword">new</span> Object[]&#123;<span class="hljs-string">"二哈"</span>&#125;;</span><br><span class="line">Customer cglibCustomer = (Customer) <span class="hljs-keyword">new</span> ExpressCompanyCGLibProxy().</span><br><span class="line">    getInstance(Customer.class,argumentTypes,personArguments);</span><br><span class="line">Robot cglibRobot = (Robot) <span class="hljs-keyword">new</span> ExpressCompanyCGLibProxy().</span><br><span class="line">    getInstance(Robot.class,argumentTypes,robotArguments);</span><br><span class="line">Robot cglibRobotCreate = (Robot) <span class="hljs-keyword">new</span> ExpressCompanyCGLibProxy().</span><br><span class="line">    getInstance(Robot.class,<span class="hljs-keyword">null</span>,<span class="hljs-keyword">null</span>);</span><br><span class="line">cglibCustomer.send();</span><br><span class="line">cglibRobot.send();</span><br><span class="line">cglibRobotCreate.send();</span><br></pre></td></tr></table></figure>
+<p>将 CGLib 代理后的 class 写入到磁盘：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//利用 cglib 的代理类可以将内存中的 class 文件写入本地磁盘 </span></span><br><span class="line"></span><br><span class="line">System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY,<span class="hljs-string">"E://cglib_proxy_class/"</span>);</span><br><span class="line">ICustomer jdkCustomer = (ICustomer) <span class="hljs-keyword">new</span> ExpressCompanyJDKProxy().getInstance(<span class="hljs-keyword">new</span> Customer(<span class="hljs-string">"李四"</span>));</span><br></pre></td></tr></table></figure>
+<p>我们会发现在 E://cglib_proxy_class 目录下多了三个 class 文件</p>
+<ul>
+<li><code>ObjectName$$EnhancerByCGLIB$$3feeb52a.class</code></li>
+</ul>
+<blockquote>
+<p>CGLib生成的代理类，继承了被代理对象。重写了 被代理对象类的所有方法，并且生成代理的方法的增强逻辑以及增强逻辑所需要的方法。这直接导致了我们如果在拦截器里直接调用<code>method.invoke()</code>会死循环。所以我们切记在代理拦截器中应该使用<code>methodProxy.invokeSuper(o,objects)</code>。</p>
+</blockquote>
+<ul>
+<li><code>ObjectName$$EnhancerByCGLIB$$3feeb52a$$FastClassByCGLIB$$6aad62f1.class</code></li>
+</ul>
+<blockquote>
+<p>代理类的 FastClass。</p>
+</blockquote>
+<ul>
+<li><code>Customer$$FastClassByCGLIB$$2669574a.class</code></li>
+</ul>
+<blockquote>
+<p>被代理类的FastClass。</p>
+<p>CGLib 动态代理执行代理方法效率之所以比 JDK的高是因为 Cglib 采用了 FastClass 机制，它的原理简单来说就是：为代理类和被代理类各生成一个 Class，这个 Class 会为代理类或被代理类的方法分配一个 index(int 类型)。这个 index 当做一个入参，FastClass就可以直接定位要调用的方法直接进行调用，这样省去了反射调用，所以调用效率比 JDK动态代理通过反射调用高。FastClass 并不是跟代理类一块生成的，而是在第一次执行 MethodProxy.invoke()/invokeSuper() 时生成的并放在了缓存中。</p>
+</blockquote>
+<h4 id="CGLib-和-JDK-动态代理对比"><a href="#CGLib-和-JDK-动态代理对比" class="headerlink" title="CGLib 和 JDK 动态代理对比"></a>CGLib 和 JDK 动态代理对比</h4><ol>
+<li>JDK 动态代理是实现了被代理对象的接口，CGLib 是继承了被代理对象。</li>
+<li>JDK 和 CGLib 都是在运行期生成字节码，JDK 是直接写 Class 字节码，CGLib 使用 ASM 框架写 Class 字节码，Cglib 代理实现更复杂，生成代理类比 JDK 效率低。</li>
+<li>JDK 调用代理方法，是通过反射机制调用，CGLib 是通过 FastClass 机制直接调用方法， CGLib 执行效率更高。</li>
+</ol>
+<h3 id="Spring中的代理模式"><a href="#Spring中的代理模式" class="headerlink" title="Spring中的代理模式"></a>Spring中的代理模式</h3><h4 id="代理模式选择"><a href="#代理模式选择" class="headerlink" title="代理模式选择"></a>代理模式选择</h4><ol>
+<li>当 Bean 有实现接口时，Spring 就会用 JDK 的动态代理 </li>
+<li>当 Bean 没有实现接口时，Spring 选择 CGLib。</li>
+<li>Spring 可以通过配置强制使用 CGLib，只需在 Spring 的配置文件中加入如下代码：</li>
+</ol>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">aop:aspectj-autoproxy</span> <span class="hljs-attr">proxy-target-class</span>=<span class="hljs-string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="静态代理和动态的本质区别"><a href="#静态代理和动态的本质区别" class="headerlink" title="静态代理和动态的本质区别"></a>静态代理和动态的本质区别</h3><ol>
+<li><p>静态代理只能通过手动完成代理操作，如果被代理类增加新的方法，代理类需要同步新增，违背开闭原则。</p>
+</li>
+<li><p>动态代理采用在运行时动态生成代码的方式，取消了对被代理类的扩展限制，遵循开闭原则。 </p>
+</li>
+<li><p>若动态代理要对目标类的增强逻辑扩展，结合策略模式，只需要新增策略类便可完成，无需修改代理类的代码。</p>
+</li>
+</ol>
+<h3 id="代理模式的优缺点"><a href="#代理模式的优缺点" class="headerlink" title="代理模式的优缺点"></a>代理模式的优缺点</h3><p>使用代理模式具有以下几个优点： </p>
+<ol>
+<li><p>代理模式能将代理对象与真实被调用的目标对象分离。 </p>
+</li>
+<li><p>一定程度上降低了系统的耦合度，扩展性好。 </p>
+</li>
+<li><p>可以起到保护目标对象的作用。 </p>
+</li>
+<li><p>可以对目标对象的功能增强。 </p>
+</li>
+</ol>
+<p>当然，代理模式也是有缺点的：</p>
+<ol>
+<li><p>代理模式会造成系统设计中类的数量增加。 </p>
+</li>
+<li><p>在客户端和目标对象增加一个代理对象，会造成请求处理速度变慢。 </p>
+</li>
+<li><p>增加了系统的复杂度。 </p>
+</li>
+</ol>
 
         </div>
-
-      </div>
-
+        
+        
+        
     </div>
+</div>
 
-    <div class="panel-cover--overlay"></div>
-  </div>
-</header>
 
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner entry">
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-04T14:49:26.000Z">2019-08-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 627 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-
-
-  <h1 class="archive-title">Category: 设计模式</h1>
-  <hr class="post-list__divider">
-
-
-<div class="main-post-list">
-    <ol class="post-list">
-    
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/08/04/设计模式（二）：代理模式/" title="link to 设计模式（二）：代理模式">设计模式（二）：代理模式</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2019-08-04" class="post-list__meta--date date">2019-08-04</time> 
-      </div>
-
-      <div class="excerpt">
+                <a class="has-link-black-ter" href="/2019/08/04/设计模式（一）：单例模式/">设计模式（一）：单例模式</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="单例模式的应用场景"><a href="#单例模式的应用场景" class="headerlink" title="单例模式的应用场景"></a>单例模式的应用场景</h3><p>单例模式（Singleton Pattern）是指确保一个类在任何情况下都绝对只有一个实例，并提供一个全局访问点。单例模式是创建型模式。单例模式在现实生活中应用也非常广泛。 例如，国家主席、公司 CEO、部门经理等。在 J2EE标准中，ServletContext、 ServletContextConfig 等；在 Spring 框架应用中 ApplicationContext；数据库的连接池也都是单例形式。</p>
+<h3 id="常见实现"><a href="#常见实现" class="headerlink" title="常见实现"></a>常见实现</h3><p>饿汉式单例：Spring中IOC容器ApplicationContext。</p>
+<h3 id="饿汉式单例"><a href="#饿汉式单例" class="headerlink" title="饿汉式单例"></a>饿汉式单例</h3><p>饿汉式单例是在类加载的时候就立即初始化，并且创建单例对象。绝对线程安全，在线 程还没出现以前就是实例化了，不可能存在访问安全问题。</p>
+<ul>
+<li>优点：没有加任何的锁、执行效率比较高，在用户体验上来说，比懒汉式更好。</li>
+<li>缺点：类加载的时候就初始化，不管用与不用都占着空间，浪费了内存，有可能占着茅坑不拉屎。</li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HungrySingleton</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">//法1</span></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> HungrySingleton instance = <span class="hljs-keyword">new</span> HungrySingleton();</span><br><span class="line">    <span class="hljs-comment">//法2</span></span><br><span class="line">    <span class="hljs-comment">//    static &#123;</span></span><br><span class="line">    <span class="hljs-comment">//        instance = new HungrySingleton();</span></span><br><span class="line">    <span class="hljs-comment">//    &#125;</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">HungrySingleton</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> HungrySingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="懒汉式单例"><a href="#懒汉式单例" class="headerlink" title="懒汉式单例"></a>懒汉式单例</h3><p>懒汉式单例的特点是：被外部类调用的时候内部类才会加载.</p>
+<h4 id="1-同步锁懒汉式单例"><a href="#1-同步锁懒汉式单例" class="headerlink" title="1.同步锁懒汉式单例"></a>1.同步锁懒汉式单例</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">static</span> LazyDoubleCheckSingleton lazyDoubleCheckSingleton = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> LazyDoubleCheckSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(lazyDoubleCheckSingleton ==<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">synchronized</span>(LazyDoubleCheckSingleton.class)&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(lazyDoubleCheckSingleton ==<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                    lazyDoubleCheckSingleton = <span class="hljs-keyword">new</span> LazyDoubleCheckSingleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> lazyDoubleCheckSingleton;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-内部类懒汉式单例"><a href="#2-内部类懒汉式单例" class="headerlink" title="2.内部类懒汉式单例"></a>2.内部类懒汉式单例</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazyInnerClassSingleton</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">LazyInnerClassSingleton</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"构造方法"</span>);</span><br><span class="line">        <span class="hljs-keyword">if</span> (LazyHolder.LAZY!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">"禁止通过反射创建此单例对象"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> LazyInnerClassSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"getInstance"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> LazyHolder.LAZY;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * 内部类一定是要在方法调用之前初始化，巧妙地避免了线程安全问题。</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazyHolder</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> LazyInnerClassSingleton LAZY= <span class="hljs-keyword">new</span> LazyInnerClassSingleton();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String []s )</span></span>&#123;</span><br><span class="line">        LazyInnerClassSingleton.getInstance();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注册式单例"><a href="#注册式单例" class="headerlink" title="注册式单例"></a>注册式单例</h3><h4 id="1-容器缓存注册式单例"><a href="#1-容器缓存注册式单例" class="headerlink" title="1.容器缓存注册式单例"></a>1.容器缓存注册式单例</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContainerSingleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">ContainerSingleton</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Map&lt;String,Object&gt; instanceMap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Object <span class="hljs-title">getBean</span><span class="hljs-params">(String className)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(className==<span class="hljs-keyword">null</span>||<span class="hljs-string">""</span>.equals(className.trim())) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">        <span class="hljs-keyword">synchronized</span>(instanceMap)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (instanceMap.containsKey(className))&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> instanceMap.get(className);</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                Object obj = <span class="hljs-keyword">null</span>;</span><br><span class="line">                <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                    Class clazz = Class.forName(className);</span><br><span class="line">                    obj = clazz.newInstance();</span><br><span class="line">                    instanceMap.put(className,obj);</span><br><span class="line">                &#125; <span class="hljs-keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="hljs-keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="hljs-keyword">catch</span> (InstantiationException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="hljs-keyword">return</span> obj;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-枚举注册式单例"><a href="#2-枚举注册式单例" class="headerlink" title="2.枚举注册式单例"></a>2.枚举注册式单例</h4><p>此方法即使通过反序列化也能获得单例</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> EnumSingleton &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    <span class="hljs-keyword">private</span> Object data;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getData</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setData</span><span class="hljs-params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> EnumSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
         
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/08/04/设计模式（一）：单例模式/" title="link to 设计模式（一）：单例模式">设计模式（一）：单例模式</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2019-08-04" class="post-list__meta--date date">2019-08-04</time> 
-      </div>
-
-      <div class="excerpt">
         
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/08/04/设计模式：七大原则/" title="link to 设计模式：七大原则">设计模式：七大原则</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2019-08-04" class="post-list__meta--date date">2019-08-04</time> 
-      </div>
-
-      <div class="excerpt">
         
-      </div>
+    </div>
+</div>
 
-      <hr class="post-list__divider">
-    </li>
+
+
+
+
+
+
+
+    <div class="card">
     
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/08/04/设计模式：分类/" title="link to 设计模式：分类">设计模式：分类</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2019-08-04" class="post-list__meta--date date">2019-08-04</time> 
-      </div>
-
-      <div class="excerpt">
+    <div class="card-content article ">
         
-      </div>
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-04T11:32:47.000Z">2019-08-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 minutes read (About 1872 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/04/设计模式：七大原则/">设计模式：七大原则</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="软件架构设计的七大原则"><a href="#软件架构设计的七大原则" class="headerlink" title="软件架构设计的七大原则"></a>软件架构设计的七大原则</h2><h3 id="一、开闭原则"><a href="#一、开闭原则" class="headerlink" title="一、开闭原则"></a>一、开闭原则</h3><p>开闭原则（Open-Closed Principle, OCP）是指一个软件实体如类、模块和函数应该对 </p>
+<p>扩展开放，对修改关闭。所谓的开闭，也正是对扩展和修改两个行为的一个原则。强调 </p>
+<p>的是用抽象构建框架，用实现扩展细节。可以提高软件系统的可复用性及可维护性。开 </p>
+<p>闭原则，是面向对象设计中最基础的设计原则。它指导我们如何建立稳定灵活的系统， </p>
+<p>例如：我们版本更新，我尽可能不修改源代码，但是可以增加新功能。 </p>
+<p>在现实生活中对于开闭原则也有体现。比如，很多互联网公司都实行弹性制作息时间， </p>
+<p>规定每天工作 8 小时。意思就是说，对于每天工作 8 小时这个规定是关闭的，但是你什 </p>
+<p>么时候来，什么时候走是开放的。早来早走，晚来晚走。</p>
+<h3 id="二、依赖倒置原则"><a href="#二、依赖倒置原则" class="headerlink" title="二、依赖倒置原则"></a>二、依赖倒置原则</h3><p>依赖倒置原则（Dependence Inversion Principle,DIP）是指设计代码结构时，高层模 </p>
+<p>块不应该依赖底层模块，二者都应该依赖其抽象。抽象不应该依赖细节；细节应该依赖 </p>
+<p>抽象。通过依赖倒置，可以减少类与类之间的耦合性，提高系统的稳定性，提高代码的 </p>
+<p>可读性和可维护性，并能够降低修改程序所造成的风险。</p>
+<h2 id="三、单一职责原则"><a href="#三、单一职责原则" class="headerlink" title="三、单一职责原则"></a>三、单一职责原则</h2><p>单一职责（Simple Responsibility Pinciple，SRP）是指不要存在多于一个导致类变更 </p>
+<p>的原因。假设我们有一个 Class 负责两个职责，一旦发生需求变更，修改其中一个职责的</p>
+<p>逻辑代码，有可能会导致另一个职责的功能发生故障。这样一来，这个 Class 存在两个导 </p>
+<p>致类变更的原因。如何解决这个问题呢？我们就要给两个职责分别用两个 Class 来实现， </p>
+<p>进行解耦。后期需求变更维护互不影响。这样的设计，可以降低类的复杂度，提高类的 </p>
+<p>可 读 性 ， 提 高 系 统 的 可 维 护 性 ， 降 低 变 更 引 起 的 风 险 。 总 体 来 说 就 是 一 个 </p>
+<p>Class/Interface/Method 只负责一项职责。 </p>
+<h3 id="四、接口隔离原则"><a href="#四、接口隔离原则" class="headerlink" title="四、接口隔离原则"></a>四、接口隔离原则</h3><p>接口隔离原则（Interface Segregation Principle, ISP）是指用多个专门的接口，而不使 </p>
+<p>用单一的总接口，客户端不应该依赖它不需要的接口。这个原则指导我们在设计接口时 </p>
+<p>应当注意一下几点： </p>
+<p>1、一个类对一类的依赖应该建立在最小的接口之上。 </p>
+<p>2、建立单一接口，不要建立庞大臃肿的接口。 </p>
+<p>3、尽量细化接口，接口中的方法尽量少（不是越少越好，一定要适度）。 </p>
+<p>接口隔离原则符合我们常说的高内聚低耦合的设计思想，从而使得类具有很好的可读性、 </p>
+<p>可扩展性和可维护性。我们在设计接口的时候，要多花时间去思考，要考虑业务模型， </p>
+<p>包括以后有可能发生变更的地方还要做一些预判。所以，对于抽象，对业务模型的理解 </p>
+<p>是非常重要的。</p>
+<h3 id="五、迪米特法则"><a href="#五、迪米特法则" class="headerlink" title="五、迪米特法则"></a>五、迪米特法则</h3><p>迪米特原则（Law of Demeter LoD）是指一个对象应该对其他对象保持最少的了解，又 叫最少知道原则（Least Knowledge Principle,LKP），尽量降低类与类之间的耦合。迪 米特原则主要强调只和朋友交流，不和陌生人说话。出现在成员变量、方法的输入、输 出参数中的类都可以称之为成员朋友类，而出现在方法体内部的类不属于朋友类。</p>
+<h3 id="六、里氏替换原则"><a href="#六、里氏替换原则" class="headerlink" title="六、里氏替换原则"></a>六、里氏替换原则</h3><p>里氏替换原则（Liskov Substitution Principle,LSP）是指如果对每一个类型为 T1 的对 象 o1,都有类型为 T2 的对象 o2,使得以 T1 定义的所有程序 P 在所有的对象 o1 都替换成 o2 时，程序 P 的行为没有发生变化，那么类型 T2 是类型 T1 的子类型。 定义看上去还是比较抽象，我们重新理解一下，可以理解为一个软件实体如果适用一个 父类的话，那一定是适用于其子类，所有引用父类的地方必须能透明地使用其子类的对 象，子类对象能够替换父类对象，而程序逻辑不变。根据这个理解，我们总结一下： 引申含义：子类可以扩展父类的功能，但不能改变父类原有的功能。</p>
+<ol>
+<li><p>子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法。 </p>
+</li>
+<li><p>子类中可以增加自己特有的方法。 </p>
+</li>
+<li><p>当子类的方法重载父类的方法时，方法的前置条件（即方法的输入/入参）要比父类 </p>
+<p>方法的输入参数更宽松。 </p>
+</li>
+<li><p>当子类的方法实现父类的方法时（重写/重载或实现抽象方法），方法的后置条件（即 </p>
+<p>方法的输出/返回值）要比父类更严格或相等。</p>
+</li>
+</ol>
+<p>使用里氏替换原则有以下优点： </p>
+<ol>
+<li><p>约束继承泛滥，开闭原则的一种体现。 </p>
+</li>
+<li><p>加强程序的健壮性，同时变更时也可以做到非常好的兼容性，提高程序的维护性、扩 </p>
+<p>展性。降低需求变更时引入的风险。 </p>
+</li>
+</ol>
+<p>里氏替换原则只存在父类与子类之间，约束继承泛滥。</p>
+<h3 id="七、合成复用原则"><a href="#七、合成复用原则" class="headerlink" title="七、合成复用原则"></a>七、合成复用原则</h3><p>合成复用原则（Composite/Aggregate Reuse Principle,CARP）是指尽量使用对象组 </p>
+<p>合(has-a)/聚合(contanis-a)，而不是继承关系达到软件复用的目的。可以使系统更加灵 </p>
+<p>活，降低类与类之间的耦合度，一个类的变化对其他类造成的影响相对较少。 </p>
+<p>继承我们叫做白箱复用，相当于把所有的实现细节暴露给子类。组合/聚合也称之为黑箱 </p>
+<p>复用，对类以外的对象是无法获取到实现细节的。要根据具体的业务场景来做代码设计， </p>
+<p>其实也都需要遵循 OOP 模型。</p>
+<h3 id="设计原则总结"><a href="#设计原则总结" class="headerlink" title="设计原则总结"></a>设计原则总结</h3><p>学习设计原则，学习设计模式的基础。在实际开发过程中，并不是一定要求所有代码都 遵循设计原则，我们要考虑人力、时间、成本、质量，不是刻意追求完美，要在适当的 场景遵循设计原则，体现的是一种平衡取舍，帮助我们设计出更加优雅的代码结构。</p>
 
-      <hr class="post-list__divider">
-    </li>
-    
-  </ol>
+        </div>
+        
+        
+        
+    </div>
+</div>
 
-  <hr class="post-list__divider ">
 
-<nav class="pagination" role="navigation">
-    
 
-    <span class="pagination__page-number"> 1 / 1</span>
+
+
+
+
+
+    <div class="card">
     
-    
-</nav>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-04T10:30:57.000Z">2019-08-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 357 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/04/设计模式：分类/">设计模式：分类</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="设计模式的分类"><a href="#设计模式的分类" class="headerlink" title="设计模式的分类"></a>设计模式的分类</h2><h3 id="跟据其目的（模式是用来做什么的）"><a href="#跟据其目的（模式是用来做什么的）" class="headerlink" title="跟据其目的（模式是用来做什么的）"></a>跟据其目的（模式是用来做什么的）</h3><h4 id="一、创建型-Creational"><a href="#一、创建型-Creational" class="headerlink" title="一、创建型(Creational)"></a>一、创建型(Creational)</h4><p>创建型模式主要用于创建对象。</p>
+<ol>
+<li>抽象工厂模式(Abstract Factory)</li>
+<li>建造者模式(Builder)</li>
+<li>工厂方法模式(Factory Method)</li>
+<li>原型模式(Prototype)</li>
+<li>单例模式(Singleton)</li>
+</ol>
+<h4 id="二、结构型-Structural"><a href="#二、结构型-Structural" class="headerlink" title="二、结构型(Structural)"></a>二、结构型(Structural)</h4><p>结构型模式主要用于处理类或对象的组合。</p>
+<ol>
+<li>适配器模式(Adapter)</li>
+<li>桥接模式(Bridge)</li>
+<li>组合模式(Composite)</li>
+<li>装饰模式(Decorator)</li>
+<li>外观模式(Facade)</li>
+<li>享元模式(Flyweight)</li>
+<li>代理模式(Proxy)</li>
+</ol>
+<h4 id="三、行为型模式"><a href="#三、行为型模式" class="headerlink" title="三、行为型模式"></a>三、行为型模式</h4><p>行为型模式主要用于描述对类或对象怎样交互和怎样分配职责。</p>
+<ol>
+<li>职责链模式(Chain of Responsibility)</li>
+<li>命令模式(Command)</li>
+<li>解释器模式(Interpreter)</li>
+<li>迭代器模式(Iterator)</li>
+<li>中介者模式(Mediator)</li>
+<li>备忘录模式(Memento)</li>
+<li>观察者模式(Observer)</li>
+<li>状态模式(State)</li>
+<li>策略模式(Strategy)</li>
+<li>模板方法模式(Template Method)</li>
+<li>访问者模式(Visitor)</li>
+</ol>
+<h3 id="根据范围（模式主要是用于处理类之间关系还是处理对象之间的关系）"><a href="#根据范围（模式主要是用于处理类之间关系还是处理对象之间的关系）" class="headerlink" title="根据范围（模式主要是用于处理类之间关系还是处理对象之间的关系）"></a>根据<strong>范围</strong>（模式主要是用于处理类之间关系还是处理对象之间的关系）</h3><p>可分为<strong>类模式</strong>和<strong>对象模式</strong>两种</p>
+<ul>
+<li>类模式处理类和子类之间的关系，这些关系通过继承建立，在编译时就被确定下来，是属于静态的。</li>
+<li>对象模式处理对象间的关系，这些关系在运行时刻变化，更具动态性。</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
 
 
 </div>
-            <footer class="footer">
+                
 
-    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
     
-</footer>
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.svg" alt="Your name">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Entradas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categorias
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Etiquetas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        8
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                SEGUIR</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
         </div>
     </div>
+</div>
 
-    <!-- js files -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/scale.fix.js"></script>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categorias
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/建站笔记/">
+            <span class="level-start">
+                <span class="level-item">建站笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/设计模式/">
+            <span class="level-start">
+                <span class="level-item">设计模式</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Nube de etiquetas
+        </h3>
+        <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recientes
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/04/设计模式（二）：代理模式/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="设计模式（二）：代理模式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T15:12:58.000Z">2019-08-04</time></div>
+                    <a href="/2019/08/04/设计模式（二）：代理模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（二）：代理模式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/04/设计模式（一）：单例模式/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="设计模式（一）：单例模式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T14:49:26.000Z">2019-08-04</time></div>
+                    <a href="/2019/08/04/设计模式（一）：单例模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（一）：单例模式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/04/设计模式：七大原则/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="设计模式：七大原则">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T11:32:47.000Z">2019-08-04</time></div>
+                    <a href="/2019/08/04/设计模式：七大原则/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式：七大原则</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/04/设计模式：分类/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="设计模式：分类">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T10:30:57.000Z">2019-08-04</time></div>
+                    <a href="/2019/08/04/设计模式：分类/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式：分类</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/06/Linux学习（六）：其他命令/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Linux学习（六）：其他命令">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T06:22:52.000Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Linux学习（六）：其他命令/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Linux学习（六）：其他命令</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archivos
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Etiquetas
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/代理/">
+                        <span class="tag">代理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/单例/">
+                        <span class="tag">单例</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/设计模式/">
+                        <span class="tag">设计模式</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recientes
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/04/设计模式（二）：代理模式/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="设计模式（二）：代理模式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T15:12:58.000Z">2019-08-04</time></div>
+                    <a href="/2019/08/04/设计模式（二）：代理模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（二）：代理模式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/04/设计模式（一）：单例模式/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="设计模式（一）：单例模式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T14:49:26.000Z">2019-08-04</time></div>
+                    <a href="/2019/08/04/设计模式（一）：单例模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（一）：单例模式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/04/设计模式：七大原则/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="设计模式：七大原则">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T11:32:47.000Z">2019-08-04</time></div>
+                    <a href="/2019/08/04/设计模式：七大原则/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式：七大原则</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/04/设计模式：分类/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="设计模式：分类">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T10:30:57.000Z">2019-08-04</time></div>
+                    <a href="/2019/08/04/设计模式：分类/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式：分类</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/06/Linux学习（六）：其他命令/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Linux学习（六）：其他命令">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T06:22:52.000Z">2019-05-06</time></div>
+                    <a href="/2019/05/06/Linux学习（六）：其他命令/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Linux学习（六）：其他命令</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archivos
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Etiquetas
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/代理/">
+                        <span class="tag">代理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/单例/">
+                        <span class="tag">单例</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/设计模式/">
+                        <span class="tag">设计模式</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/mzc_logo.svg" alt="ZhiCheng&#39;s Blog" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 ZhiCheng Miao&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
     
 
     
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
 
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-            MathJax.Hub.Config({ 
-                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
-            });
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
         });
-    </script>
+    });
+</script>
 
 
     
     
-    
-    <!--kill ie6 -->
-<!--[if IE 6]>
-  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
 
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Entradas',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>

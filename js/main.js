@@ -1,28 +1,51 @@
-$(document).ready(function() {
+(function ($) {
+    $('.article img:not(".not-gallery-item")').each(function () {
+        // wrap images with link and add caption if possible
+        if ($(this).parent('a').length === 0) {
+            $(this).wrap('<a class="gallery-item" href="' + $(this).attr('src') + '"></a>');
+            if (this.alt) {
+                $(this).after('<div class="has-text-centered is-size-6 has-text-grey caption">' + this.alt + '</div>');
+            }
+        }
+    });
 
-  $('a.blog-button').click(function() {
-    if ($('.panel-cover').hasClass('panel-cover--collapsed')) return;
-    currentWidth = $('.panel-cover').width();
-    $('.panel-cover').addClass('animated panel-cover--collapsed slideInLeft');
-    $('.content-wrapper').addClass('animated slideInLeft');
-  });
+    if (typeof (moment) === 'function') {
+        $('.article-meta time').each(function () {
+            $(this).text(moment($(this).attr('datetime')).fromNow());
+        });
+    }
 
-  if (window.location.hash && window.location.hash == "#blog") {
-    $('.panel-cover').addClass('panel-cover--collapsed');
-  }
+    $('.article > .content > table').each(function () {
+        if ($(this).width() > $(this).parent().width()) {
+            $(this).wrap('<div class="table-overflow"></div>');
+        }
+    });
 
-  if (window.location.pathname != "/") {       // if hexo in subdir of site, should change this line
-    $('.panel-cover').addClass('panel-cover--collapsed');
-  }
+    function adjustNavbar() {
+        const navbarWidth = $('.navbar-main .navbar-start').outerWidth() + $('.navbar-main .navbar-end').outerWidth();
+        if ($(document).outerWidth() < navbarWidth) {
+            $('.navbar-main .navbar-menu').addClass('is-flex-start');
+        } else {
+            $('.navbar-main .navbar-menu').removeClass('is-flex-start');
+        }
+    }
+    adjustNavbar();
+    $(window).resize(adjustNavbar);
 
-  $('.btn-mobile-menu').click(function() {
-    $('.navigation-wrapper').toggleClass('visible animated bounceInDown');
-    $('.btn-mobile-menu__icon').toggleClass('icon-list icon-x-circle animated fadeIn');
-  });
+    var $toc = $('#toc');
+    if ($toc.length > 0) {
+        var $mask = $('<div>');
+        $mask.attr('id', 'toc-mask');
 
-  $('.navigation-wrapper .blog-button').click(function() {
-    // $('.navigation-wrapper').toggleClass('visible');
-    $('.btn-mobile-menu__icon').toggleClass('icon-list icon-x-circle animated fadeIn');
-  });
+        $('body').append($mask);
 
-});
+        function toggleToc() {
+            $toc.toggleClass('is-active');
+            $mask.toggleClass('is-active');
+        }
+
+        $toc.on('click', toggleToc);
+        $mask.on('click', toggleToc);
+        $('.navbar-main .catalogue').on('click', toggleToc);
+    }
+})(jQuery);
