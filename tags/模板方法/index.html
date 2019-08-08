@@ -2,24 +2,19 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>设计模式（二）：代理模式 - ZhiCheng&#39;s Blog</title>
+<title>标签: 模板方法 - ZhiCheng&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="代理模式（Proxy Pattern）定义是指为其他对象提供一种代理，以控制对这个对象的访问。代理对象在客服端和目标对象之间起到中介作用，代理模式属于结构型设计模式。使用代理模式主要有两个目的：一、保护目标对象，二、增强目标对象。 常见实现SpringAop 静态代理（static proxy）抽象的说，就是代理对象持有被代理对象的引用进行方法增强。举个例子：在深圳租房子，我们自己去找房很难直接联">
-<meta name="keywords" content="设计模式,Java,代理">
-<meta property="og:type" content="article">
-<meta property="og:title" content="设计模式（二）：代理模式">
-<meta property="og:url" content="http://yoursite.com/2019/08/04/设计模式（二）：代理模式/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="ZhiCheng&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/tags/模板方法/index.html">
 <meta property="og:site_name" content="ZhiCheng&#39;s Blog">
-<meta property="og:description" content="代理模式（Proxy Pattern）定义是指为其他对象提供一种代理，以控制对这个对象的访问。代理对象在客服端和目标对象之间起到中介作用，代理模式属于结构型设计模式。使用代理模式主要有两个目的：一、保护目标对象，二、增强目标对象。 常见实现SpringAop 静态代理（static proxy）抽象的说，就是代理对象持有被代理对象的引用进行方法增强。举个例子：在深圳租房子，我们自己去找房很难直接联">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-04T16:39:24.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式（二）：代理模式">
-<meta name="twitter:description" content="代理模式（Proxy Pattern）定义是指为其他对象提供一种代理，以控制对这个对象的访问。代理对象在客服端和目标对象之间起到中介作用，代理模式属于结构型设计模式。使用代理模式主要有两个目的：一、保护目标对象，二、增强目标对象。 常见实现SpringAop 静态代理（static proxy）抽象的说，就是代理对象持有被代理对象的引用进行方法增强。举个例子：在深圳租房子，我们自己去找房很难直接联">
+<meta name="twitter:title" content="ZhiCheng&#39;s Blog">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -94,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/mzc_logo.svg" alt="设计模式（二）：代理模式" height="28">
+                <img src="/images/mzc_logo.svg" alt="ZhiCheng&#39;s Blog" height="28">
             
             </a>
         </div>
@@ -140,12 +135,23 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">模板方法</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-04T15:12:58.000Z">2019-08-04</time>
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:55:17.000Z">2019-08-08</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
@@ -155,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    13 分钟 读完 (大约 1912 个字)
+                    2 分钟 读完 (大约 327 个字)
                 </span>
                 
                 
@@ -164,102 +170,30 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                设计模式（二）：代理模式
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（五）：模板方法模式/">设计模式（五）：模板方法模式</a>
             
         </h1>
         <div class="content">
-            <h2 id="代理模式（Proxy-Pattern）"><a href="#代理模式（Proxy-Pattern）" class="headerlink" title="代理模式（Proxy Pattern）"></a>代理模式（Proxy Pattern）</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>是指为其他对象提供一种代理，以控制对这个对象的访问。代理对象在客服端和目标对象之间起到中介作用，代理模式属于结构型设计模式。使用代理模式主要有两个目的：一、保护目标对象，二、增强目标对象。</p>
-<h3 id="常见实现"><a href="#常见实现" class="headerlink" title="常见实现"></a>常见实现</h3><p>SpringAop</p>
-<h3 id="静态代理（static-proxy）"><a href="#静态代理（static-proxy）" class="headerlink" title="静态代理（static proxy）"></a>静态代理（static proxy）</h3><p>抽象的说，就是代理对象持有被代理对象的引用进行方法增强。<br>举个例子：在深圳租房子，我们自己去找房很难直接联系上房东。一般会联系中介或者管理处（<code>proxy</code>），间接的租房。有的全权代理的房东坐等收钱，而中介可以在收租前后做各种不需要告诉老板的事，比如装修一番再涨个价赚取中间商差价。</p>
-<h3 id="动态代理（dynamic-proxy）"><a href="#动态代理（dynamic-proxy）" class="headerlink" title="动态代理（dynamic proxy）"></a>动态代理（dynamic proxy）</h3><p>动态，指的是不直接引用被代理对象，并且可以代理不同的对象。Spring AOP面向切面编程的原理正是如此。<br>举个例子，快递公司要帮人寄送快递，但他不需要知道那个人是谁。只要按流程填写快递单就行了。“快递单”在这里就是被代理对象。沿用这个例子展开分析。</p>
-<h4 id="1-JDK-Proxy"><a href="#1-JDK-Proxy" class="headerlink" title="1.JDK Proxy"></a>1.JDK Proxy</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-2.</span></span><br><span class="line"><span class="hljs-comment"> * 快递公司-动态代理发送快递</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExpressCompanyJDKProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InvocationHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> Object target;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getInstance</span><span class="hljs-params">(Object object)</span><span class="hljs-keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.target = object;</span><br><span class="line">        Class&lt;?&gt; clazz = target.getClass();</span><br><span class="line">        <span class="hljs-keyword">return</span> Proxy.newProxyInstance(clazz.getClassLoader(),clazz.getInterfaces(),<span class="hljs-keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        Object object = method.invoke(<span class="hljs-keyword">this</span>.target,args);</span><br><span class="line">        send();</span><br><span class="line">        <span class="hljs-keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">send</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"jdk动态代理-快递公司发出快递！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试代码：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ICustomer jdkCustomer = (ICustomer) <span class="hljs-keyword">new</span> ExpressCompanyJDKProxy().getInstance(<span class="hljs-keyword">new</span> Customer(<span class="hljs-string">"李四"</span>));</span><br><span class="line">jdkCustomer.send();</span><br></pre></td></tr></table></figure></p>
-<p> JDK Proxy 采用字节重组，重新生的对象来替代原始的对象以达到动态代理 的目的。JDK Proxy 生成对象的步骤如下：</p>
-<ol>
-<li>拿到被代理对象的引用，反射获取它所有的接口。</li>
-<li>JDK Proxy 类重新生成一个新的类、同时新的类要实现被代理类所有实现的所有的接口。</li>
-<li>动态生成 Java 代码，把新加的业务逻辑方法由一定的逻辑代码去调用（在代码中体现）。</li>
-<li>编译新生成的 Java 代码: $Proxy***.class。</li>
-<li>再重新加载到 JVM 中运行。 </li>
+            <h2 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>模板模式通常又叫模板方法模式（Template Method Pattern）是指定义一个算法的骨架，并允许子类为一个或者多个步骤提供实现。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法的某些步骤，属于行为性设计模式。模板方法适用于以下应用场景： </p>
+<p>1、一次性实现一个算法的不变的部分，并将可变的行为留给子类来实现。 </p>
+<p>2、各子类中公共的行为被提取出来并集中到一个公共的父类中，从而避免代码重复。 </p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><ol>
+<li>定义模板</li>
 </ol>
-<p>以上这个过程就叫字节码重组。JDK 中有一个规范，在 ClassPath 下只要是$开头的 class文件一般都是自动生成的。查看代替后对象方式如下：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ICustomer jdkCustomer = (ICustomer) <span class="hljs-keyword">new</span> ExpressCompanyJDKProxy().getInstance(<span class="hljs-keyword">new</span> Customer(<span class="hljs-string">"李四"</span>));</span><br><span class="line"><span class="hljs-keyword">byte</span> [] bytes = ProxyGenerator.generateProxyClass(<span class="hljs-string">"$Proxy0"</span>,<span class="hljs-keyword">new</span> Class[]&#123;Person.class&#125;); FileOutputStream os = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-string">"E://$Proxy0.class"</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="2-CGLib-Proxy"><a href="#2-CGLib-Proxy" class="headerlink" title="2. CGLib Proxy"></a>2. CGLib Proxy</h4><p>与JDK代理不同，CGLib 代理的目标对象不需要实现任何接口，它是通过动态继承目标对象实现的动态代理。这样的做法弊端就是<code>无法代理final关键字修饰的方法。</code>.好处则更加明显，在频繁调用代理的情况下，省去了反射带来的开销。</p>
-<p>代理实现：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExpressCompanyCGLibProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MethodInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getInstance</span><span class="hljs-params">(Class&lt;?&gt; clazz,Class[] argumentTypes, Object[] arguments)</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        Enhancer enhancer = <span class="hljs-keyword">new</span> Enhancer();</span><br><span class="line">        enhancer.setSuperclass(clazz);</span><br><span class="line">        enhancer.setCallback(<span class="hljs-keyword">this</span>);</span><br><span class="line">        <span class="hljs-keyword">if</span>(argumentTypes==<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> enhancer.create();</span><br><span class="line">        &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> enhancer.create(argumentTypes, arguments);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">intercept</span><span class="hljs-params">(Object o, Method method, Object[] objects, MethodProxy methodProxy)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        Object object = methodProxy.invokeSuper(o,objects);</span><br><span class="line">        send();</span><br><span class="line">        <span class="hljs-keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">send</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"cglib动态代理-快递公司发出快递！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试代码：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//构造方法所需参数</span></span><br><span class="line">Class[] argumentTypes = <span class="hljs-keyword">new</span> Class[]&#123;String.class&#125;;</span><br><span class="line">Object[] personArguments = <span class="hljs-keyword">new</span> Object[]&#123;<span class="hljs-string">"王五"</span>&#125;;</span><br><span class="line">Object[] robotArguments = <span class="hljs-keyword">new</span> Object[]&#123;<span class="hljs-string">"二哈"</span>&#125;;</span><br><span class="line">Customer cglibCustomer = (Customer) <span class="hljs-keyword">new</span> ExpressCompanyCGLibProxy().</span><br><span class="line">    getInstance(Customer.class,argumentTypes,personArguments);</span><br><span class="line">Robot cglibRobot = (Robot) <span class="hljs-keyword">new</span> ExpressCompanyCGLibProxy().</span><br><span class="line">    getInstance(Robot.class,argumentTypes,robotArguments);</span><br><span class="line">Robot cglibRobotCreate = (Robot) <span class="hljs-keyword">new</span> ExpressCompanyCGLibProxy().</span><br><span class="line">    getInstance(Robot.class,<span class="hljs-keyword">null</span>,<span class="hljs-keyword">null</span>);</span><br><span class="line">cglibCustomer.send();</span><br><span class="line">cglibRobot.send();</span><br><span class="line">cglibRobotCreate.send();</span><br></pre></td></tr></table></figure>
-<p>将 CGLib 代理后的 class 写入到磁盘：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//利用 cglib 的代理类可以将内存中的 class 文件写入本地磁盘 </span></span><br><span class="line"></span><br><span class="line">System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY,<span class="hljs-string">"E://cglib_proxy_class/"</span>);</span><br><span class="line">ICustomer jdkCustomer = (ICustomer) <span class="hljs-keyword">new</span> ExpressCompanyJDKProxy().getInstance(<span class="hljs-keyword">new</span> Customer(<span class="hljs-string">"李四"</span>));</span><br></pre></td></tr></table></figure>
-<p>我们会发现在 E://cglib_proxy_class 目录下多了三个 class 文件</p>
-<ul>
-<li><code>ObjectName$$EnhancerByCGLIB$$3feeb52a.class</code></li>
-</ul>
-<blockquote>
-<p>CGLib生成的代理类，继承了被代理对象。重写了 被代理对象类的所有方法，并且生成代理的方法的增强逻辑以及增强逻辑所需要的方法。这直接导致了我们如果在拦截器里直接调用<code>method.invoke()</code>会死循环。所以我们切记在代理拦截器中应该使用<code>methodProxy.invokeSuper(o,objects)</code>。</p>
-</blockquote>
-<ul>
-<li><code>ObjectName$$EnhancerByCGLIB$$3feeb52a$$FastClassByCGLIB$$6aad62f1.class</code></li>
-</ul>
-<blockquote>
-<p>代理类的 FastClass。</p>
-</blockquote>
-<ul>
-<li><code>Customer$$FastClassByCGLIB$$2669574a.class</code></li>
-</ul>
-<blockquote>
-<p>被代理类的FastClass。</p>
-<p>CGLib 动态代理执行代理方法效率之所以比 JDK的高是因为 Cglib 采用了 FastClass 机制，它的原理简单来说就是：为代理类和被代理类各生成一个 Class，这个 Class 会为代理类或被代理类的方法分配一个 index(int 类型)。这个 index 当做一个入参，FastClass就可以直接定位要调用的方法直接进行调用，这样省去了反射调用，所以调用效率比 JDK动态代理通过反射调用高。FastClass 并不是跟代理类一块生成的，而是在第一次执行 MethodProxy.invoke()/invokeSuper() 时生成的并放在了缓存中。</p>
-</blockquote>
-<h4 id="CGLib-和-JDK-动态代理对比"><a href="#CGLib-和-JDK-动态代理对比" class="headerlink" title="CGLib 和 JDK 动态代理对比"></a>CGLib 和 JDK 动态代理对比</h4><ol>
-<li>JDK 动态代理是实现了被代理对象的接口，CGLib 是继承了被代理对象。</li>
-<li>JDK 和 CGLib 都是在运行期生成字节码，JDK 是直接写 Class 字节码，CGLib 使用 ASM 框架写 Class 字节码，Cglib 代理实现更复杂，生成代理类比 JDK 效率低。</li>
-<li>JDK 调用代理方法，是通过反射机制调用，CGLib 是通过 FastClass 机制直接调用方法， CGLib 执行效率更高。</li>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstTemplateMethod</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">templateMethod1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>&#123;</span><br><span class="line">        <span class="hljs-comment">//抽象业务逻辑与模板逻辑灵活应用</span></span><br><span class="line">        p = p+<span class="hljs-number">10</span>;</span><br><span class="line">        p = method1(p);</span><br><span class="line">        print(p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>&#123;</span><br><span class="line">        System.out.println(p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>定义模板第一个业务类</li>
 </ol>
-<h3 id="Spring中的代理模式"><a href="#Spring中的代理模式" class="headerlink" title="Spring中的代理模式"></a>Spring中的代理模式</h3><h4 id="代理模式选择"><a href="#代理模式选择" class="headerlink" title="代理模式选择"></a>代理模式选择</h4><ol>
-<li>当 Bean 有实现接口时，Spring 就会用 JDK 的动态代理 </li>
-<li>当 Bean 没有实现接口时，Spring 选择 CGLib。</li>
-<li>Spring 可以通过配置强制使用 CGLib，只需在 Spring 的配置文件中加入如下代码：</li>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TemplateMethod1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstTemplateMethod</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="hljs-string">"templateMethod1 p="</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> p+<span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>定义模板第二个业务类</li>
 </ol>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">aop:aspectj-autoproxy</span> <span class="hljs-attr">proxy-target-class</span>=<span class="hljs-string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="静态代理和动态的本质区别"><a href="#静态代理和动态的本质区别" class="headerlink" title="静态代理和动态的本质区别"></a>静态代理和动态的本质区别</h3><ol>
-<li><p>静态代理只能通过手动完成代理操作，如果被代理类增加新的方法，代理类需要同步新增，违背开闭原则。</p>
-</li>
-<li><p>动态代理采用在运行时动态生成代码的方式，取消了对被代理类的扩展限制，遵循开闭原则。 </p>
-</li>
-<li><p>若动态代理要对目标类的增强逻辑扩展，结合策略模式，只需要新增策略类便可完成，无需修改代理类的代码。</p>
-</li>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TemplateMethod2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstTemplateMethod</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="hljs-string">"templateMethod2 p="</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> p+<span class="hljs-number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>定义模板第n个业务类….</li>
+<li>测试</li>
 </ol>
-<h3 id="代理模式的优缺点"><a href="#代理模式的优缺点" class="headerlink" title="代理模式的优缺点"></a>代理模式的优缺点</h3><p>使用代理模式具有以下几个优点： </p>
-<ol>
-<li><p>代理模式能将代理对象与真实被调用的目标对象分离。 </p>
-</li>
-<li><p>一定程度上降低了系统的耦合度，扩展性好。 </p>
-</li>
-<li><p>可以起到保护目标对象的作用。 </p>
-</li>
-<li><p>可以对目标对象的功能增强。 </p>
-</li>
-</ol>
-<p>当然，代理模式也是有缺点的：</p>
-<ol>
-<li><p>代理模式会造成系统设计中类的数量增加。 </p>
-</li>
-<li><p>在客户端和目标对象增加一个代理对象，会造成请求处理速度变慢。 </p>
-</li>
-<li><p>增加了系统的复杂度。 </p>
-</li>
-</ol>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Java/">Java</a>, <a class="has-link-grey -link" href="/tags/代理/">代理</a>, <a class="has-link-grey -link" href="/tags/设计模式/">设计模式</a>
-                </div>
-            </div>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestTemplateMethod</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AbstTemplateMethod test = <span class="hljs-keyword">new</span> TemplateMethod1();</span><br><span class="line">        test.templateMethod1(<span class="hljs-number">10</span>);</span><br><span class="line">        test = <span class="hljs-keyword">new</span> TemplateMethod2();</span><br><span class="line">        test.templateMethod1(<span class="hljs-number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -269,57 +203,9 @@
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wecharpay.jpg" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/08/设计模式（三）：装饰者模式/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">设计模式（三）：装饰者模式</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/04/设计模式（一）：单例模式/">
-                <span class="level-item">设计模式（一）：单例模式</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -1040,7 +926,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/mzc_logo.svg" alt="设计模式（二）：代理模式" height="28">
+                    <img src="/images/mzc_logo.svg" alt="ZhiCheng&#39;s Blog" height="28">
                 
                 </a>
                 <p class="is-size-7">

@@ -151,6 +151,420 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T09:03:44.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 524 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（八）：策略模式/">设计模式（八）：策略模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式（Strategy Pattern）是指定义了算法家族、分别封装起来，让它们之间可以互相替换，此模式让算法的变化不会影响到使用算法的用户。</p>
+<h3 id="策略模式的应用场景"><a href="#策略模式的应用场景" class="headerlink" title="策略模式的应用场景"></a>策略模式的应用场景</h3><p>1、假如系统中有很多类，而他们的区别仅仅在于他们的行为不同。 </p>
+<p>2、一个系统需要动态地在几种算法中选择一种。 </p>
+<h3 id="策略模式在-JDK-源码中的体现"><a href="#策略模式在-JDK-源码中的体现" class="headerlink" title="策略模式在 JDK 源码中的体现"></a>策略模式在 JDK 源码中的体现</h3><p>首先来看一个比较常用的比较器 Comparator 接口，我们看到的一个大家常用的compare()方法，就是一个策略抽象实现：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">T</span>&gt; </span>&#123; </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(T o1, T o2)</span></span>; </span><br><span class="line">    ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Comparator 抽象下面有非常多的实现类，我们经常会把 Comparator 作为参数传入作为排序策略，例如 Arrays 类的 parallelSort 方法等：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Arrays</span> </span>&#123; </span><br><span class="line">    ... </span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">parallelSort</span><span class="hljs-params">(T[] a, <span class="hljs-keyword">int</span> fromIndex, <span class="hljs-keyword">int</span> toIndex, Comparator&lt;? <span class="hljs-keyword">super</span> T&gt; cmp)</span> </span>&#123;</span><br><span class="line">    ... </span><br><span class="line">    &#125;</span><br><span class="line">    ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="策略模式在-Spring-源码中的应用"><a href="#策略模式在-Spring-源码中的应用" class="headerlink" title="策略模式在 Spring 源码中的应用"></a>策略模式在 Spring 源码中的应用</h3><p>Spring 的初始化也采用了策略模式，不同的类型的类采用不同的初始化策略。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">InstantiationStrategy</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function">Object <span class="hljs-title">instantiate</span><span class="hljs-params">(RootBeanDefinition var1, @Nullable String var2, BeanFactory var3)</span> <span class="hljs-keyword">throws</span> BeansException</span>;</span><br><span class="line">    <span class="hljs-function">Object <span class="hljs-title">instantiate</span><span class="hljs-params">(RootBeanDefinition var1, @Nullable String var2, BeanFactory var3, Constructor&lt;?&gt; var4, @Nullable Object... var5)</span> <span class="hljs-keyword">throws</span> BeansException</span>;</span><br><span class="line">    <span class="hljs-function">Object <span class="hljs-title">instantiate</span><span class="hljs-params">(RootBeanDefinition var1, @Nullable String var2, BeanFactory var3, @Nullable Object var4, Method var5, @Nullable Object... var6)</span> <span class="hljs-keyword">throws</span> BeansException</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>顶层的策略抽象非常简单，但是它下面有两种策略 SimpleInstantiationStrategy 和CglibSubclassingInstantiationStrategy</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleInstantiationStrategy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InstantiationStrategy</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CglibSubclassingInstantiationStrategy</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SimpleInstantiationStrategy</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说明在实际应用中多种策略之间还可以继承使用</p>
+<h3 id="策略模式的优缺点"><a href="#策略模式的优缺点" class="headerlink" title="策略模式的优缺点"></a>策略模式的优缺点</h3><p>优点： </p>
+<p>1、策略模式符合开闭原则。 </p>
+<p>2、避免使用多重条件转移语句，如 if…else…语句、switch 语句 </p>
+<p>3、使用策略模式可以提高算法的保密性和安全性。 </p>
+<p>缺点： </p>
+<p>1、客户端必须知道所有的策略，并且自行决定使用哪一个策略类。 </p>
+<p>2、代码中会产生非常多策略类，增加维护难度。 </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T09:01:24.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 207 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（七）：委派模式/">设计模式（七）：委派模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="委派模式"><a href="#委派模式" class="headerlink" title="委派模式"></a>委派模式</h2><p>委派模式（Delegate Pattern）的基本作用就是负责任务的调用和分配任务，跟代理模式很像，可以看做是一种特殊情况下的静态代理的全权代理，但是代理模式注重过程，而委派模式注重结果。委派模式在 Spring 中应用非常多，大家常用的 DispatcherServlet 其实就是用到了委派模式。现实生活中也常有委 派的场景发生，例如：老板（Boss）给项目经理（Leader）下达任务，项目经理会根据实际情况给每个员工派发工作任务，待员工把工作任务完成之后，再由项目经理汇报工作进度和结果给老板。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:57:16.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 262 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（六）：原型模式/">设计模式（六）：原型模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ol>
+<li>原型模式（Prototype Pattern）是指原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</li>
+<li>调用者不需要知道任何创建细节</li>
+<li>属于创建型模式</li>
+</ol>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
+<li>类初始化小号资源较多</li>
+<li>new产生的一个对象需要非常繁琐的过程（数据准备、访问权限等）</li>
+<li>构造函数比较复杂</li>
+<li>循环体中产生大量对象时</li>
+</ol>
+<h3 id="常见原型模式工具类"><a href="#常见原型模式工具类" class="headerlink" title="常见原型模式工具类"></a>常见原型模式工具类</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtil.copy();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.paseObject();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Guava</span><br></pre></td></tr></table></figure>
+<h3 id="利用Java提供的Cloneable接口实现"><a href="#利用Java提供的Cloneable接口实现" class="headerlink" title="利用Java提供的Cloneable接口实现"></a>利用Java提供的Cloneable接口实现</h3><h4 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">shallowClone</span><span class="hljs-params">(Test target)</span></span>&#123;</span><br><span class="line">    Test test = <span class="hljs-keyword">new</span> Test();</span><br><span class="line">    test.a = target.a;<span class="hljs-comment">//普通字段</span></span><br><span class="line">    test.object = target.object;<span class="hljs-comment">//对象字段，拷贝的是引用地址</span></span><br><span class="line">    <span class="hljs-keyword">return</span>  test;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">deepClone</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">try</span>&#123;</span><br><span class="line">        ByteArrayOutputStream bos = <span class="hljs-keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        ObjectOutputStream oos = <span class="hljs-keyword">new</span> ObjectOutputStream(bos);</span><br><span class="line">        oos.writeObject(<span class="hljs-keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        ByteArrayInputStream bis = <span class="hljs-keyword">new</span> ByteArrayInputStream(bos.toByteArray());</span><br><span class="line">        ObjectInputStream ois = <span class="hljs-keyword">new</span> ObjectInputStream(bis);</span><br><span class="line">		</span><br><span class="line">        QiTianDaSheng copy = (QiTianDaSheng)ois.readObject();</span><br><span class="line">        copy.birthday = <span class="hljs-keyword">new</span> Date();</span><br><span class="line">        <span class="hljs-keyword">return</span> copy;</span><br><span class="line">    &#125;<span class="hljs-keyword">catch</span> (Exception e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">    &#125;<span class="hljs-keyword">finally</span>&#123;</span><br><span class="line">        ...close;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="深克隆例子"><a href="#深克隆例子" class="headerlink" title="深克隆例子"></a>深克隆例子</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList.clone();<span class="hljs-comment">//ArrayList重写了clone方法</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:55:17.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 327 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（五）：模板方法模式/">设计模式（五）：模板方法模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>模板模式通常又叫模板方法模式（Template Method Pattern）是指定义一个算法的骨架，并允许子类为一个或者多个步骤提供实现。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法的某些步骤，属于行为性设计模式。模板方法适用于以下应用场景： </p>
+<p>1、一次性实现一个算法的不变的部分，并将可变的行为留给子类来实现。 </p>
+<p>2、各子类中公共的行为被提取出来并集中到一个公共的父类中，从而避免代码重复。 </p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><ol>
+<li>定义模板</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstTemplateMethod</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">templateMethod1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>&#123;</span><br><span class="line">        <span class="hljs-comment">//抽象业务逻辑与模板逻辑灵活应用</span></span><br><span class="line">        p = p+<span class="hljs-number">10</span>;</span><br><span class="line">        p = method1(p);</span><br><span class="line">        print(p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>&#123;</span><br><span class="line">        System.out.println(p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>定义模板第一个业务类</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TemplateMethod1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstTemplateMethod</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="hljs-string">"templateMethod1 p="</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> p+<span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>定义模板第二个业务类</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TemplateMethod2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstTemplateMethod</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="hljs-string">"templateMethod2 p="</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> p+<span class="hljs-number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>定义模板第n个业务类….</li>
+<li>测试</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestTemplateMethod</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AbstTemplateMethod test = <span class="hljs-keyword">new</span> TemplateMethod1();</span><br><span class="line">        test.templateMethod1(<span class="hljs-number">10</span>);</span><br><span class="line">        test = <span class="hljs-keyword">new</span> TemplateMethod2();</span><br><span class="line">        test.templateMethod1(<span class="hljs-number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:53:20.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 561 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（四）：适配器模式/">设计模式（四）：适配器模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p>适配器模式（Adapter Pattern）是指将一个类的接口转换成客户期望的另一个接口，使原本的接口不兼容的类可以一起工作，属于结构型设计模式。 适配器适用于以下几种业务场景： </p>
+<ol>
+<li>已经存在的类，它的方法和需求不匹配（方法结果相同或相似）的情况。</li>
+<li>适配器模式不是软件设计阶段考虑的设计模式，是随着软件维护，由于不同产品、不同厂家造成功能类似而接口不相同情况下的解决方案。有点亡羊补牢的感觉。</li>
+</ol>
+<p>生活中也非常的应用场景，例如电源插转换头、手机充电转换头、显示器转接头。在中国民用电都是220V 交流电，但我们手机使用的锂电池使用的 5V 直流电。因此，我们给手机充电时就需要使用电源适配器来进行转换。下面我们有代码来还原这个生活场 景，创建 AC220 类，表示 220V 交流电：</p>
+<p>老版本逻辑</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AC220</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">outputAC220V</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> output = <span class="hljs-number">220</span>;</span><br><span class="line">        System.out.println(<span class="hljs-string">"输出交流电"</span> + output + <span class="hljs-string">"V"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> output;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建适配器接口</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DC5</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">outputDC5V</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建适配器</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PowerAdapter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DC5</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> AC220 ac220;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PowerAdapter</span><span class="hljs-params">(AC220 ac220)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.ac220 = ac220;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">outputDC5V</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> adapterInput = ac220.outputAC220V(); <span class="hljs-comment">//变压器</span></span><br><span class="line">        <span class="hljs-keyword">int</span> adapterOutput = adapterInput / <span class="hljs-number">44</span>;</span><br><span class="line">        System.out.println(<span class="hljs-string">"使用 PowerAdapter 输入 AC:"</span> + adapterInput + <span class="hljs-string">"V"</span> + <span class="hljs-string">"输出 DC:"</span> + adapterOutput + <span class="hljs-string">"V"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> adapterOutput;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试适配器</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestAdapter</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        DC5 dc5 = <span class="hljs-keyword">new</span> PowerAdapter(<span class="hljs-keyword">new</span> AC220());</span><br><span class="line">        dc5.outputDC5V();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="适配器模式的优缺点"><a href="#适配器模式的优缺点" class="headerlink" title="适配器模式的优缺点"></a>适配器模式的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a><strong>优点</strong></h5><ol>
+<li>能提高类的透明性和复用，现有的类复用但不需要改变。 </li>
+<li>目标类和适配器类解耦，提高程序的扩展性。 </li>
+<li>在很多业务场景中符合开闭原则。 </li>
+</ol>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a><strong>缺点</strong></h5><ol>
+<li>适配器编写过程需要全面考虑，可能会增加系统的复杂性。 </li>
+<li>增加代码阅读难度，降低代码可读性，过多使用适配器会使系统代码变得凌乱。</li>
+</ol>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:28:17.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 727 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（三）：装饰者模式/">设计模式（三）：装饰者模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>装饰者模式（Decorator Pattern）是指在不改变原有对象的基础之上，将功能附加到对 象上，提供了比继承更有弹性的替代方案（扩展原有对象的功能），属于结构型模式。</p>
+<p>装饰模式主要包含以下角色。</p>
+<ol>
+<li>抽象构件（Component）角色：定义一个抽象接口以规范准备接收附加责任的对象。</li>
+<li>具体构件（Concrete    Component）角色：实现抽象构件，通过装饰角色为其添加一些职责。</li>
+<li>抽象装饰（Decorator）角色：继承抽象构件，并包含具体构件的实例，可以通过其子类扩展具体构件的功能。</li>
+<li>具体装饰（ConcreteDecorator）角色：实现抽象装饰的相关方法，并给具体构件对象添加附加的责任。</li>
+</ol>
+<h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><p>定义抽象构件</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IComponent</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operation</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 实现具体构件</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IComponent</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operation</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"执行基本操作~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义抽象装饰（抽象可选）</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstDecorator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IComponent</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> IComponent component;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AbstDecorator</span><span class="hljs-params">(IComponent component)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.component = component;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operation</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"执行抽象装饰"</span>);</span><br><span class="line">        component.operation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现具体装饰</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteDecorator</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstDecorator</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcreteDecorator</span><span class="hljs-params">(IComponent component)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>(component);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operation</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        method1();</span><br><span class="line">        <span class="hljs-keyword">super</span>.operation();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"执行附加的装饰方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DecoratorTest</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        IComponent component = <span class="hljs-keyword">new</span> ConcreteComponent();</span><br><span class="line">        IComponent d1 = <span class="hljs-keyword">new</span> ConcreteDecorator(component);</span><br><span class="line">        d1.operation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>console打印如下：</p>
+<blockquote>
+<p>执行附加的装饰方法<br>执行抽象装饰<br>执行基本操作~</p>
+</blockquote>
+<h3 id="jdk典型装饰者场景：InputStream"><a href="#jdk典型装饰者场景：InputStream" class="headerlink" title="jdk典型装饰者场景：InputStream"></a>jdk典型装饰者场景：InputStream</h3><img src="/2019/08/08/设计模式（三）：装饰者模式/inputstream.jpg" title="inputStream类图">
+<h3 id="与适配器模式的区别"><a href="#与适配器模式的区别" class="headerlink" title="与适配器模式的区别"></a>与适配器模式的区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>装饰者模式</th>
+<th>适配器模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>形式</td>
+<td>是一种特殊的适配器模式</td>
+<td>没有层级关系，装饰者有层级关系</td>
+</tr>
+<tr>
+<td>定义</td>
+<td>装饰者和被装饰者都实现同一个接口，主要目的是为了扩展之后依旧保留OOP关系</td>
+<td>适配器和被适配者没有必然的联系，通常是采用继承或代理的形式进行包装</td>
+</tr>
+<tr>
+<td>关系</td>
+<td>满足is-a的关系</td>
+<td>满足has-a的关系</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>注重覆盖、扩展</td>
+<td>注重兼容、转换</td>
+</tr>
+<tr>
+<td>设计</td>
+<td>前置考虑</td>
+<td>后置考虑（重构）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点</p>
+<ul>
+<li>装饰者是继承的有力补充，比继承灵活，不改变原有对象的情况下动态地给一个对象扩展功能，即插即用。</li>
+<li>通过使用不同装饰类以及这些装饰类的排列组合，可以实现不同效果。</li>
+<li>装饰者完全遵守开闭原则。</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>会出现更多的代码，更多的类，增加程序复杂性。</li>
+<li>动态装饰时，多层装饰时会更复杂。</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-08-04T15:12:58.000Z">2019-08-04</time>
                 
                 <div class="level-item">
@@ -555,7 +969,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        11
+                        17
                     </p>
                 </div>
             </div>
@@ -575,7 +989,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        15
                     </p>
                 </div>
             </div>
@@ -705,7 +1119,7 @@
                 <span class="level-item">设计模式</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">10</span>
             </span>
         </a></li>
             </ul>
@@ -719,7 +1133,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a>
+        <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -738,8 +1152,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T15:12:58.000Z">2019-08-04</time></div>
-                    <a href="/2019/08/04/设计模式（二）：代理模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（二）：代理模式</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:03:44.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（八）：策略模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（八）：策略模式</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -751,8 +1165,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T14:49:26.000Z">2019-08-04</time></div>
-                    <a href="/2019/08/04/设计模式（一）：单例模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（一）：单例模式</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:01:24.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（七）：委派模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（七）：委派模式</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -764,8 +1178,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T11:32:47.000Z">2019-08-04</time></div>
-                    <a href="/2019/08/04/设计模式：七大原则/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式：七大原则</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T08:57:16.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（六）：原型模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（六）：原型模式</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -777,8 +1191,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T10:30:57.000Z">2019-08-04</time></div>
-                    <a href="/2019/08/04/设计模式：分类/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式：分类</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T08:55:17.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（五）：模板方法模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（五）：模板方法模式</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -790,10 +1204,10 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T06:22:52.000Z">2019-05-06</time></div>
-                    <a href="/2019/05/06/Linux学习（六）：其他命令/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Linux学习（六）：其他命令</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T08:53:20.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（四）：适配器模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（四）：适配器模式</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -817,7 +1231,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -860,7 +1274,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
                         <span class="tag">Java</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -886,6 +1300,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ssh/">
                         <span class="tag">ssh</span>
                         <span class="tag is-grey">1</span>
@@ -907,9 +1328,51 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/原型模式/">
+                        <span class="tag">原型模式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/委派/">
+                        <span class="tag">委派</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/模板方法/">
+                        <span class="tag">模板方法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/策略/">
+                        <span class="tag">策略</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/装饰者/">
+                        <span class="tag">装饰者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/设计模式/">
                         <span class="tag">设计模式</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/适配器/">
+                        <span class="tag">适配器</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -940,8 +1403,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T15:12:58.000Z">2019-08-04</time></div>
-                    <a href="/2019/08/04/设计模式（二）：代理模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（二）：代理模式</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:03:44.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（八）：策略模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（八）：策略模式</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -953,8 +1416,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T14:49:26.000Z">2019-08-04</time></div>
-                    <a href="/2019/08/04/设计模式（一）：单例模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（一）：单例模式</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:01:24.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（七）：委派模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（七）：委派模式</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -966,8 +1429,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T11:32:47.000Z">2019-08-04</time></div>
-                    <a href="/2019/08/04/设计模式：七大原则/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式：七大原则</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T08:57:16.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（六）：原型模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（六）：原型模式</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -979,8 +1442,8 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-04T10:30:57.000Z">2019-08-04</time></div>
-                    <a href="/2019/08/04/设计模式：分类/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式：分类</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T08:55:17.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（五）：模板方法模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（五）：模板方法模式</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
@@ -992,10 +1455,10 @@
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-06T06:22:52.000Z">2019-05-06</time></div>
-                    <a href="/2019/05/06/Linux学习（六）：其他命令/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Linux学习（六）：其他命令</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T08:53:20.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（四）：适配器模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（四）：适配器模式</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -1019,7 +1482,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1062,7 +1525,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
                         <span class="tag">Java</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1088,6 +1551,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ssh/">
                         <span class="tag">ssh</span>
                         <span class="tag is-grey">1</span>
@@ -1109,9 +1579,51 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/原型模式/">
+                        <span class="tag">原型模式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/委派/">
+                        <span class="tag">委派</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/模板方法/">
+                        <span class="tag">模板方法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/策略/">
+                        <span class="tag">策略</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/装饰者/">
+                        <span class="tag">装饰者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/设计模式/">
                         <span class="tag">设计模式</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/适配器/">
+                        <span class="tag">适配器</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
