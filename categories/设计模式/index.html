@@ -152,6 +152,65 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 454 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（九）：观察者模式/">设计模式（九）：观察者模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>观察者模式（Observer Pattern）定义了对象之间的一对多依赖，让多个观察者对象同 时监听一个主体对象，当主体对象发生变化时，它的所有依赖者（观察者）都会收到通 知并更新，属于行为型模式。观察者模式有时也叫做发布订阅模式。观察者模式主要用 于在关联行为之间建立一套触发机制的场景。</p>
+<h3 id="JDK-原生支持实现样例"><a href="#JDK-原生支持实现样例" class="headerlink" title="JDK 原生支持实现样例"></a>JDK 原生支持实现样例</h3><p>被观察者，也称发布者</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 被观察者对象</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-8.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteObservable</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Observable</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * 发布一个事件</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">publishEvent</span><span class="hljs-params">(ObserveContext context)</span></span>&#123;</span><br><span class="line">        setChanged();</span><br><span class="line">        System.out.println(<span class="hljs-string">"发布一个事件"</span>+context.getName());</span><br><span class="line">        notifyObservers(context);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>观察者，也称订阅者</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 观察者</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-8.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteObserver</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> String name ;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcreteObserver</span><span class="hljs-params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Observable o, Object arg)</span> </span>&#123;</span><br><span class="line">        ConcreteObservable observable = (ConcreteObservable) o;</span><br><span class="line">        ObserveContext context = (ObserveContext) arg;</span><br><span class="line">        System.out.println(name+<span class="hljs-string">"已接收到"</span>+context.getName()+<span class="hljs-string">"的事件"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义参数、上下文</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 发布订阅上下文</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-8.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ObserveContext</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> String name;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ObserveContext</span><span class="hljs-params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>开始测试</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 测试观察者</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-8.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestObserver</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ObserveContext context = <span class="hljs-keyword">new</span> ObserveContext(<span class="hljs-string">"Event 1"</span>);</span><br><span class="line">        ConcreteObservable observable =<span class="hljs-keyword">new</span> ConcreteObservable();</span><br><span class="line">        ConcreteObserver observer = <span class="hljs-keyword">new</span> ConcreteObserver(<span class="hljs-string">"观察者一号"</span>);</span><br><span class="line">        ConcreteObserver observer2 = <span class="hljs-keyword">new</span> ConcreteObserver(<span class="hljs-string">"观察者二号"</span>);</span><br><span class="line">        observable.addObserver(observer);</span><br><span class="line">        observable.addObserver(observer2);</span><br><span class="line">        observable.publishEvent(context);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>console打印结果：</p>
+<blockquote>
+<p>发布一个事件Event 1<br>观察者二号已接收到Event 1的事件<br>观察者一号已接收到Event 1的事件</p>
+</blockquote>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><img src="/2019/08/08/设计模式（九）：观察者模式/observer.png" title="JDK观察者模式实现类图">
+<p>原生的观察者模式是线程安全的。但在数据量大、多线程模式下，需要考虑性能问题。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-08-08T09:03:44.000Z">2019-08-08</time>
                 
                 <div class="level-item">
@@ -846,87 +905,25 @@
 
 
 
-    <div class="card">
+
     
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-04T10:30:57.000Z">2019-08-04</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 357 个字)
-                </span>
-                
-                
-            </div>
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/设计模式/page/0/">上一页</a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/04/设计模式：分类/">设计模式：分类</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="设计模式的分类"><a href="#设计模式的分类" class="headerlink" title="设计模式的分类"></a>设计模式的分类</h2><h3 id="跟据其目的（模式是用来做什么的）"><a href="#跟据其目的（模式是用来做什么的）" class="headerlink" title="跟据其目的（模式是用来做什么的）"></a>跟据其目的（模式是用来做什么的）</h3><h4 id="一、创建型-Creational"><a href="#一、创建型-Creational" class="headerlink" title="一、创建型(Creational)"></a>一、创建型(Creational)</h4><p>创建型模式主要用于创建对象。</p>
-<ol>
-<li>抽象工厂模式(Abstract Factory)</li>
-<li>建造者模式(Builder)</li>
-<li>工厂方法模式(Factory Method)</li>
-<li>原型模式(Prototype)</li>
-<li>单例模式(Singleton)</li>
-</ol>
-<h4 id="二、结构型-Structural"><a href="#二、结构型-Structural" class="headerlink" title="二、结构型(Structural)"></a>二、结构型(Structural)</h4><p>结构型模式主要用于处理类或对象的组合。</p>
-<ol>
-<li>适配器模式(Adapter)</li>
-<li>桥接模式(Bridge)</li>
-<li>组合模式(Composite)</li>
-<li>装饰模式(Decorator)</li>
-<li>外观模式(Facade)</li>
-<li>享元模式(Flyweight)</li>
-<li>代理模式(Proxy)</li>
-</ol>
-<h4 id="三、行为型模式"><a href="#三、行为型模式" class="headerlink" title="三、行为型模式"></a>三、行为型模式</h4><p>行为型模式主要用于描述对类或对象怎样交互和怎样分配职责。</p>
-<ol>
-<li>职责链模式(Chain of Responsibility)</li>
-<li>命令模式(Command)</li>
-<li>解释器模式(Interpreter)</li>
-<li>迭代器模式(Iterator)</li>
-<li>中介者模式(Mediator)</li>
-<li>备忘录模式(Memento)</li>
-<li>观察者模式(Observer)</li>
-<li>状态模式(State)</li>
-<li>策略模式(Strategy)</li>
-<li>模板方法模式(Template Method)</li>
-<li>访问者模式(Visitor)</li>
-</ol>
-<h3 id="根据范围（模式主要是用于处理类之间关系还是处理对象之间的关系）"><a href="#根据范围（模式主要是用于处理类之间关系还是处理对象之间的关系）" class="headerlink" title="根据范围（模式主要是用于处理类之间关系还是处理对象之间的关系）"></a>根据<strong>范围</strong>（模式主要是用于处理类之间关系还是处理对象之间的关系）</h3><p>可分为<strong>类模式</strong>和<strong>对象模式</strong>两种</p>
-<ul>
-<li>类模式处理类和子类之间的关系，这些关系通过继承建立，在编译时就被确定下来，是属于静态的。</li>
-<li>对象模式处理对象间的关系，这些关系在运行时刻变化，更具动态性。</li>
-</ul>
-
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/设计模式/page/2/">下一页</a>
         </div>
-        
-        
-        
-    </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link is-current" href="/categories/设计模式/">1</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/categories/设计模式/page/2/">2</a></li>
+            
+        </ul>
+    </nav>
 </div>
-
-
-
-
-
-
-
-
 </div>
                 
 
@@ -970,7 +967,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        17
+                        18
                     </p>
                 </div>
             </div>
@@ -990,7 +987,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        14
+                        15
                     </p>
                 </div>
             </div>
@@ -1120,7 +1117,7 @@
                 <span class="level-item">设计模式</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">10</span>
+                <span class="level-item tag">11</span>
             </span>
         </a></li>
             </ul>
@@ -1134,7 +1131,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -1148,6 +1145,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（九）：观察者模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（九）：观察者模式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1201,19 +1211,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T08:53:20.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/设计模式（四）：适配器模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（四）：适配器模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1232,7 +1229,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1296,7 +1293,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1357,9 +1354,16 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/观察者/">
+                        <span class="tag">观察者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/设计模式/">
                         <span class="tag">设计模式</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
@@ -1397,6 +1401,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/设计模式（九）：观察者模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（九）：观察者模式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:03:44.000Z">2019-08-08</time></div>
                     <a href="/2019/08/08/设计模式（八）：策略模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（八）：策略模式</a>
                     <p class="is-size-7 is-uppercase">
@@ -1445,19 +1462,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T08:53:20.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/设计模式（四）：适配器模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（四）：适配器模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1476,7 +1480,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1540,7 +1544,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1601,9 +1605,16 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/观察者/">
+                        <span class="tag">观察者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/设计模式/">
                         <span class="tag">设计模式</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 

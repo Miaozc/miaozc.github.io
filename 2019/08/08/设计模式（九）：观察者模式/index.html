@@ -2,19 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类: 建站笔记 - ZhiCheng&#39;s Blog</title>
+<title>设计模式（九）：观察者模式 - ZhiCheng&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="ZhiCheng&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/建站笔记/index.html">
+    <meta name="description" content="观察者模式定义观察者模式（Observer Pattern）定义了对象之间的一对多依赖，让多个观察者对象同 时监听一个主体对象，当主体对象发生变化时，它的所有依赖者（观察者）都会收到通 知并更新，属于行为型模式。观察者模式有时也叫做发布订阅模式。观察者模式主要用 于在关联行为之间建立一套触发机制的场景。 JDK 原生支持实现样例被观察者，也称发布者 1234567891011121314/** *">
+<meta name="keywords" content="设计模式,java,观察者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式（九）：观察者模式">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/设计模式（九）：观察者模式/index.html">
 <meta property="og:site_name" content="ZhiCheng&#39;s Blog">
+<meta property="og:description" content="观察者模式定义观察者模式（Observer Pattern）定义了对象之间的一对多依赖，让多个观察者对象同 时监听一个主体对象，当主体对象发生变化时，它的所有依赖者（观察者）都会收到通 知并更新，属于行为型模式。观察者模式有时也叫做发布订阅模式。观察者模式主要用 于在关联行为之间建立一套触发机制的场景。 JDK 原生支持实现样例被观察者，也称发布者 1234567891011121314/** *">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-08-08T13:18:28.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhiCheng&#39;s Blog">
+<meta name="twitter:title" content="设计模式（九）：观察者模式">
+<meta name="twitter:description" content="观察者模式定义观察者模式（Observer Pattern）定义了对象之间的一对多依赖，让多个观察者对象同 时监听一个主体对象，当主体对象发生变化时，它的所有依赖者（观察者）都会收到通 知并更新，属于行为型模式。观察者模式有时也叫做发布订阅模式。观察者模式主要用 于在关联行为之间建立一套触发机制的场景。 JDK 原生支持实现样例被观察者，也称发布者 1234567891011121314/** *">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/mzc_logo.svg" alt="ZhiCheng&#39;s Blog" height="28">
+                <img src="/images/mzc_logo.svg" alt="设计模式（九）：观察者模式" height="28">
             
             </a>
         </div>
@@ -135,34 +140,22 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">建站笔记</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-14T11:32:20.000Z">2019-04-14</time>
+                <time class="level-item has-text-grey" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/建站笔记/">建站笔记</a>
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 252 个字)
+                    3 分钟 读完 (大约 454 个字)
                 </span>
                 
                 
@@ -171,26 +164,35 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/04/14/搭建hexo博客/">搭建hexo blog</a>
+                设计模式（九）：观察者模式
             
         </h1>
         <div class="content">
-            <h2 id="一、设置SSH"><a href="#一、设置SSH" class="headerlink" title="一、设置SSH"></a>一、设置SSH</h2><h4 id="1-多ssh配置执行"><a href="#1-多ssh配置执行" class="headerlink" title="1.多ssh配置执行"></a>1.多ssh配置执行</h4><ul>
-<li>原因：由于本地已为gitee创建过默认公钥“id_rsa”，发布到github需单独配置公钥</li>
-<li>使用git bash执行命令如下：  <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~</span><br><span class="line">$ md .ssh         </span><br><span class="line">$ ssh-keygen -t rsa -C &quot;xxx@qq.com&quot;</span><br><span class="line">Enter file in which to save the key (/c/Users/hp/.ssh/id_rsa):my_github</span><br><span class="line">$ ssh-agent bash</span><br><span class="line">$ ssh-add my_github</span><br><span class="line">$ ssh-add -l</span><br><span class="line">$ cat my_github.pub</span><br><span class="line">复制内容到github ssh keys</span><br><span class="line">$ ssh -T git@my_github.github.com</span><br><span class="line">Hi UserName! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="二、hexo搭建"><a href="#二、hexo搭建" class="headerlink" title="二、hexo搭建"></a>二、hexo搭建</h2><h4 id="1-hexo-config-yml配置"><a href="#1-hexo-config-yml配置" class="headerlink" title="1.hexo _config.yml配置"></a>1.hexo _config.yml配置</h4><ul>
-<li>更改如下代码：  <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: git@my_github.github.com:xxx/xxx.github.io.git</span><br><span class="line">branch: master</span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
-<li><code>my_github</code>是上面配置的公钥名称</li>
-<li>注意：每个参数后面“：”紧接着要写一个空格，不能直接跟value，否则构建失败<h4 id="2-hexo-常用基本语法"><a href="#2-hexo-常用基本语法" class="headerlink" title="2.hexo 常用基本语法"></a>2.hexo 常用基本语法</h4></li>
-<li><code>hexo clean</code> 清空public文件夹</li>
-<li><code>hexo g</code> 构建</li>
-<li><code>hexo s</code> 启动server</li>
-<li><code>hexo d</code> 推送到git hub</li>
-<li><code>hexo new xx</code>创建名为“xx”的文章</li>
-</ul>
+            <h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>观察者模式（Observer Pattern）定义了对象之间的一对多依赖，让多个观察者对象同 时监听一个主体对象，当主体对象发生变化时，它的所有依赖者（观察者）都会收到通 知并更新，属于行为型模式。观察者模式有时也叫做发布订阅模式。观察者模式主要用 于在关联行为之间建立一套触发机制的场景。</p>
+<h3 id="JDK-原生支持实现样例"><a href="#JDK-原生支持实现样例" class="headerlink" title="JDK 原生支持实现样例"></a>JDK 原生支持实现样例</h3><p>被观察者，也称发布者</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 被观察者对象</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-8.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteObservable</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Observable</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * 发布一个事件</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">publishEvent</span><span class="hljs-params">(ObserveContext context)</span></span>&#123;</span><br><span class="line">        setChanged();</span><br><span class="line">        System.out.println(<span class="hljs-string">"发布一个事件"</span>+context.getName());</span><br><span class="line">        notifyObservers(context);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>观察者，也称订阅者</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 观察者</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-8.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteObserver</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> String name ;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcreteObserver</span><span class="hljs-params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Observable o, Object arg)</span> </span>&#123;</span><br><span class="line">        ConcreteObservable observable = (ConcreteObservable) o;</span><br><span class="line">        ObserveContext context = (ObserveContext) arg;</span><br><span class="line">        System.out.println(name+<span class="hljs-string">"已接收到"</span>+context.getName()+<span class="hljs-string">"的事件"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义参数、上下文</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 发布订阅上下文</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-8.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ObserveContext</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> String name;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ObserveContext</span><span class="hljs-params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>开始测试</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 测试观察者</span></span><br><span class="line"><span class="hljs-comment"> * Created by miaozc on 2019-8-8.</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestObserver</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ObserveContext context = <span class="hljs-keyword">new</span> ObserveContext(<span class="hljs-string">"Event 1"</span>);</span><br><span class="line">        ConcreteObservable observable =<span class="hljs-keyword">new</span> ConcreteObservable();</span><br><span class="line">        ConcreteObserver observer = <span class="hljs-keyword">new</span> ConcreteObserver(<span class="hljs-string">"观察者一号"</span>);</span><br><span class="line">        ConcreteObserver observer2 = <span class="hljs-keyword">new</span> ConcreteObserver(<span class="hljs-string">"观察者二号"</span>);</span><br><span class="line">        observable.addObserver(observer);</span><br><span class="line">        observable.addObserver(observer2);</span><br><span class="line">        observable.publishEvent(context);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>console打印结果：</p>
+<blockquote>
+<p>发布一个事件Event 1<br>观察者二号已接收到Event 1的事件<br>观察者一号已接收到Event 1的事件</p>
+</blockquote>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><img src="/2019/08/08/设计模式（九）：观察者模式/observer.png" title="JDK观察者模式实现类图">
+<p>原生的观察者模式是线程安全的。但在数据量大、多线程模式下，需要考虑性能问题。</p>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/java/">java</a>, <a class="has-link-grey -link" href="/tags/观察者/">观察者</a>, <a class="has-link-grey -link" href="/tags/设计模式/">设计模式</a>
+                </div>
+            </div>
         </div>
         
         
@@ -200,9 +202,50 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wecharpay.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/08/设计模式（八）：策略模式/">
+                <span class="level-item">设计模式（八）：策略模式</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -923,7 +966,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/mzc_logo.svg" alt="ZhiCheng&#39;s Blog" height="28">
+                    <img src="/images/mzc_logo.svg" alt="设计模式（九）：观察者模式" height="28">
                 
                 </a>
                 <p class="is-size-7">
