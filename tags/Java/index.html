@@ -2,14 +2,14 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: Java - ZhiCheng&#39;s Blog</title>
+<title>标签: java - ZhiCheng&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="ZhiCheng&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Java/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/java/index.html">
 <meta property="og:site_name" content="ZhiCheng&#39;s Blog">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
@@ -139,7 +139,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Java</a></li>
+            <li class="is-active"><a href="#" aria-current="page">java</a></li>
         </ul>
         </nav>
     </div>
@@ -194,6 +194,112 @@
 <p>缺点： </p>
 <p>1、客户端必须知道所有的策略，并且自行决定使用哪一个策略类。 </p>
 <p>2、代码中会产生非常多策略类，增加维护难度。 </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T09:01:24.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 207 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（七）：委派模式/">设计模式（七）：委派模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="委派模式"><a href="#委派模式" class="headerlink" title="委派模式"></a>委派模式</h2><p>委派模式（Delegate Pattern）的基本作用就是负责任务的调用和分配任务，跟代理模式很像，可以看做是一种特殊情况下的静态代理的全权代理，但是代理模式注重过程，而委派模式注重结果。委派模式在 Spring 中应用非常多，大家常用的 DispatcherServlet 其实就是用到了委派模式。现实生活中也常有委 派的场景发生，例如：老板（Boss）给项目经理（Leader）下达任务，项目经理会根据实际情况给每个员工派发工作任务，待员工把工作任务完成之后，再由项目经理汇报工作进度和结果给老板。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:57:16.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 262 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（六）：原型模式/">设计模式（六）：原型模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ol>
+<li>原型模式（Prototype Pattern）是指原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</li>
+<li>调用者不需要知道任何创建细节</li>
+<li>属于创建型模式</li>
+</ol>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
+<li>类初始化小号资源较多</li>
+<li>new产生的一个对象需要非常繁琐的过程（数据准备、访问权限等）</li>
+<li>构造函数比较复杂</li>
+<li>循环体中产生大量对象时</li>
+</ol>
+<h3 id="常见原型模式工具类"><a href="#常见原型模式工具类" class="headerlink" title="常见原型模式工具类"></a>常见原型模式工具类</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtil.copy();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.paseObject();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Guava</span><br></pre></td></tr></table></figure>
+<h3 id="利用Java提供的Cloneable接口实现"><a href="#利用Java提供的Cloneable接口实现" class="headerlink" title="利用Java提供的Cloneable接口实现"></a>利用Java提供的Cloneable接口实现</h3><h4 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">shallowClone</span><span class="hljs-params">(Test target)</span></span>&#123;</span><br><span class="line">    Test test = <span class="hljs-keyword">new</span> Test();</span><br><span class="line">    test.a = target.a;<span class="hljs-comment">//普通字段</span></span><br><span class="line">    test.object = target.object;<span class="hljs-comment">//对象字段，拷贝的是引用地址</span></span><br><span class="line">    <span class="hljs-keyword">return</span>  test;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">deepClone</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">try</span>&#123;</span><br><span class="line">        ByteArrayOutputStream bos = <span class="hljs-keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        ObjectOutputStream oos = <span class="hljs-keyword">new</span> ObjectOutputStream(bos);</span><br><span class="line">        oos.writeObject(<span class="hljs-keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        ByteArrayInputStream bis = <span class="hljs-keyword">new</span> ByteArrayInputStream(bos.toByteArray());</span><br><span class="line">        ObjectInputStream ois = <span class="hljs-keyword">new</span> ObjectInputStream(bis);</span><br><span class="line">		</span><br><span class="line">        QiTianDaSheng copy = (QiTianDaSheng)ois.readObject();</span><br><span class="line">        copy.birthday = <span class="hljs-keyword">new</span> Date();</span><br><span class="line">        <span class="hljs-keyword">return</span> copy;</span><br><span class="line">    &#125;<span class="hljs-keyword">catch</span> (Exception e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">    &#125;<span class="hljs-keyword">finally</span>&#123;</span><br><span class="line">        ...close;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="深克隆例子"><a href="#深克隆例子" class="headerlink" title="深克隆例子"></a>深克隆例子</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList.clone();<span class="hljs-comment">//ArrayList重写了clone方法</span></span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -345,6 +451,120 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:28:17.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 727 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/设计模式（三）：装饰者模式/">设计模式（三）：装饰者模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>装饰者模式（Decorator Pattern）是指在不改变原有对象的基础之上，将功能附加到对 象上，提供了比继承更有弹性的替代方案（扩展原有对象的功能），属于结构型模式。</p>
+<p>装饰模式主要包含以下角色。</p>
+<ol>
+<li>抽象构件（Component）角色：定义一个抽象接口以规范准备接收附加责任的对象。</li>
+<li>具体构件（Concrete    Component）角色：实现抽象构件，通过装饰角色为其添加一些职责。</li>
+<li>抽象装饰（Decorator）角色：继承抽象构件，并包含具体构件的实例，可以通过其子类扩展具体构件的功能。</li>
+<li>具体装饰（ConcreteDecorator）角色：实现抽象装饰的相关方法，并给具体构件对象添加附加的责任。</li>
+</ol>
+<h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><p>定义抽象构件</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IComponent</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">operation</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 实现具体构件</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IComponent</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operation</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"执行基本操作~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义抽象装饰（抽象可选）</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstDecorator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IComponent</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> IComponent component;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AbstDecorator</span><span class="hljs-params">(IComponent component)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.component = component;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operation</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"执行抽象装饰"</span>);</span><br><span class="line">        component.operation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现具体装饰</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteDecorator</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstDecorator</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcreteDecorator</span><span class="hljs-params">(IComponent component)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">super</span>(component);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">operation</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        method1();</span><br><span class="line">        <span class="hljs-keyword">super</span>.operation();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"执行附加的装饰方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DecoratorTest</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        IComponent component = <span class="hljs-keyword">new</span> ConcreteComponent();</span><br><span class="line">        IComponent d1 = <span class="hljs-keyword">new</span> ConcreteDecorator(component);</span><br><span class="line">        d1.operation();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>console打印如下：</p>
+<blockquote>
+<p>执行附加的装饰方法<br>执行抽象装饰<br>执行基本操作~</p>
+</blockquote>
+<h3 id="jdk典型装饰者场景：InputStream"><a href="#jdk典型装饰者场景：InputStream" class="headerlink" title="jdk典型装饰者场景：InputStream"></a>jdk典型装饰者场景：InputStream</h3><img src="/2019/08/08/设计模式（三）：装饰者模式/inputstream.jpg" title="inputStream类图">
+<h3 id="与适配器模式的区别"><a href="#与适配器模式的区别" class="headerlink" title="与适配器模式的区别"></a>与适配器模式的区别</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>装饰者模式</th>
+<th>适配器模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>形式</td>
+<td>是一种特殊的适配器模式</td>
+<td>没有层级关系，装饰者有层级关系</td>
+</tr>
+<tr>
+<td>定义</td>
+<td>装饰者和被装饰者都实现同一个接口，主要目的是为了扩展之后依旧保留OOP关系</td>
+<td>适配器和被适配者没有必然的联系，通常是采用继承或代理的形式进行包装</td>
+</tr>
+<tr>
+<td>关系</td>
+<td>满足is-a的关系</td>
+<td>满足has-a的关系</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>注重覆盖、扩展</td>
+<td>注重兼容、转换</td>
+</tr>
+<tr>
+<td>设计</td>
+<td>前置考虑</td>
+<td>后置考虑（重构）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点</p>
+<ul>
+<li>装饰者是继承的有力补充，比继承灵活，不改变原有对象的情况下动态地给一个对象扩展功能，即插即用。</li>
+<li>通过使用不同装饰类以及这些装饰类的排列组合，可以实现不同效果。</li>
+<li>装饰者完全遵守开闭原则。</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>会出现更多的代码，更多的类，增加程序复杂性。</li>
+<li>动态装饰时，多层装饰时会更复杂。</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-08-04T15:12:58.000Z">2019-08-04</time>
                 
                 <div class="level-item">
@@ -465,6 +685,63 @@
 
 
 
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-04T14:49:26.000Z">2019-08-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 627 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/04/设计模式（一）：单例模式/">设计模式（一）：单例模式</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="单例模式的应用场景"><a href="#单例模式的应用场景" class="headerlink" title="单例模式的应用场景"></a>单例模式的应用场景</h3><p>单例模式（Singleton Pattern）是指确保一个类在任何情况下都绝对只有一个实例，并提供一个全局访问点。单例模式是创建型模式。单例模式在现实生活中应用也非常广泛。 例如，国家主席、公司 CEO、部门经理等。在 J2EE标准中，ServletContext、 ServletContextConfig 等；在 Spring 框架应用中 ApplicationContext；数据库的连接池也都是单例形式。</p>
+<h3 id="常见实现"><a href="#常见实现" class="headerlink" title="常见实现"></a>常见实现</h3><p>饿汉式单例：Spring中IOC容器ApplicationContext。</p>
+<h3 id="饿汉式单例"><a href="#饿汉式单例" class="headerlink" title="饿汉式单例"></a>饿汉式单例</h3><p>饿汉式单例是在类加载的时候就立即初始化，并且创建单例对象。绝对线程安全，在线 程还没出现以前就是实例化了，不可能存在访问安全问题。</p>
+<ul>
+<li>优点：没有加任何的锁、执行效率比较高，在用户体验上来说，比懒汉式更好。</li>
+<li>缺点：类加载的时候就初始化，不管用与不用都占着空间，浪费了内存，有可能占着茅坑不拉屎。</li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HungrySingleton</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">//法1</span></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> HungrySingleton instance = <span class="hljs-keyword">new</span> HungrySingleton();</span><br><span class="line">    <span class="hljs-comment">//法2</span></span><br><span class="line">    <span class="hljs-comment">//    static &#123;</span></span><br><span class="line">    <span class="hljs-comment">//        instance = new HungrySingleton();</span></span><br><span class="line">    <span class="hljs-comment">//    &#125;</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">HungrySingleton</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> HungrySingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="懒汉式单例"><a href="#懒汉式单例" class="headerlink" title="懒汉式单例"></a>懒汉式单例</h3><p>懒汉式单例的特点是：被外部类调用的时候内部类才会加载.</p>
+<h4 id="1-同步锁懒汉式单例"><a href="#1-同步锁懒汉式单例" class="headerlink" title="1.同步锁懒汉式单例"></a>1.同步锁懒汉式单例</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">static</span> LazyDoubleCheckSingleton lazyDoubleCheckSingleton = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> LazyDoubleCheckSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(lazyDoubleCheckSingleton ==<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">synchronized</span>(LazyDoubleCheckSingleton.class)&#123;</span><br><span class="line">                <span class="hljs-keyword">if</span>(lazyDoubleCheckSingleton ==<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                    lazyDoubleCheckSingleton = <span class="hljs-keyword">new</span> LazyDoubleCheckSingleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> lazyDoubleCheckSingleton;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-内部类懒汉式单例"><a href="#2-内部类懒汉式单例" class="headerlink" title="2.内部类懒汉式单例"></a>2.内部类懒汉式单例</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazyInnerClassSingleton</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">LazyInnerClassSingleton</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"构造方法"</span>);</span><br><span class="line">        <span class="hljs-keyword">if</span> (LazyHolder.LAZY!=<span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">"禁止通过反射创建此单例对象"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> LazyInnerClassSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"getInstance"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> LazyHolder.LAZY;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * 内部类一定是要在方法调用之前初始化，巧妙地避免了线程安全问题。</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LazyHolder</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> LazyInnerClassSingleton LAZY= <span class="hljs-keyword">new</span> LazyInnerClassSingleton();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String []s )</span></span>&#123;</span><br><span class="line">        LazyInnerClassSingleton.getInstance();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注册式单例"><a href="#注册式单例" class="headerlink" title="注册式单例"></a>注册式单例</h3><h4 id="1-容器缓存注册式单例"><a href="#1-容器缓存注册式单例" class="headerlink" title="1.容器缓存注册式单例"></a>1.容器缓存注册式单例</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContainerSingleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">ContainerSingleton</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Map&lt;String,Object&gt; instanceMap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Object <span class="hljs-title">getBean</span><span class="hljs-params">(String className)</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(className==<span class="hljs-keyword">null</span>||<span class="hljs-string">""</span>.equals(className.trim())) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">        <span class="hljs-keyword">synchronized</span>(instanceMap)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (instanceMap.containsKey(className))&#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> instanceMap.get(className);</span><br><span class="line">            &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                Object obj = <span class="hljs-keyword">null</span>;</span><br><span class="line">                <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                    Class clazz = Class.forName(className);</span><br><span class="line">                    obj = clazz.newInstance();</span><br><span class="line">                    instanceMap.put(className,obj);</span><br><span class="line">                &#125; <span class="hljs-keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="hljs-keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="hljs-keyword">catch</span> (InstantiationException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="hljs-keyword">return</span> obj;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-枚举注册式单例"><a href="#2-枚举注册式单例" class="headerlink" title="2.枚举注册式单例"></a>2.枚举注册式单例</h4><p>此方法即使通过反序列化也能获得单例</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> EnumSingleton &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    <span class="hljs-keyword">private</span> Object data;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getData</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setData</span><span class="hljs-params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> EnumSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
 </div>
                 
 
@@ -528,7 +805,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        15
+                        14
                     </p>
                 </div>
             </div>
@@ -672,7 +949,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -811,13 +1088,6 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Java/">
-                        <span class="tag">Java</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/Linux/">
                         <span class="tag">Linux</span>
                         <span class="tag is-grey">6</span>
@@ -841,7 +1111,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1062,13 +1332,6 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Java/">
-                        <span class="tag">Java</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/Linux/">
                         <span class="tag">Linux</span>
                         <span class="tag is-grey">6</span>
@@ -1092,7 +1355,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
