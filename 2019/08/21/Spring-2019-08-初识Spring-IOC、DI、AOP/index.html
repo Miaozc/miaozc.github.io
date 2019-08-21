@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>初识Spring-IOC、DI - ZhiCheng&#39;s Blog</title>
+<title>初识Spring-IOC、DI、AOP - ZhiCheng&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="初识Spring IOC 、DI、AOPIOC(Inversion of Control)控制反转所谓控制反转，就是把原先我们代码里面需要实现的对象创建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让容器知道需要创建的对象与对象的关系。这个描述最具体表现就是我们所看到的配置文件。 常用注解 @Component ：组件通用注解，常用于Model类 @Cont">
+    <meta name="description" content="IOC(Inversion of Control)控制反转所谓控制反转，就是把原先我们代码里面需要实现的对象创建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让容器知道需要创建的对象与对象的关系。这个描述最具体表现就是我们所看到的配置文件。 常用注解 @Component ：组件通用注解，常用于Model类 @Controller ：常用于对Controll">
 <meta name="keywords" content="java,Spring,Spring IOC,Spring DI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识Spring-IOC、DI">
+<meta property="og:title" content="初识Spring-IOC、DI、AOP">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/index.html">
 <meta property="og:site_name" content="ZhiCheng&#39;s Blog">
-<meta property="og:description" content="初识Spring IOC 、DI、AOPIOC(Inversion of Control)控制反转所谓控制反转，就是把原先我们代码里面需要实现的对象创建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让容器知道需要创建的对象与对象的关系。这个描述最具体表现就是我们所看到的配置文件。 常用注解 @Component ：组件通用注解，常用于Model类 @Cont">
+<meta property="og:description" content="IOC(Inversion of Control)控制反转所谓控制反转，就是把原先我们代码里面需要实现的对象创建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让容器知道需要创建的对象与对象的关系。这个描述最具体表现就是我们所看到的配置文件。 常用注解 @Component ：组件通用注解，常用于Model类 @Controller ：常用于对Controll">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-20T17:22:38.363Z">
+<meta property="og:updated_time" content="2019-08-21T16:05:09.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识Spring-IOC、DI">
-<meta name="twitter:description" content="初识Spring IOC 、DI、AOPIOC(Inversion of Control)控制反转所谓控制反转，就是把原先我们代码里面需要实现的对象创建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让容器知道需要创建的对象与对象的关系。这个描述最具体表现就是我们所看到的配置文件。 常用注解 @Component ：组件通用注解，常用于Model类 @Cont">
+<meta name="twitter:title" content="初识Spring-IOC、DI、AOP">
+<meta name="twitter:description" content="IOC(Inversion of Control)控制反转所谓控制反转，就是把原先我们代码里面需要实现的对象创建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让容器知道需要创建的对象与对象的关系。这个描述最具体表现就是我们所看到的配置文件。 常用注解 @Component ：组件通用注解，常用于Model类 @Controller ：常用于对Controll">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -94,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/mzc_logo.svg" alt="初识Spring-IOC、DI" height="28">
+                <img src="/images/mzc_logo.svg" alt="初识Spring-IOC、DI、AOP" height="28">
             
             </a>
         </div>
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 分钟 读完 (大约 1733 个字)
+                    12 分钟 读完 (大约 1725 个字)
                 </span>
                 
                 
@@ -164,11 +164,11 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                初识Spring-IOC、DI
+                初识Spring-IOC、DI、AOP
             
         </h1>
         <div class="content">
-            <h2 id="初识Spring-IOC-、DI、AOP"><a href="#初识Spring-IOC-、DI、AOP" class="headerlink" title="初识Spring IOC 、DI、AOP"></a>初识Spring IOC 、DI、AOP</h2><h3 id="IOC-Inversion-of-Control-控制反转"><a href="#IOC-Inversion-of-Control-控制反转" class="headerlink" title="IOC(Inversion of Control)控制反转"></a>IOC(Inversion of Control)控制反转</h3><p>所谓控制反转，就是把原先我们代码里面需要实现的对象创建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让容器知道需要创建的对象与对象的关系。这个描述最具体表现就是我们所看到的配置文件。</p>
+            <h3 id="IOC-Inversion-of-Control-控制反转"><a href="#IOC-Inversion-of-Control-控制反转" class="headerlink" title="IOC(Inversion of Control)控制反转"></a>IOC(Inversion of Control)控制反转</h3><p>所谓控制反转，就是把原先我们代码里面需要实现的对象创建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让容器知道需要创建的对象与对象的关系。这个描述最具体表现就是我们所看到的配置文件。</p>
 <h5 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h5><ul>
 <li>@Component ：组件通用注解，常用于Model类</li>
 <li>@Controller ：常用于对Controller实现类进行标注</li>
@@ -363,7 +363,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        22
+                        23
                     </p>
                 </div>
             </div>
@@ -383,7 +383,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
@@ -505,7 +505,7 @@
                 <span class="level-item">Spring</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
@@ -535,7 +535,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -549,6 +549,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
+                    <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -581,7 +594,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:20:57.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI</a>
+                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI、AOP</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
@@ -597,19 +610,6 @@
                     <a href="/2019/08/12/Spring-2019-08-Spring源码初探/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring源码分析</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/design-2019-08-设计模式（九）：观察者模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（九）：观察者模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -633,7 +633,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -683,7 +683,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-AOP/">
+                        <span class="tag">Spring AOP</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -718,7 +725,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">13</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 
@@ -818,7 +825,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/mzc_logo.svg" alt="初识Spring-IOC、DI" height="28">
+                    <img src="/images/mzc_logo.svg" alt="初识Spring-IOC、DI、AOP" height="28">
                 
                 </a>
                 <p class="is-size-7">

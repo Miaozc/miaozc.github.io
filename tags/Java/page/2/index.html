@@ -151,6 +151,73 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:53:20.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 561 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/design-2019-08-设计模式（四）：适配器模式/">设计模式（四）：适配器模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p>适配器模式（Adapter Pattern）是指将一个类的接口转换成客户期望的另一个接口，使原本的接口不兼容的类可以一起工作，属于结构型设计模式。 适配器适用于以下几种业务场景： </p>
+<ol>
+<li>已经存在的类，它的方法和需求不匹配（方法结果相同或相似）的情况。</li>
+<li>适配器模式不是软件设计阶段考虑的设计模式，是随着软件维护，由于不同产品、不同厂家造成功能类似而接口不相同情况下的解决方案。有点亡羊补牢的感觉。</li>
+</ol>
+<p>生活中也非常的应用场景，例如电源插转换头、手机充电转换头、显示器转接头。在中国民用电都是220V 交流电，但我们手机使用的锂电池使用的 5V 直流电。因此，我们给手机充电时就需要使用电源适配器来进行转换。下面我们有代码来还原这个生活场 景，创建 AC220 类，表示 220V 交流电：</p>
+<p>老版本逻辑</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AC220</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">outputAC220V</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> output = <span class="hljs-number">220</span>;</span><br><span class="line">        System.out.println(<span class="hljs-string">"输出交流电"</span> + output + <span class="hljs-string">"V"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> output;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建适配器接口</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DC5</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">outputDC5V</span><span class="hljs-params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建适配器</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PowerAdapter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DC5</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> AC220 ac220;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PowerAdapter</span><span class="hljs-params">(AC220 ac220)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.ac220 = ac220;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">outputDC5V</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> adapterInput = ac220.outputAC220V(); <span class="hljs-comment">//变压器</span></span><br><span class="line">        <span class="hljs-keyword">int</span> adapterOutput = adapterInput / <span class="hljs-number">44</span>;</span><br><span class="line">        System.out.println(<span class="hljs-string">"使用 PowerAdapter 输入 AC:"</span> + adapterInput + <span class="hljs-string">"V"</span> + <span class="hljs-string">"输出 DC:"</span> + adapterOutput + <span class="hljs-string">"V"</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> adapterOutput;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试适配器</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestAdapter</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        DC5 dc5 = <span class="hljs-keyword">new</span> PowerAdapter(<span class="hljs-keyword">new</span> AC220());</span><br><span class="line">        dc5.outputDC5V();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="适配器模式的优缺点"><a href="#适配器模式的优缺点" class="headerlink" title="适配器模式的优缺点"></a>适配器模式的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a><strong>优点</strong></h5><ol>
+<li>能提高类的透明性和复用，现有的类复用但不需要改变。 </li>
+<li>目标类和适配器类解耦，提高程序的扩展性。 </li>
+<li>在很多业务场景中符合开闭原则。 </li>
+</ol>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a><strong>缺点</strong></h5><ol>
+<li>适配器编写过程需要全面考虑，可能会增加系统的复杂性。 </li>
+<li>增加代码阅读难度，降低代码可读性，过多使用适配器会使系统代码变得凌乱。</li>
+</ol>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-08-08T08:28:17.000Z">2019-08-08</time>
                 
                 <div class="level-item">
@@ -504,7 +571,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        22
+                        23
                     </p>
                 </div>
             </div>
@@ -524,7 +591,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
@@ -646,7 +713,7 @@
                 <span class="level-item">Spring</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
@@ -676,7 +743,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -690,6 +757,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
+                    <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -722,7 +802,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:20:57.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI</a>
+                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI、AOP</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
@@ -738,19 +818,6 @@
                     <a href="/2019/08/12/Spring-2019-08-Spring源码初探/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring源码分析</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/design-2019-08-设计模式（九）：观察者模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（九）：观察者模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -774,7 +841,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -824,7 +891,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-AOP/">
+                        <span class="tag">Spring AOP</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -859,7 +933,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">13</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 
@@ -968,6 +1042,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
+                    <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
                     <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
                     <p class="is-size-7 is-uppercase">
@@ -995,7 +1082,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:20:57.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI</a>
+                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI、AOP</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
@@ -1011,19 +1098,6 @@
                     <a href="/2019/08/12/Spring-2019-08-Spring源码初探/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring源码分析</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/design-2019-08-设计模式（九）：观察者模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（九）：观察者模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -1047,7 +1121,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -1097,7 +1171,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-AOP/">
+                        <span class="tag">Spring AOP</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1132,7 +1213,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">13</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 

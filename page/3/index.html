@@ -141,6 +141,217 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-06T06:09:56.000Z">2019-05-06</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 717 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/06/linux-2019-05-Linux学习（二）：权限及通配符/">Linux学习（二）：权限及通配符</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="ls-查看权限"><a href="#ls-查看权限" class="headerlink" title="ls 查看权限"></a><code>ls</code> 查看权限</h2><p>执行<code>touch a</code> 新建文件<strong>a</strong>,执行命令 <code>ll -h</code>查看列表<br><img src="https://img-blog.csdnimg.cn/20190104111410700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMwNTY2MTU3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>文件<strong>a</strong>的详细信息（下面用作例子详细介绍）</p>
+<blockquote>
+<p>-rw-rw-r–. 1 test test 0 1月   4 11:11 a</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>解读\列名</th>
+<th>权限</th>
+<th>硬件链接数</th>
+<th>文件属主</th>
+<th>文件所属的组</th>
+<th>文件大小</th>
+<th>文件修改时间</th>
+<th>文件名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>信息</td>
+<td>-rw-rw-r–.</td>
+<td>1</td>
+<td>test</td>
+<td>test</td>
+<td>0</td>
+<td>1月   4 11:11</td>
+<td>a</td>
+</tr>
+<tr>
+<td>详解1</td>
+<td>第一个字符<code>[-d]</code>，<code>d</code>代表文件夹，<code>-</code>代表文件</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>详解2</td>
+<td>第一个字符后9个字符分为三组<code>[-rwx][-rwx][-rwx]</code>。<code>r</code>代表可读，<code>w</code>代表可写，<code>x</code>代表可执行<code>-</code>代表非。</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>详解3</td>
+<td>三组<code>[-rwx][-rwx][-rwx]</code>中。第一组：当前用户的权限，第二组：当前用户组对文件的权限，第三组：其他用户组的权限</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>文件夹<strong>ceshi</strong>的详细信息</p>
+<blockquote>
+<p>drwxrwxr-x. 2 test test 6 1月   4 11:10 ceshi</p>
+</blockquote>
+<h2 id="chmod设置权限"><a href="#chmod设置权限" class="headerlink" title="chmod设置权限"></a><code>chmod</code>设置权限</h2><h3 id="1-chmod字母法"><a href="#1-chmod字母法" class="headerlink" title="1.chmod字母法"></a>1.<code>chmod</code>字母法</h3><blockquote>
+<p>语  法： <code>chmod [ugoa] [+-=] [rwx] 文件</code><br>demo：<code>chmod u+x test.txt</code> 给文件拥有者添加可执行权限</p>
+<ul>
+<li>u:user表示文件所有者</li>
+<li>g：group 表示文件所有者属于同一组（group）者，即用户组</li>
+<li>o：other表示其他人</li>
+<li>a：All 表示所有人</li>
+<li>+：增加权限 </li>
+<li>-：撤销权限</li>
+<li>=：设定权限</li>
+<li>r：red 表示可读取，对于一个目录，如果没有r权限，那么就意味着不能通过<code>ls</code>查看这个目录的内容</li>
+<li>w：write表示可写入，对于一个目录，如果没有w权限，那么就意味着不能再目录下创建文件</li>
+<li>x：excute 表示可执行，对于一个目录，如果没有x权限，就意味着不能通过<code>cd</code>进入这个目录。</li>
+</ul>
+</blockquote>
+<h3 id="2-chmod数字法"><a href="#2-chmod数字法" class="headerlink" title="2.chmod数字法"></a>2.<code>chmod</code>数字法</h3><blockquote>
+<p>语  法：<code>chmod [124][124][124] 文件</code></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>r 读取权限</td>
+</tr>
+<tr>
+<td>2</td>
+<td>w 写入权限</td>
+</tr>
+<tr>
+<td>1</td>
+<td>x 执行权限</td>
+</tr>
+<tr>
+<td>0</td>
+<td>- 不具任何权限</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>demo：<code>chmod 123 a.txt</code></p>
+<ul>
+<li>第一位数字代表自己的权限</li>
+<li>第二位数字代表自己组的权限</li>
+<li>第三位数字代表其他人的权限</li>
+<li>3 =1+2 代表w+x</li>
+</ul>
+</blockquote>
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">通配符</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>*</code></td>
+<td style="text-align:left">代表文件名中所有字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ls te*</code></td>
+<td style="text-align:left">查找以te开头的文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ls *html</code></td>
+<td style="text-align:left">查找html结尾的文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>？</code></td>
+<td style="text-align:left">代表文件名任意一个字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ls ?.c</code></td>
+<td style="text-align:left">只找第一个字符任意，后缀为.c的文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[abc]</code></td>
+<td style="text-align:left">匹配abc中任意一个</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[a-f]</code></td>
+<td style="text-align:left">匹配从a到f    范围内的任意一个字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ls [a-f]*</code></td>
+<td style="text-align:left">找到从a到f范围内的任意一个字符开头的文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ls a-f</code></td>
+<td style="text-align:left">找到名字为a-f的文件，当<code>-</code>处于<code>[]</code>之外失去通配符的作用</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>\</code></td>
+<td style="text-align:left">转义字符</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-05-06T06:05:31.000Z">2019-05-06</time>
                 
                 <div class="level-item">
@@ -427,7 +638,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        22
+                        23
                     </p>
                 </div>
             </div>
@@ -447,7 +658,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
@@ -569,7 +780,7 @@
                 <span class="level-item">Spring</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
@@ -599,7 +810,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -613,6 +824,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
+                    <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -645,7 +869,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:20:57.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI</a>
+                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI、AOP</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
@@ -661,19 +885,6 @@
                     <a href="/2019/08/12/Spring-2019-08-Spring源码初探/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring源码分析</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/design-2019-08-设计模式（九）：观察者模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（九）：观察者模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -697,7 +908,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -747,7 +958,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-AOP/">
+                        <span class="tag">Spring AOP</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -782,7 +1000,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">13</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 
@@ -891,6 +1109,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
+                    <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
                     <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
                     <p class="is-size-7 is-uppercase">
@@ -918,7 +1149,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:20:57.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI</a>
+                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI、AOP</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
@@ -934,19 +1165,6 @@
                     <a href="/2019/08/12/Spring-2019-08-Spring源码初探/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring源码分析</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/design-2019-08-设计模式（九）：观察者模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（九）：观察者模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -970,7 +1188,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -1020,7 +1238,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-AOP/">
+                        <span class="tag">Spring AOP</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1055,7 +1280,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">13</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 

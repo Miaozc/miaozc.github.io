@@ -16,7 +16,7 @@
 <meta property="og:description" content="Spring 自动装配之依赖注入一、依赖注入发生的时间当 Spring IOC 容器完成了 Bean 定义资源的定位、载入和解析注册以后，IOC 容器中已经管理类 Bean定义的相关数据，但是此时 IOC 容器还没有对所管理的 Bean 进行依赖注入，依赖注入在以下两种情况发生：  用户第一次调用 getBean()方法时，IOC 容器触发依赖注入。 当用户在配置文件中将&amp;lt;bean&amp;gt;元">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-21T07:26:53.928Z">
+<meta property="og:updated_time" content="2019-08-21T16:12:57.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渐入Spring-DI">
 <meta name="twitter:description" content="Spring 自动装配之依赖注入一、依赖注入发生的时间当 Spring IOC 容器完成了 Bean 定义资源的定位、载入和解析注册以后，IOC 容器中已经管理类 Bean定义的相关数据，但是此时 IOC 容器还没有对所管理的 Bean 进行依赖注入，依赖注入在以下两种情况发生：  用户第一次调用 getBean()方法时，IOC 容器触发依赖注入。 当用户在配置文件中将&amp;lt;bean&amp;gt;元">
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 小时 读完 (大约 14419 个字)
+                    2 小时 读完 (大约 14409 个字)
                 </span>
                 
                 
@@ -210,7 +210,7 @@
 <li>对于集合类型的属性，将其属性值解析为目标类型的集合后直接赋值给属性。</li>
 <li>对于非集合类型的属性，大量使用了 JDK 的反射机制，通过属性的 getter()方法获取指定属性注入以前的值，同时调用属性的 setter()方法为属性设置注入后的值。</li>
 </ol>
-
+<img src="/2019/08/21/Spring-2019-08-渐入Spring-DI/spring_di_Timing.jpg">
 <p>至此 Spring IOC 容器对 Bean 定义资源文件的定位，载入、解析和依赖注入已经全部分析完毕，现在Spring IOC 容器中管理了一系列靠依赖关系联系起来的 Bean，程序不需要应用自己手动创建所需的对象，Spring IOC 容器会在我们使用的时候自动为我们创建，并且为我们注入好相关的依赖，这就是Spring 核心功能的控制反转和依赖注入的相关功能。</p>
 <h2 id="IOC-容器中那些鲜为人知的细节"><a href="#IOC-容器中那些鲜为人知的细节" class="headerlink" title="IOC 容器中那些鲜为人知的细节"></a>IOC 容器中那些鲜为人知的细节</h2><p>通过前面章节中对 Spring IOC 容器的源码分析，我们已经基本上了解了 Spring IOC 容器对 Bean 定义资源的定位、载入和注册过程，同时也清楚了当用户通过 getBean()方法向 IOC 容器获取被管理的 Bean时，IOC 容器对 Bean 进行的初始化和依赖注入过程，这些是 Spring IOC 容器的基本功能特性。Spring IOC 容器还有一些高级特性，如使用 lazy-init 属性对 Bean 预初始化、FactoryBean 产生或者修饰 Bean 对象的生成、IOC 容器初始化 Bean 过程中使用 BeanPostProcessor 后置处理器对 Bean 声明周期事件管理等。</p>
 <h3 id="一、关于延时加载"><a href="#一、关于延时加载" class="headerlink" title="一、关于延时加载"></a>一、关于延时加载</h3><p>通过前面我们对 IOC 容器的实现和工作原理分析，我们已经知道 IOC 容器的初始化过程就是对 Bean定义资源的定位、载入和注册，此时容器对 Bean 的依赖注入并没有发生，依赖注入主要是在应用程序第一次向容器索取 Bean 时，通过 getBean()方法的调用完成。<br>当 Bean 定义资源的<code>&lt;Bean&gt;</code>元素中配置了<code>lazy-init=false</code>属性时，容器将会在初始化的时候对所配置的 Bean 进行预实例化，Bean 的依赖注入在容器初始化的时候就已经完成。这样，当应用程序第一次向容器索取被管理的 Bean 时，就不用再初始化和对 Bean 进行依赖注入了，直接从容器中获取已经完成依赖注入的现成 Bean，可以提高应用第一次向容器获取 Bean 的性能。</p>
@@ -304,6 +304,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">渐入Spring-AOP</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/21/Spring-2019-08-渐入Spring-IOC/">
@@ -359,7 +366,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        22
+                        23
                     </p>
                 </div>
             </div>
@@ -379,7 +386,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
@@ -501,7 +508,7 @@
                 <span class="level-item">Spring</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">4</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
@@ -531,7 +538,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -545,6 +552,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
+                    <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -577,7 +597,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:20:57.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI</a>
+                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI、AOP</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
@@ -593,19 +613,6 @@
                     <a href="/2019/08/12/Spring-2019-08-Spring源码初探/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring源码分析</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:35:42.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/design-2019-08-设计模式（九）：观察者模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（九）：观察者模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -629,7 +636,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -679,7 +686,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-AOP/">
+                        <span class="tag">Spring AOP</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -714,7 +728,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">13</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 
