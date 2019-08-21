@@ -141,6 +141,175 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-05-06T06:05:31.000Z">2019-05-06</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 976 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/05/06/linux-2019-05-Linux学习（一）：命令基本使用/">Linux学习（一）：命令基本使用</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="常用Linux命令的基本使用"><a href="#常用Linux命令的基本使用" class="headerlink" title="常用Linux命令的基本使用"></a>常用Linux命令的基本使用</h1><h2 id="1-cd-切换文件夹（change-directory）"><a href="#1-cd-切换文件夹（change-directory）" class="headerlink" title="1.cd  切换文件夹（change directory）"></a>1.<code>cd</code>  切换文件夹（change directory）</h2><blockquote>
+<ul>
+<li><code>cd /home</code>绝对路径，以根目录开头</li>
+<li><code>cd admin</code>相对路径，不以根目录开头</li>
+<li><code>cd ..</code> 返回上一级目录 </li>
+<li><code>cd ~</code> 到自己家的目录（/home/admin）</li>
+<li><code>cd -</code> 在<strong>当前目录</strong>和最近的一个<strong>历史操作目录</strong>切换</li>
+</ul>
+</blockquote>
+<h2 id="2-pwd-查看当前目录所在路径（print-wrok-directory）"><a href="#2-pwd-查看当前目录所在路径（print-wrok-directory）" class="headerlink" title="2.pwd 查看当前目录所在路径（print wrok directory）"></a>2.<code>pwd</code> 查看当前目录所在路径（print wrok directory）</h2><h2 id="3-ls-查看当前目录内容（list）"><a href="#3-ls-查看当前目录内容（list）" class="headerlink" title="3.ls 查看当前目录内容（list）"></a>3.<code>ls</code> 查看当前目录内容（list）</h2><blockquote>
+<ul>
+<li><code>ls -l</code> 显示详细列表</li>
+<li><code>ls -lh</code> 把文件大小以人性化的方式显示</li>
+<li><code>ls -a</code> 显示所有文件，包含隐藏文件，隐藏文件是<code>.</code>开头的文件</li>
+<li><code>ll</code> 等于<code>ls -l</code></li>
+<li>命令可组合使用，比如<code>ll -a</code> 、<code>ls -hla</code>。 <code>-</code>后面的关键词顺序不固定</li>
+</ul>
+</blockquote>
+<h2 id="4-mkdir-创建目录（make-directory）"><a href="#4-mkdir-创建目录（make-directory）" class="headerlink" title="4.mkdir 创建目录（make directory）"></a>4.<code>mkdir</code> 创建目录（make directory）</h2><blockquote>
+<ul>
+<li><code>mkdir test</code> 在当前目录创建文件夹取名“test”</li>
+<li><code>mkdir /home/admin/test</code> 在绝对路径创建文件夹</li>
+<li><code>mkdir /home/admin/a/test -p</code> 如果上级目录不存在，加上<code>-p</code>自动创建目录</li>
+<li><code>mkdir test1 test2</code> 在当前目录创建多个文件夹 </li>
+<li><code>mkdir a/{b,c}</code> 在指定目录下创建多个文件夹</li>
+<li><code>mkdir .test</code> 以<code>.</code>开头创建隐藏文件夹</li>
+<li>每个目录下都有<code>.</code>、<code>..</code> 两个隐藏目录</li>
+</ul>
+</blockquote>
+<h2 id="5-touch-如果文件不存在，新建文件（touch）"><a href="#5-touch-如果文件不存在，新建文件（touch）" class="headerlink" title="5.touch 如果文件不存在，新建文件（touch）"></a>5.<code>touch</code> 如果文件不存在，新建文件（touch）</h2><blockquote>
+<ul>
+<li><code>touch abc.txt</code> 在当前目录下创建，如果指定了目录，必须保证上级目录存在</li>
+<li><code>touch .abc</code> 创建隐藏文件</li>
+<li><code>gedit abc.txt</code> 打开文件进行编辑，如果文件不存在则创建文件</li>
+</ul>
+</blockquote>
+<h2 id="6-rm-删除指定文件名（remove）"><a href="#6-rm-删除指定文件名（remove）" class="headerlink" title="6.rm 删除指定文件名（remove）"></a>6.<code>rm</code> 删除指定文件名（remove）</h2><blockquote>
+<ul>
+<li><code>rm a.txt</code> 删除文件</li>
+<li><code>rm abc -r</code> 删除文件夹</li>
+<li><code>rm * -r</code> 删除所有文件和文件夹（不能删除隐藏文件）</li>
+</ul>
+</blockquote>
+<h2 id="7-clear-清屏（clear）"><a href="#7-clear-清屏（clear）" class="headerlink" title="7.clear  清屏（clear）"></a>7.<code>clear</code>  清屏（clear）</h2><h2 id="8-cp-拷贝文件（copy）"><a href="#8-cp-拷贝文件（copy）" class="headerlink" title="8.cp 拷贝文件（copy）"></a>8.<code>cp</code> 拷贝文件（copy）</h2><blockquote>
+<ul>
+<li><code>cp a.txt b.txt</code> 拷贝源文件a.txt到目标文件b.txt</li>
+<li><code>cp abc abc_bak -r</code> 拷贝文件夹</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><code>cp</code>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code></td>
+<td>该选项通常在复制目录时使用，它保留链接、文件属性，并递归地复制目录，简单而言，保持文件原有属性。</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>不常用，默认会加上。覆盖已经存在的目标文件而不提示</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>交互式复制，在覆盖目标文件之前将给出提示要求用户确认</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>若给出的源文件是目录文件，则cp将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名。</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>显示拷贝进度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-mv-移动-剪切、重命名（move）"><a href="#9-mv-移动-剪切、重命名（move）" class="headerlink" title="9.mv 移动/剪切、重命名（move）"></a>9.<code>mv</code> 移动/剪切、重命名（move）</h2><blockquote>
+<ul>
+<li><code>mv a.txt a</code> 剪切a.txt到a文件夹下，如果要改名字修改后者路径即可  </li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><code>mv</code>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-f</code></td>
+<td>禁止交互式操作，如果覆盖也不会给出提示</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>确认交互方式操作，如果mv操作将导致对已存在的目标文件的覆盖，系统会询问用户回答以避免误覆盖文件</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>显示移动进度</td>
+</tr>
+</tbody>
+</table>
+<p>注意：<code>mv</code>对文件夹可以直接移动，不需要<code>-r</code></p>
+<h2 id="10-gt-重定向"><a href="#10-gt-重定向" class="headerlink" title="10.&gt; 重定向"></a>10.<code>&gt;</code> 重定向</h2><blockquote>
+<ul>
+<li><code>ls &gt; 1.txt</code> 把<code>ls</code>命令返回的结果输出到文件中，会覆盖之前的数据，默认情况<code>ls</code>的返回结果是显示在屏幕中</li>
+<li><code>ls&gt;&gt;1.txt</code>把<code>ls</code>命令返回的结果输出到1.txt中，以追加的方式。</li>
+</ul>
+</blockquote>
+<h2 id="11-cat查看文件内容"><a href="#11-cat查看文件内容" class="headerlink" title="11.cat查看文件内容"></a>11.<code>cat</code>查看文件内容</h2><blockquote>
+<ul>
+<li><code>cat 1.txt</code> 把文件的内容全部显示到屏幕中</li>
+<li><code>cat 1.txt 2.txt</code> 把两个文件内容全部显示到屏幕中</li>
+<li><code>cat 1.txt 2.txt &gt;3.txt</code>把多个文件的内容合并到新的文件中</li>
+</ul>
+</blockquote>
+<h2 id="12-more查看文件内容，可以分页显示"><a href="#12-more查看文件内容，可以分页显示" class="headerlink" title="12.more查看文件内容，可以分页显示"></a>12.<code>more</code>查看文件内容，可以分页显示</h2><blockquote>
+<ul>
+<li><code>more 1.txt</code> 查看内容多的文件，按空格键往下翻页，按b键往回翻页，按enter下一行，按q键退出</li>
+</ul>
+</blockquote>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-14T11:32:20.000Z">2019-04-14</time>
                 
                 <div class="level-item">
@@ -258,7 +427,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        21
+                        22
                     </p>
                 </div>
             </div>
@@ -400,7 +569,7 @@
                 <span class="level-item">Spring</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
@@ -430,7 +599,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-DI/" style="font-size: 10px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -444,6 +613,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
+                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -497,19 +679,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:03:44.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/design-2019-08-设计模式（八）：策略模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（八）：策略模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -528,7 +697,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">14</span>
+                    <span class="level-item tag">15</span>
                 </span>
             </a>
         </li>
@@ -578,14 +747,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-DI/">
                         <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -613,7 +782,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">12</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
@@ -721,6 +890,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
+                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:23:32.000Z">2019-08-21</time></div>
                     <a href="/2019/08/21/Spring-2019-08-渐入Spring-IOC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-IOC</a>
                     <p class="is-size-7 is-uppercase">
@@ -769,19 +951,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T09:03:44.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/design-2019-08-设计模式（八）：策略模式/" class="title has-link-black-ter is-size-6 has-text-weight-normal">设计模式（八）：策略模式</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -800,7 +969,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">14</span>
+                    <span class="level-item tag">15</span>
                 </span>
             </a>
         </li>
@@ -850,14 +1019,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-DI/">
                         <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -885,7 +1054,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">12</span>
+                        <span class="tag is-grey">13</span>
                     </a>
                 </div>
                 
