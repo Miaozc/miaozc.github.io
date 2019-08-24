@@ -151,6 +151,53 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 36 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/">Spring、IOC、DI、AOP时序图</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="Spring-IOC时序图"><a href="#Spring-IOC时序图" class="headerlink" title="Spring IOC时序图"></a>Spring IOC时序图</h3><img src="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/SpringIOC时序图.png">
+<h3 id="Spring-DI时序图"><a href="#Spring-DI时序图" class="headerlink" title="Spring DI时序图"></a>Spring DI时序图</h3><img src="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/SpringDI时序图.png">
+<h3 id="Spring-AOP时序图"><a href="#Spring-AOP时序图" class="headerlink" title="Spring AOP时序图"></a>Spring AOP时序图</h3><img src="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/SpringAop时序图.png">
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time>
                 
                 <div class="level-item">
@@ -1085,69 +1132,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-08T08:55:17.000Z">2019-08-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 327 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/08/design-2019-08-设计模式（五）：模板方法模式/">设计模式（五）：模板方法模式</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>模板模式通常又叫模板方法模式（Template Method Pattern）是指定义一个算法的骨架，并允许子类为一个或者多个步骤提供实现。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法的某些步骤，属于行为性设计模式。模板方法适用于以下应用场景： </p>
-<p>1、一次性实现一个算法的不变的部分，并将可变的行为留给子类来实现。 </p>
-<p>2、各子类中公共的行为被提取出来并集中到一个公共的父类中，从而避免代码重复。 </p>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><ol>
-<li>定义模板</li>
-</ol>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstTemplateMethod</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">templateMethod1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>&#123;</span><br><span class="line">        <span class="hljs-comment">//抽象业务逻辑与模板逻辑灵活应用</span></span><br><span class="line">        p = p+<span class="hljs-number">10</span>;</span><br><span class="line">        p = method1(p);</span><br><span class="line">        print(p);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>&#123;</span><br><span class="line">        System.out.println(p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>定义模板第一个业务类</li>
-</ol>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TemplateMethod1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstTemplateMethod</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="hljs-string">"templateMethod1 p="</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> p+<span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>定义模板第二个业务类</li>
-</ol>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TemplateMethod2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstTemplateMethod</span></span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">method1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="hljs-string">"templateMethod2 p="</span>);</span><br><span class="line">        <span class="hljs-keyword">return</span> p+<span class="hljs-number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>定义模板第n个业务类….</li>
-<li>测试</li>
-</ol>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestTemplateMethod</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AbstTemplateMethod test = <span class="hljs-keyword">new</span> TemplateMethod1();</span><br><span class="line">        test.templateMethod1(<span class="hljs-number">10</span>);</span><br><span class="line">        test = <span class="hljs-keyword">new</span> TemplateMethod2();</span><br><span class="line">        test.templateMethod1(<span class="hljs-number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1210,7 +1194,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        23
+                        24
                     </p>
                 </div>
             </div>
@@ -1352,7 +1336,7 @@
                 <span class="level-item">Spring</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
@@ -1382,7 +1366,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 12px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 12px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 16px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 12px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 14px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 14px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -1396,6 +1380,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time></div>
+                    <a href="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring、IOC、DI、AOP时序图</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1449,19 +1446,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-12T09:42:08.000Z">2019-08-12</time></div>
-                    <a href="/2019/08/12/Spring-2019-08-Spring源码初探/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring源码分析</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1480,7 +1464,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">16</span>
+                    <span class="level-item tag">17</span>
                 </span>
             </a>
         </li>
@@ -1530,28 +1514,28 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-AOP/">
                         <span class="tag">Spring AOP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-DI/">
                         <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-IOC/">
                         <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1572,7 +1556,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">14</span>
+                        <span class="tag is-grey">15</span>
                     </a>
                 </div>
                 
@@ -1681,6 +1665,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time></div>
+                    <a href="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring、IOC、DI、AOP时序图</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
                     <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
                     <p class="is-size-7 is-uppercase">
@@ -1729,19 +1726,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-12T09:42:08.000Z">2019-08-12</time></div>
-                    <a href="/2019/08/12/Spring-2019-08-Spring源码初探/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring源码分析</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1760,7 +1744,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">16</span>
+                    <span class="level-item tag">17</span>
                 </span>
             </a>
         </li>
@@ -1810,28 +1794,28 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-AOP/">
                         <span class="tag">Spring AOP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-DI/">
                         <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-IOC/">
                         <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1852,7 +1836,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">14</span>
+                        <span class="tag is-grey">15</span>
                     </a>
                 </div>
                 
