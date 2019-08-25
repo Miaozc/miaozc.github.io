@@ -141,6 +141,67 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T08:57:16.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 262 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/design-2019-08-设计模式（六）：原型模式/">设计模式（六）：原型模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ol>
+<li>原型模式（Prototype Pattern）是指原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</li>
+<li>调用者不需要知道任何创建细节</li>
+<li>属于创建型模式</li>
+</ol>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
+<li>类初始化小号资源较多</li>
+<li>new产生的一个对象需要非常繁琐的过程（数据准备、访问权限等）</li>
+<li>构造函数比较复杂</li>
+<li>循环体中产生大量对象时</li>
+</ol>
+<h3 id="常见原型模式工具类"><a href="#常见原型模式工具类" class="headerlink" title="常见原型模式工具类"></a>常见原型模式工具类</h3><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtil.copy();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.paseObject();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Guava</span><br></pre></td></tr></table></figure>
+<h3 id="利用Java提供的Cloneable接口实现"><a href="#利用Java提供的Cloneable接口实现" class="headerlink" title="利用Java提供的Cloneable接口实现"></a>利用Java提供的Cloneable接口实现</h3><h4 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">shallowClone</span><span class="hljs-params">(Test target)</span></span>&#123;</span><br><span class="line">    Test test = <span class="hljs-keyword">new</span> Test();</span><br><span class="line">    test.a = target.a;<span class="hljs-comment">//普通字段</span></span><br><span class="line">    test.object = target.object;<span class="hljs-comment">//对象字段，拷贝的是引用地址</span></span><br><span class="line">    <span class="hljs-keyword">return</span>  test;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">deepClone</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">try</span>&#123;</span><br><span class="line">        ByteArrayOutputStream bos = <span class="hljs-keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        ObjectOutputStream oos = <span class="hljs-keyword">new</span> ObjectOutputStream(bos);</span><br><span class="line">        oos.writeObject(<span class="hljs-keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        ByteArrayInputStream bis = <span class="hljs-keyword">new</span> ByteArrayInputStream(bos.toByteArray());</span><br><span class="line">        ObjectInputStream ois = <span class="hljs-keyword">new</span> ObjectInputStream(bis);</span><br><span class="line">		</span><br><span class="line">        QiTianDaSheng copy = (QiTianDaSheng)ois.readObject();</span><br><span class="line">        copy.birthday = <span class="hljs-keyword">new</span> Date();</span><br><span class="line">        <span class="hljs-keyword">return</span> copy;</span><br><span class="line">    &#125;<span class="hljs-keyword">catch</span> (Exception e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">    &#125;<span class="hljs-keyword">finally</span>&#123;</span><br><span class="line">        ...close;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="深克隆例子"><a href="#深克隆例子" class="headerlink" title="深克隆例子"></a>深克隆例子</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList.clone();<span class="hljs-comment">//ArrayList重写了clone方法</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-08-08T08:55:17.000Z">2019-08-08</time>
                 
                 <div class="level-item">
@@ -933,63 +994,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-06T06:21:30.000Z">2019-05-06</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 分钟 读完 (大约 188 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/05/06/linux-2019-05-Linux学习（四）：四剑客之二（grep、find）/">Linux学习（四）：四剑客之二（grep、find）</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="linux四剑客"><a href="#linux四剑客" class="headerlink" title="linux四剑客"></a>linux四剑客</h2><h3 id="grep-查找文件内容"><a href="#grep-查找文件内容" class="headerlink" title="grep 查找文件内容"></a><code>grep</code> 查找文件内容</h3><blockquote>
-<ul>
-<li><code>grep hello test.txt</code> 在某个文件中查找包含hello的内容，只要一行中有hello会把整行显示</li>
-<li><code>grep -niv helle test.txt</code> <code>n</code>显示查找到的内容行号，<code>i</code>查找时不区分大小写，<code>v</code>反向查找（查找不包含hello的行）</li>
-<li><code>grep -n hello home/admin -r</code> 查找整个目录中的所有文件，包含hello的内容</li>
-</ul>
-</blockquote>
-<h3 id="find-查找文件"><a href="#find-查找文件" class="headerlink" title="find 查找文件"></a><code>find</code> 查找文件</h3><blockquote>
-<ul>
-<li><code>find /home -name 1.txt</code> 在/home目录下查找文件名为1.txt的文件，输出文件路径</li>
-<li><code>find /home -name &#39;*.txt&#39;</code>在/home目录下查找所有后缀为.txt的文件。注意：如果查找模糊文件名，需对文件名参数加上引号。</li>
-</ul>
-</blockquote>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1054,7 +1058,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -1245,6 +1249,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-25T11:10:42.000Z">2019-08-25</time></div>
+                    <a href="/2019/08/25/Spring-2019-08-渐入Spring-MVC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-MVC</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time></div>
                     <a href="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring、IOC、DI、AOP时序图</a>
                     <p class="is-size-7 is-uppercase">
@@ -1293,19 +1310,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:20:57.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI、AOP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1324,7 +1328,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">17</span>
+                    <span class="level-item tag">18</span>
                 </span>
             </a>
         </li>
@@ -1525,6 +1529,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-25T11:10:42.000Z">2019-08-25</time></div>
+                    <a href="/2019/08/25/Spring-2019-08-渐入Spring-MVC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-MVC</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time></div>
                     <a href="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring、IOC、DI、AOP时序图</a>
                     <p class="is-size-7 is-uppercase">
@@ -1573,19 +1590,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:20:57.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-初识Spring-IOC、DI、AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">初识Spring-IOC、DI、AOP</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1604,7 +1608,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">17</span>
+                    <span class="level-item tag">18</span>
                 </span>
             </a>
         </li>
