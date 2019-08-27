@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>标签: AOP - ZhiCheng&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="ZhiCheng&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/tags/AOP/index.html">
+<meta property="og:site_name" content="ZhiCheng&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ZhiCheng&#39;s Blog">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/mzc_logo.svg" alt="ZhiCheng&#39;s Blog" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/Miaozc">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">AOP</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    34 分钟 读完 (大约 5159 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/">渐入Spring-AOP</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="Spring-AOP源码分析"><a href="#Spring-AOP源码分析" class="headerlink" title="Spring AOP源码分析"></a>Spring AOP源码分析</h2><h3 id="一、寻找入口"><a href="#一、寻找入口" class="headerlink" title="一、寻找入口"></a>一、寻找入口</h3><p>Spring 的 AOP 是通过接入 <code>BeanPostProcessor</code> 后置处理器开始的，它是 Spring IOC 容器经常使用到的一个特性，这个 Bean 后置处理器是一个监听器，可以监听容器触发的 Bean 声明周期事件。后置处理器向容器注册以后，容器中管理的 Bean 就具备了接收 IOC 容器事件回调的能力。</p>
+<p><code>BeanPostProcessor</code> 的使用非常简单，只需要提供一个实现接口 BeanPostProcessor 的实现类，然后在 Bean 的配置文件中设置即可。</p>
+<h4 id="1-BeanPostProcessor-源码"><a href="#1-BeanPostProcessor-源码" class="headerlink" title="1. BeanPostProcessor 源码"></a>1. BeanPostProcessor 源码</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BeanPostProcessor</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">//为在 Bean 的初始化前提供回调入口</span></span><br><span class="line">    <span class="hljs-meta">@Nullable</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">default</span> Object <span class="hljs-title">postProcessBeforeInitialization</span><span class="hljs-params">(Object bean, String beanName)</span> <span class="hljs-keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">    	<span class="hljs-keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">//为在 Bean 的初始化之后提供回调入口</span></span><br><span class="line">    <span class="hljs-meta">@Nullable</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">default</span> Object <span class="hljs-title">postProcessAfterInitialization</span><span class="hljs-params">(Object bean, String beanName)</span> <span class="hljs-keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">    	<span class="hljs-keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这两个回调的入口都是和容器管理的 Bean 的生命周期事件紧密相关，可以为用户提供在 Spring IOC容器初始化 Bean 过程中自定义的处理操作。</p>
+<h4 id="2-AbstractAutowireCapableBeanFactory-类对容器生成的-Bean-添加后置处理器"><a href="#2-AbstractAutowireCapableBeanFactory-类对容器生成的-Bean-添加后置处理器" class="headerlink" title="2. AbstractAutowireCapableBeanFactory 类对容器生成的 Bean 添加后置处理器"></a>2. AbstractAutowireCapableBeanFactory 类对容器生成的 Bean 添加后置处理器</h4><p>BeanPostProcessor 后置处理器的调用发生在 Spring IOC 容器完成对 Bean 实例对象的创建和属性的依赖注入完成之后，在对Spring依赖注入的源码分析过程中我们知道，当应用程序第一次调用getBean()方法(lazy-init 预实例化除外)向 Spring IOC 容器索取指定 Bean 时触发 Spring IOC 容器创建 Bean 实例对象并进行依赖注入的过程，其中真正实现创建 Bean 对象并进行依 赖注入的 方 法 是<code>AbstractAutowireCapableBeanFactory</code> 类的<code>doCreateBean()</code>方法，主要源码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//真正创建Bean的方法</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">doCreateBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String beanName, <span class="hljs-keyword">final</span> RootBeanDefinition mbd, <span class="hljs-keyword">final</span> @Nullable Object[] args)</span></span></span><br><span class="line"><span class="hljs-function">    <span class="hljs-keyword">throws</span> BeanCreationException </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Instantiate the bean.</span></span><br><span class="line">    <span class="hljs-comment">//封装被创建的Bean对象</span></span><br><span class="line">    BeanWrapper instanceWrapper = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-keyword">if</span> (mbd.isSingleton()) &#123;</span><br><span class="line">        instanceWrapper = <span class="hljs-keyword">this</span>.factoryBeanInstanceCache.remove(beanName);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (instanceWrapper == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        instanceWrapper = createBeanInstance(beanName, mbd, args);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">final</span> Object bean = instanceWrapper.getWrappedInstance();</span><br><span class="line">    <span class="hljs-comment">//获取实例化对象的类型</span></span><br><span class="line">    Class&lt;?&gt; beanType = instanceWrapper.getWrappedClass();</span><br><span class="line">    <span class="hljs-keyword">if</span> (beanType != NullBean.class) &#123;</span><br><span class="line">        mbd.resolvedTargetType = beanType;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Allow post-processors to modify the merged bean definition.</span></span><br><span class="line">    <span class="hljs-comment">//调用PostProcessor后置处理器</span></span><br><span class="line">    <span class="hljs-keyword">synchronized</span> (mbd.postProcessingLock) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (!mbd.postProcessed) &#123;</span><br><span class="line">            <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,</span><br><span class="line">                                                <span class="hljs-string">"Post-processing of merged bean definition failed"</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            mbd.postProcessed = <span class="hljs-keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Eagerly cache singletons to be able to resolve circular references</span></span><br><span class="line">    <span class="hljs-comment">// even when triggered by lifecycle interfaces like BeanFactoryAware.</span></span><br><span class="line">    <span class="hljs-comment">//向容器中缓存单例模式的Bean对象，以防循环引用</span></span><br><span class="line">    <span class="hljs-keyword">boolean</span> earlySingletonExposure = (mbd.isSingleton() &amp;&amp; <span class="hljs-keyword">this</span>.allowCircularReferences &amp;&amp;</span><br><span class="line">                                      isSingletonCurrentlyInCreation(beanName));</span><br><span class="line">    <span class="hljs-keyword">if</span> (earlySingletonExposure) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">            logger.debug(<span class="hljs-string">"Eagerly caching bean '"</span> + beanName +</span><br><span class="line">                         <span class="hljs-string">"' to allow for resolving potential circular references"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">//这里是一个匿名内部类，为了防止循环引用，尽早持有对象的引用</span></span><br><span class="line">        addSingletonFactory(beanName, () -&gt; getEarlyBeanReference(beanName, mbd, bean));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Initialize the bean instance.</span></span><br><span class="line">    <span class="hljs-comment">//Bean对象的初始化，依赖注入在此触发</span></span><br><span class="line">    <span class="hljs-comment">//这个exposedObject在初始化完成之后返回作为依赖注入完成后的Bean</span></span><br><span class="line">    Object exposedObject = bean;</span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        <span class="hljs-comment">//将Bean实例对象封装，并且Bean定义中配置的属性值赋值给实例对象</span></span><br><span class="line">        populateBean(beanName, mbd, instanceWrapper);</span><br><span class="line">        <span class="hljs-comment">//初始化Bean对象</span></span><br><span class="line">        exposedObject = initializeBean(beanName, exposedObject, mbd);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (ex <span class="hljs-keyword">instanceof</span> BeanCreationException &amp;&amp; beanName.equals(((BeanCreationException) ex).getBeanName())) &#123;</span><br><span class="line">            <span class="hljs-keyword">throw</span> (BeanCreationException) ex;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(</span><br><span class="line">                mbd.getResourceDescription(), beanName, <span class="hljs-string">"Initialization of bean failed"</span>, ex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (earlySingletonExposure) &#123;</span><br><span class="line">        <span class="hljs-comment">//获取指定名称的已注册的单例模式Bean对象</span></span><br><span class="line">        Object earlySingletonReference = getSingleton(beanName, <span class="hljs-keyword">false</span>);</span><br><span class="line">        <span class="hljs-keyword">if</span> (earlySingletonReference != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-comment">//根据名称获取的已注册的Bean和正在实例化的Bean是同一个</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (exposedObject == bean) &#123;</span><br><span class="line">                <span class="hljs-comment">//当前实例化的Bean初始化完成</span></span><br><span class="line">                exposedObject = earlySingletonReference;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-comment">//当前Bean依赖其他Bean，并且当发生循环引用时不允许新创建实例对象</span></span><br><span class="line">            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.allowRawInjectionDespiteWrapping &amp;&amp; hasDependentBean(beanName)) &#123;</span><br><span class="line">                String[] dependentBeans = getDependentBeans(beanName);</span><br><span class="line">                Set&lt;String&gt; actualDependentBeans = <span class="hljs-keyword">new</span> LinkedHashSet&lt;&gt;(dependentBeans.length);</span><br><span class="line">                <span class="hljs-comment">//获取当前Bean所依赖的其他Bean</span></span><br><span class="line">                <span class="hljs-keyword">for</span> (String dependentBean : dependentBeans) &#123;</span><br><span class="line">                    <span class="hljs-comment">//对依赖Bean进行类型检查</span></span><br><span class="line">                    <span class="hljs-keyword">if</span> (!removeSingletonIfCreatedForTypeCheckOnly(dependentBean)) &#123;</span><br><span class="line">                        actualDependentBeans.add(dependentBean);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="hljs-keyword">if</span> (!actualDependentBeans.isEmpty()) &#123;</span><br><span class="line">                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException(beanName,</span><br><span class="line">                                                               <span class="hljs-string">"Bean with name '"</span> + beanName + <span class="hljs-string">"' has been injected into other beans ["</span> +</span><br><span class="line">                                                               StringUtils.collectionToCommaDelimitedString(actualDependentBeans) +</span><br><span class="line">                                                               <span class="hljs-string">"] in its raw version as part of a circular reference, but has eventually been "</span> +</span><br><span class="line">                                                               <span class="hljs-string">"wrapped. This means that said other beans do not use the final version of the "</span> +</span><br><span class="line">                                                               <span class="hljs-string">"bean. This is often the result of over-eager type matching - consider using "</span> +</span><br><span class="line">                                                               <span class="hljs-string">"'getBeanNamesOfType' with the 'allowEagerInit' flag turned off, for example."</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Register bean as disposable.</span></span><br><span class="line">    <span class="hljs-comment">//注册完成依赖注入的Bean</span></span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        registerDisposableBeanIfNecessary(beanName, bean, mbd);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (BeanDefinitionValidationException ex) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(</span><br><span class="line">            mbd.getResourceDescription(), beanName, <span class="hljs-string">"Invalid destruction signature"</span>, ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> exposedObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面的代码中我们知道，为 Bean 实例对象添加 BeanPostProcessor 后置处理器的入口的是<code>initializeBean()</code>方法</p>
+<h4 id="3-initializeBean-方法为容器产生的-Bean-实例对象添加-BeanPostProcessor-后置处理器"><a href="#3-initializeBean-方法为容器产生的-Bean-实例对象添加-BeanPostProcessor-后置处理器" class="headerlink" title="3. initializeBean()方法为容器产生的 Bean 实例对象添加 BeanPostProcessor 后置处理器"></a>3. initializeBean()方法为容器产生的 Bean 实例对象添加 BeanPostProcessor 后置处理器</h4><p>同样在 <code>AbstractAutowireCapableBeanFactory</code> 类中，<code>initializeBean()</code>方法实现为容器创建的 Bean实例对象添加 BeanPostProcessor 后置处理器，源码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//初始容器创建的Bean实例对象，为其添加BeanPostProcessor后置处理器</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">initializeBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> String beanName, <span class="hljs-keyword">final</span> Object bean, @Nullable RootBeanDefinition mbd)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">//JDK的安全机制验证权限</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        <span class="hljs-comment">//实现PrivilegedAction接口的匿名内部类</span></span><br><span class="line">        AccessController.doPrivileged((PrivilegedAction&lt;Object&gt;) () -&gt; &#123;</span><br><span class="line">            invokeAwareMethods(beanName, bean);</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">        &#125;, getAccessControlContext());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-comment">//为Bean实例对象包装相关属性，如名称，类加载器，所属容器等信息</span></span><br><span class="line">        invokeAwareMethods(beanName, bean);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Object wrappedBean = bean;</span><br><span class="line">    <span class="hljs-comment">//对BeanPostProcessor后置处理器的postProcessBeforeInitialization</span></span><br><span class="line">    <span class="hljs-comment">//回调方法的调用，为Bean实例初始化前做一些处理</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (mbd == <span class="hljs-keyword">null</span> || !mbd.isSynthetic()) &#123;</span><br><span class="line">        wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//调用Bean实例对象初始化的方法，这个初始化方法是在Spring Bean定义配置</span></span><br><span class="line">    <span class="hljs-comment">//文件中通过init-method属性指定的</span></span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        invokeInitMethods(beanName, wrappedBean, mbd);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(</span><br><span class="line">            (mbd != <span class="hljs-keyword">null</span> ? mbd.getResourceDescription() : <span class="hljs-keyword">null</span>),</span><br><span class="line">            beanName, <span class="hljs-string">"Invocation of init method failed"</span>, ex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">//对BeanPostProcessor后置处理器的postProcessAfterInitialization</span></span><br><span class="line">    <span class="hljs-comment">//回调方法的调用，为Bean实例初始化之后做一些处理</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (mbd == <span class="hljs-keyword">null</span> || !mbd.isSynthetic()) &#123;</span><br><span class="line">        wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> wrappedBean;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//调用BeanPostProcessor后置处理器实例对象初始化之前的处理方法</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">applyBeanPostProcessorsBeforeInitialization</span><span class="hljs-params">(Object existingBean, String beanName)</span></span></span><br><span class="line"><span class="hljs-function">    <span class="hljs-keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">    Object result = existingBean;</span><br><span class="line">    <span class="hljs-comment">//遍历容器为所创建的Bean添加的所有BeanPostProcessor后置处理器</span></span><br><span class="line">    <span class="hljs-keyword">for</span> (BeanPostProcessor beanProcessor : getBeanPostProcessors()) &#123;</span><br><span class="line">        <span class="hljs-comment">//调用Bean实例所有的后置处理中的初始化前处理方法，为Bean实例对象在</span></span><br><span class="line">        <span class="hljs-comment">//初始化之前做一些自定义的处理操作</span></span><br><span class="line">        Object current = beanProcessor.postProcessBeforeInitialization(result, beanName);</span><br><span class="line">        <span class="hljs-keyword">if</span> (current == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        result = current;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>BeanPostProcessor</code> 是一个接口，其初始化前的操作方法和初始化后的操作方法均委托其实现子类来实现，在 Spring 中，BeanPostProcessor 的实现子类非常的多，分别完成不同的操作，如：AOP 面向切面编程的注册通知适配器、Bean 对象的数据校验、Bean 继承属性、方法的合并等等，我们以最简单的AOP 切面织入来简单了解其主要的功能。下面我们来分析其中一个创建 AOP 代理对象的子类<code>AbstractAutoProxyCreator</code> 类。该类重写了 <code>postProcessAfterInitialization()</code>方法。</p>
+<h3 id="二、选择代理策略"><a href="#二、选择代理策略" class="headerlink" title="二、选择代理策略"></a>二、选择代理策略</h3><p>进入 postProcessAfterInitialization()方法，我们发现调到了一个非常核心的方法<code>wrapIfNecessary()</code>，其源码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">postProcessAfterInitialization</span><span class="hljs-params">(@Nullable Object bean, String beanName)</span> <span class="hljs-keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (bean != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        Object cacheKey = getCacheKey(bean.getClass(), beanName);</span><br><span class="line">        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.earlyProxyReferences.contains(cacheKey)) &#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> wrapIfNecessary(bean, beanName, cacheKey);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> bean;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">wrapIfNecessary</span><span class="hljs-params">(Object bean, String beanName, Object cacheKey)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (StringUtils.hasLength(beanName) &amp;&amp; <span class="hljs-keyword">this</span>.targetSourcedBeans.contains(beanName)) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (Boolean.FALSE.equals(<span class="hljs-keyword">this</span>.advisedBeans.get(cacheKey))) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (isInfrastructureClass(bean.getClass()) || shouldSkip(bean.getClass(), beanName)) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.advisedBeans.put(cacheKey, Boolean.FALSE);</span><br><span class="line">        <span class="hljs-keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Create proxy if we have advice.</span></span><br><span class="line">    Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, <span class="hljs-keyword">null</span>);</span><br><span class="line">    <span class="hljs-keyword">if</span> (specificInterceptors != DO_NOT_PROXY) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.advisedBeans.put(cacheKey, Boolean.TRUE);</span><br><span class="line">        Object proxy = createProxy(</span><br><span class="line">            bean.getClass(), beanName, specificInterceptors, <span class="hljs-keyword">new</span> SingletonTargetSource(bean));</span><br><span class="line">        <span class="hljs-keyword">this</span>.proxyTypes.put(cacheKey, proxy.getClass());</span><br><span class="line">        <span class="hljs-keyword">return</span> proxy;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">this</span>.advisedBeans.put(cacheKey, Boolean.FALSE);</span><br><span class="line">    <span class="hljs-keyword">return</span> bean;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">createProxy</span><span class="hljs-params">(Class&lt;?&gt; beanClass, @Nullable String beanName,@Nullable Object[] specificInterceptors, TargetSource targetSource)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.beanFactory <span class="hljs-keyword">instanceof</span> ConfigurableListableBeanFactory) &#123;</span><br><span class="line">        AutoProxyUtils.exposeTargetClass((ConfigurableListableBeanFactory) <span class="hljs-keyword">this</span>.beanFactory, beanName, beanClass);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ProxyFactory proxyFactory = <span class="hljs-keyword">new</span> ProxyFactory();</span><br><span class="line">    proxyFactory.copyFrom(<span class="hljs-keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (!proxyFactory.isProxyTargetClass()) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (shouldProxyTargetClass(beanClass, beanName)) &#123;</span><br><span class="line">            proxyFactory.setProxyTargetClass(<span class="hljs-keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            evaluateProxyInterfaces(beanClass, proxyFactory);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Advisor[] advisors = buildAdvisors(beanName, specificInterceptors);</span><br><span class="line">    proxyFactory.addAdvisors(advisors);</span><br><span class="line">    proxyFactory.setTargetSource(targetSource);</span><br><span class="line">    customizeProxyFactory(proxyFactory);</span><br><span class="line"></span><br><span class="line">    proxyFactory.setFrozen(<span class="hljs-keyword">this</span>.freezeProxy);</span><br><span class="line">    <span class="hljs-keyword">if</span> (advisorsPreFiltered()) &#123;</span><br><span class="line">        proxyFactory.setPreFiltered(<span class="hljs-keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> proxyFactory.getProxy(getProxyClassLoader());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>整个过程跟下来，我发现最终调用的是 proxyFactory.getProxy()方法。到这里我们大概能够猜到proxyFactory 有 JDK 和 CGLib 的，那么我们该如何选择呢？最终调用的是DefaultAopProxyFactory的 createAopProxy()方法：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultAopProxyFactory</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">AopProxyFactory</span>, <span class="hljs-title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> AopProxy <span class="hljs-title">createAopProxy</span><span class="hljs-params">(AdvisedSupport config)</span> <span class="hljs-keyword">throws</span> AopConfigException </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">if</span> (config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) &#123;</span><br><span class="line">			Class&lt;?&gt; targetClass = config.getTargetClass();</span><br><span class="line">			<span class="hljs-keyword">if</span> (targetClass == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">				<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AopConfigException(<span class="hljs-string">"TargetSource cannot determine target class: "</span> +</span><br><span class="line">						<span class="hljs-string">"Either an interface or a target is required for proxy creation."</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="hljs-keyword">if</span> (targetClass.isInterface() || Proxy.isProxyClass(targetClass)) &#123;</span><br><span class="line">				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> JdkDynamicAopProxy(config);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ObjenesisCglibAopProxy(config);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-keyword">else</span> &#123;</span><br><span class="line">			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> JdkDynamicAopProxy(config);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Determine whether the supplied &#123;<span class="hljs-doctag">@link</span> AdvisedSupport&#125; has only the</span></span><br><span class="line"><span class="hljs-comment">	 * &#123;<span class="hljs-doctag">@link</span> org.springframework.aop.SpringProxy&#125; interface specified</span></span><br><span class="line"><span class="hljs-comment">	 * (or no proxy interfaces specified at all).</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNoUserSuppliedProxyInterfaces</span><span class="hljs-params">(AdvisedSupport config)</span> </span>&#123;</span><br><span class="line">		Class&lt;?&gt;[] ifcs = config.getProxiedInterfaces();</span><br><span class="line">		<span class="hljs-keyword">return</span> (ifcs.length == <span class="hljs-number">0</span> || (ifcs.length == <span class="hljs-number">1</span> &amp;&amp; SpringProxy.class.isAssignableFrom(ifcs[<span class="hljs-number">0</span>])));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三、调用代理方法"><a href="#三、调用代理方法" class="headerlink" title="三、调用代理方法"></a>三、调用代理方法</h3><p>分析调用逻辑之前先上类图，看看 Spring 中主要的 AOP 组件：</p>
+<img src="/2019/08/22/Spring-2019-08-渐入Spring-AOP/AopProxy.png">
+<p>上面我们已经了解到 Spring 提供了两种方式来生成代理方式有 JDKProxy 和 CGLib。下面我们来研究一下 Spring 如何使用 JDK 来生成代理对象，具体的生成代码放在<code>JdkDynamicAopProxy</code> 这个类中，直接上相关代码：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * 获取代理类要实现的接口,除了Advised对象中配置的,还会加上SpringProxy, Advised(opaque=false)</span></span><br><span class="line"><span class="hljs-comment">	 * 检查上面得到的接口中有没有定义 equals或者hashcode的接口</span></span><br><span class="line"><span class="hljs-comment">	 * 调用Proxy.newProxyInstance创建代理对象</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getProxy</span><span class="hljs-params">(@Nullable ClassLoader classLoader)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">       <span class="hljs-comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    Class&lt;?&gt;[] proxiedInterfaces = AopProxyUtils.completeProxiedInterfaces(<span class="hljs-keyword">this</span>.advised, <span class="hljs-keyword">true</span>);</span><br><span class="line">    findDefinedEqualsAndHashCodeMethods(proxiedInterfaces);</span><br><span class="line">    <span class="hljs-keyword">return</span> Proxy.newProxyInstance(classLoader, proxiedInterfaces, <span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过注释我们应该已经看得非常明白代理对象的生成过程，此处不再赘述。下面的问题是，代理对象生成了，那切面是如何织入的? </p>
+<p>我们知道 <code>InvocationHandler</code> 是 JDK 动态代理的核心，生成的代理对象的方法调用都会委托到<code>InvocationHandler.invoke()</code>方法。而从 <code>JdkDynamicAopProxy</code> 的源码我们可以看到这个类其实也实现了 <code>InvocationHandler</code>，下面我们分析 Spring AOP 是如何织入切面的，直接上源码看 invoke()方法：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    MethodInvocation invocation;</span><br><span class="line">    Object oldProxy = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-keyword">boolean</span> setProxyContext = <span class="hljs-keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    TargetSource targetSource = <span class="hljs-keyword">this</span>.advised.targetSource;</span><br><span class="line">    Object target = <span class="hljs-keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        <span class="hljs-comment">//eqauls()方法，具目标对象未实现此方法</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.equalsDefined &amp;&amp; AopUtils.isEqualsMethod(method)) &#123;</span><br><span class="line">            <span class="hljs-comment">// The target does not implement the equals(Object) method itself.</span></span><br><span class="line">            <span class="hljs-keyword">return</span> equals(args[<span class="hljs-number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">//hashCode()方法，具目标对象未实现此方法</span></span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.hashCodeDefined &amp;&amp; AopUtils.isHashCodeMethod(method)) &#123;</span><br><span class="line">            <span class="hljs-comment">// The target does not implement the hashCode() method itself.</span></span><br><span class="line">            <span class="hljs-keyword">return</span> hashCode();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (method.getDeclaringClass() == DecoratingProxy.class) &#123;</span><br><span class="line">            <span class="hljs-comment">// There is only getDecoratedClass() declared -&gt; dispatch to proxy config.</span></span><br><span class="line">            <span class="hljs-keyword">return</span> AopProxyUtils.ultimateTargetClass(<span class="hljs-keyword">this</span>.advised);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">//Advised接口或者其父接口中定义的方法,直接反射调用,不应用通知</span></span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.advised.opaque &amp;&amp; method.getDeclaringClass().isInterface() &amp;&amp;</span><br><span class="line">                 method.getDeclaringClass().isAssignableFrom(Advised.class)) &#123;</span><br><span class="line">            <span class="hljs-comment">// Service invocations on ProxyConfig with the proxy config...</span></span><br><span class="line">            <span class="hljs-keyword">return</span> AopUtils.invokeJoinpointUsingReflection(<span class="hljs-keyword">this</span>.advised, method, args);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Object retVal;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.advised.exposeProxy) &#123;</span><br><span class="line">            <span class="hljs-comment">// Make invocation available if necessary.</span></span><br><span class="line">            oldProxy = AopContext.setCurrentProxy(proxy);</span><br><span class="line">            setProxyContext = <span class="hljs-keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">// Get as late as possible to minimize the time we "own" the target,</span></span><br><span class="line">        <span class="hljs-comment">// in case it comes from a pool.</span></span><br><span class="line">        <span class="hljs-comment">//获得目标对象的类</span></span><br><span class="line">        target = targetSource.getTarget();</span><br><span class="line">        Class&lt;?&gt; targetClass = (target != <span class="hljs-keyword">null</span> ? target.getClass() : <span class="hljs-keyword">null</span>);</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">// Get the interception chain for this method.</span></span><br><span class="line">        <span class="hljs-comment">//获取可以应用到此方法上的Interceptor列表</span></span><br><span class="line">        List&lt;Object&gt; chain = <span class="hljs-keyword">this</span>.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">// Check whether we have any advice. If we don't, we can fallback on direct</span></span><br><span class="line">        <span class="hljs-comment">// reflective invocation of the target, and avoid creating a MethodInvocation.</span></span><br><span class="line">        <span class="hljs-comment">//如果没有可以应用到此方法的通知(Interceptor)，此直接反射调用 method.invoke(target, args)</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (chain.isEmpty()) &#123;</span><br><span class="line">            <span class="hljs-comment">// We can skip creating a MethodInvocation: just invoke the target directly</span></span><br><span class="line">            <span class="hljs-comment">// Note that the final invoker must be an InvokerInterceptor so we know it does</span></span><br><span class="line">            <span class="hljs-comment">// nothing but a reflective operation on the target, and no hot swapping or fancy proxying.</span></span><br><span class="line">            Object[] argsToUse = AopProxyUtils.adaptArgumentsIfNecessary(method, args);</span><br><span class="line">            retVal = AopUtils.invokeJoinpointUsingReflection(target, method, argsToUse);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-comment">// We need to create a method invocation...</span></span><br><span class="line">            <span class="hljs-comment">//创建MethodInvocation</span></span><br><span class="line">            invocation = <span class="hljs-keyword">new</span> ReflectiveMethodInvocation(proxy, target, method, args, targetClass, chain);</span><br><span class="line">            <span class="hljs-comment">// Proceed to the joinpoint through the interceptor chain.</span></span><br><span class="line">            retVal = invocation.proceed();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">// Massage return value if necessary.</span></span><br><span class="line">        Class&lt;?&gt; returnType = method.getReturnType();</span><br><span class="line">        <span class="hljs-keyword">if</span> (retVal != <span class="hljs-keyword">null</span> &amp;&amp; retVal == target &amp;&amp;</span><br><span class="line">            returnType != Object.class &amp;&amp; returnType.isInstance(proxy) &amp;&amp;</span><br><span class="line">            !RawTargetAccess.class.isAssignableFrom(method.getDeclaringClass())) &#123;</span><br><span class="line">            <span class="hljs-comment">// Special case: it returned "this" and the return type of the method</span></span><br><span class="line">            <span class="hljs-comment">// is type-compatible. Note that we can't help if the target sets</span></span><br><span class="line">            <span class="hljs-comment">// a reference to itself in another returned object.</span></span><br><span class="line">            retVal = proxy;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (retVal == <span class="hljs-keyword">null</span> &amp;&amp; returnType != Void.TYPE &amp;&amp; returnType.isPrimitive()) &#123;</span><br><span class="line">            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AopInvocationException(</span><br><span class="line">                <span class="hljs-string">"Null return value from advice does not match primitive return type for: "</span> + method);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> retVal;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">finally</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (target != <span class="hljs-keyword">null</span> &amp;&amp; !targetSource.isStatic()) &#123;</span><br><span class="line">            <span class="hljs-comment">// Must have come from TargetSource.</span></span><br><span class="line">            targetSource.releaseTarget(target);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (setProxyContext) &#123;</span><br><span class="line">            <span class="hljs-comment">// Restore old proxy.</span></span><br><span class="line">            AopContext.setCurrentProxy(oldProxy);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要实现思路可以简述为：首先获取应用到此方法上的通知链（Interceptor Chain）。如果有通知，则应用通知，并执行 JoinPoint；如果没有通知，则直接反射执行 JoinPoint。而这里的关键是通知链是如何获取的以及它又是如何执行的呢？现在来逐一分析。首先，从上面的代码可以看到，通知链是通过</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Advised.getInterceptorsAndDynamicInterceptionAdvice()</span><br></pre></td></tr></table></figure>
+<p>这个方法来获取的，我们来看下这个方法的实现逻辑：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Object&gt; <span class="hljs-title">getInterceptorsAndDynamicInterceptionAdvice</span><span class="hljs-params">(Method Method, @Nullable Class&lt;?&gt; targetClass)</span></span>&#123;</span><br><span class="line">    MethodCacheKey cacheKey = <span class="hljs-keyword">new</span> MethodCacheKey(Method);</span><br><span class="line">    List&lt;Object&gt; cached = <span class="hljs-keyword">this</span>.MethodCache.get(cacheKey);</span><br><span class="line">    <span class="hljs-keyword">if</span> (cached == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        cached = <span class="hljs-keyword">this</span>.advisorChainFactory.getInterceptorsAndDynamicInterceptionAdvice(</span><br><span class="line">        <span class="hljs-keyword">this</span>, Method, targetClass);</span><br><span class="line">        <span class="hljs-keyword">this</span>.MethodCache.put(cacheKey, cached);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> cached;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的源码我们可以看到，实际获取通知的实现逻辑其实是由<code>AdvisorChainFactory</code> 的<code>getInterceptorsAndDynamicInterceptionAdvice()</code>方法来完成的，且获取到的结果会被缓存。下面来分析<code>getInterceptorsAndDynamicInterceptionAdvice()</code>方法的实现：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * 从提供的配置实例config中获取advisor列表,遍历处理这些advisor.如果是IntroductionAdvisor,</span></span><br><span class="line"><span class="hljs-comment">	 * 则判断此Advisor能否应用到目标类targetClass上.如果是PointcutAdvisor,则判断</span></span><br><span class="line"><span class="hljs-comment">	 * 此Advisor能否应用到目标方法method上.将满足条件的Advisor通过AdvisorAdaptor转化成Interceptor列表返回.</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Object&gt; <span class="hljs-title">getInterceptorsAndDynamicInterceptionAdvice</span><span class="hljs-params">(</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">    Advised config, Method method, @Nullable Class&lt;?&gt; targetClass)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// This is somewhat tricky... We have to process introductions first,</span></span><br><span class="line">    <span class="hljs-comment">// but we need to preserve order in the ultimate list.</span></span><br><span class="line">    List&lt;Object&gt; interceptorList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(config.getAdvisors().length);</span><br><span class="line">    Class&lt;?&gt; actualClass = (targetClass != <span class="hljs-keyword">null</span> ? targetClass : method.getDeclaringClass());</span><br><span class="line">    <span class="hljs-comment">//查看是否包含IntroductionAdvisor</span></span><br><span class="line">    <span class="hljs-keyword">boolean</span> hasIntroductions = hasMatchingIntroductions(config, actualClass);</span><br><span class="line">    <span class="hljs-comment">//这里实际上注册一系列AdvisorAdapter,用于将Advisor转化成MethodInterceptor</span></span><br><span class="line">    AdvisorAdapterRegistry registry = GlobalAdvisorAdapterRegistry.getInstance();</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> (Advisor advisor : config.getAdvisors()) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (advisor <span class="hljs-keyword">instanceof</span> PointcutAdvisor) &#123;</span><br><span class="line">            <span class="hljs-comment">// Add it conditionally.</span></span><br><span class="line">            PointcutAdvisor pointcutAdvisor = (PointcutAdvisor) advisor;</span><br><span class="line">            <span class="hljs-keyword">if</span> (config.isPreFiltered() || pointcutAdvisor.getPointcut().getClassFilter().matches(actualClass)) &#123;</span><br><span class="line">                <span class="hljs-comment">//这个地方这两个方法的位置可以互换下</span></span><br><span class="line">                <span class="hljs-comment">//将Advisor转化成Interceptor</span></span><br><span class="line">                MethodInterceptor[] interceptors = registry.getInterceptors(advisor);</span><br><span class="line">                <span class="hljs-comment">//检查当前advisor的pointcut是否可以匹配当前方法</span></span><br><span class="line">                MethodMatcher mm = pointcutAdvisor.getPointcut().getMethodMatcher();</span><br><span class="line">                <span class="hljs-keyword">if</span> (MethodMatchers.matches(mm, method, actualClass, hasIntroductions)) &#123;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (mm.isRuntime()) &#123;</span><br><span class="line">                        <span class="hljs-comment">// Creating a new object instance in the getInterceptors() method</span></span><br><span class="line">                        <span class="hljs-comment">// isn't a problem as we normally cache created chains.</span></span><br><span class="line">                        <span class="hljs-keyword">for</span> (MethodInterceptor interceptor : interceptors) &#123;</span><br><span class="line">                            interceptorList.add(<span class="hljs-keyword">new</span> InterceptorAndDynamicMethodMatcher(interceptor, mm));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                        interceptorList.addAll(Arrays.asList(interceptors));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (advisor <span class="hljs-keyword">instanceof</span> IntroductionAdvisor) &#123;</span><br><span class="line">            IntroductionAdvisor ia = (IntroductionAdvisor) advisor;</span><br><span class="line">            <span class="hljs-keyword">if</span> (config.isPreFiltered() || ia.getClassFilter().matches(actualClass)) &#123;</span><br><span class="line">                Interceptor[] interceptors = registry.getInterceptors(advisor);</span><br><span class="line">                interceptorList.addAll(Arrays.asList(interceptors));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            Interceptor[] interceptors = registry.getInterceptors(advisor);</span><br><span class="line">            interceptorList.addAll(Arrays.asList(interceptors));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> interceptorList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法执行完成后，Advised 中配置能够应用到连接点（JoinPoint）或者目标类（Target Object）的 Advisor 全部被转化成了 MethodInterceptor，接下来我们再看下得到的拦截器链是怎么起作用的。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//如果没有可以应用到此方法的通知(Interceptor)，此直接反射调用 method.invoke(target, args)</span></span><br><span class="line"><span class="hljs-keyword">if</span> (chain.isEmpty()) &#123;</span><br><span class="line">    <span class="hljs-comment">// We can skip creating a MethodInvocation: just invoke the target directly</span></span><br><span class="line">    <span class="hljs-comment">// Note that the final invoker must be an InvokerInterceptor so we know it does</span></span><br><span class="line">    <span class="hljs-comment">// nothing but a reflective operation on the target, and no hot swapping or fancy proxying.</span></span><br><span class="line">    Object[] argsToUse = AopProxyUtils.adaptArgumentsIfNecessary(method, args);</span><br><span class="line">    retVal = AopUtils.invokeJoinpointUsingReflection(target, method, argsToUse);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">else</span> &#123;</span><br><span class="line">    <span class="hljs-comment">// We need to create a method invocation...</span></span><br><span class="line">    <span class="hljs-comment">//创建MethodInvocation</span></span><br><span class="line">    invocation = <span class="hljs-keyword">new</span> ReflectiveMethodInvocation(proxy, target, method, args, targetClass, chain);</span><br><span class="line">    <span class="hljs-comment">// Proceed to the joinpoint through the interceptor chain.</span></span><br><span class="line">    retVal = invocation.proceed();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从这段代码可以看出，如果得到的拦截器链为空，则直接反射调用目标方法，否则创建<code>MethodInvocation</code>，调用其 proceed()方法，触发拦截器链的执行，来看下具体代码:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">proceed</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    <span class="hljs-comment">//	We start with an index of -1 and increment early.</span></span><br><span class="line">    <span class="hljs-comment">//如果Interceptor执行完了，则执行joinPoint</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.currentInterceptorIndex == <span class="hljs-keyword">this</span>.interceptorsAndDynamicMethodMatchers.size() - <span class="hljs-number">1</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> invokeJoinpoint();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Object interceptorOrInterceptionAdvice =</span><br><span class="line">        <span class="hljs-keyword">this</span>.interceptorsAndDynamicMethodMatchers.get(++<span class="hljs-keyword">this</span>.currentInterceptorIndex);</span><br><span class="line">    <span class="hljs-comment">//如果要动态匹配joinPoint</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (interceptorOrInterceptionAdvice <span class="hljs-keyword">instanceof</span> InterceptorAndDynamicMethodMatcher) &#123;</span><br><span class="line">        <span class="hljs-comment">// Evaluate dynamic method matcher here: static part will already have</span></span><br><span class="line">        <span class="hljs-comment">// been evaluated and found to match.</span></span><br><span class="line">        InterceptorAndDynamicMethodMatcher dm =</span><br><span class="line">            (InterceptorAndDynamicMethodMatcher) interceptorOrInterceptionAdvice;</span><br><span class="line">        <span class="hljs-comment">//动态匹配：运行时参数是否满足匹配条件</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (dm.methodMatcher.matches(<span class="hljs-keyword">this</span>.method, <span class="hljs-keyword">this</span>.targetClass, <span class="hljs-keyword">this</span>.arguments)) &#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> dm.interceptor.invoke(<span class="hljs-keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-comment">// Dynamic matching failed.</span></span><br><span class="line">            <span class="hljs-comment">// Skip this interceptor and invoke the next in the chain.</span></span><br><span class="line">            <span class="hljs-comment">//动态匹配失败时,略过当前Intercetpor,调用下一个Interceptor</span></span><br><span class="line">            <span class="hljs-keyword">return</span> proceed();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-comment">// It's an interceptor, so we just invoke it: The pointcut will have</span></span><br><span class="line">        <span class="hljs-comment">// been evaluated statically before this object was constructed.</span></span><br><span class="line">        <span class="hljs-comment">//执行当前Intercetpor</span></span><br><span class="line">        <span class="hljs-keyword">return</span> ((MethodInterceptor) interceptorOrInterceptionAdvice).invoke(<span class="hljs-keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至此，通知链就完美地形成了。我们再往下来看 <code>invokeJoinpointUsingReflection()</code>方法，其实就是反射调用：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">invokeJoinpointUsingReflection</span><span class="hljs-params">(@Nullable Object target, Method method, Object[] args)</span></span></span><br><span class="line"><span class="hljs-function">    <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Use reflection to invoke the method.</span></span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        ReflectionUtils.makeAccessible(method);</span><br><span class="line">        <span class="hljs-keyword">return</span> method.invoke(target, args);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (InvocationTargetException ex) &#123;</span><br><span class="line">        <span class="hljs-comment">// Invoked method threw a checked exception.</span></span><br><span class="line">        <span class="hljs-comment">// We must rethrow it. The client won't see the interceptor.</span></span><br><span class="line">        <span class="hljs-keyword">throw</span> ex.getTargetException();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (IllegalArgumentException ex) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AopInvocationException(<span class="hljs-string">"AOP configuration seems to be invalid: tried calling method ["</span> +</span><br><span class="line">                                         method + <span class="hljs-string">"] on target ["</span> + target + <span class="hljs-string">"]"</span>, ex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (IllegalAccessException ex) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> AopInvocationException(<span class="hljs-string">"Could not access method ["</span> + method + <span class="hljs-string">"]"</span>, ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Spring AOP 源码就分析到这儿, 下面是AOP时序图:</p>
+<img src="/2019/08/22/Spring-2019-08-渐入Spring-AOP/spring_aop_Timing.jpg">
+<h3 id="四、触发通知"><a href="#四、触发通知" class="headerlink" title="四、触发通知"></a>四、触发通知</h3><p>在为 AopProxy 代理对象配置拦截器的实现中，有一个取得拦截器的配置过程，这个过程是由 <code>DefaultAdvisorChainFactory</code> 实现的，这个工厂类负责生成拦截器链，在它的<code>getInterceptorsAndDynamicInterceptionAdvice</code> 方法中，有一个适配器和注册过程，通过配置 Spring 预先设计好的拦截器，Spring 加入了它对 AOP 实现的处理。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * 从提供的配置实例config中获取advisor列表,遍历处理这些advisor.如果是IntroductionAdvisor,</span></span><br><span class="line"><span class="hljs-comment">	 * 则判断此Advisor能否应用到目标类targetClass上.如果是PointcutAdvisor,则判断</span></span><br><span class="line"><span class="hljs-comment">	 * 此Advisor能否应用到目标方法method上.将满足条件的Advisor通过AdvisorAdaptor转化成Interceptor列表返回.</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Object&gt; <span class="hljs-title">getInterceptorsAndDynamicInterceptionAdvice</span><span class="hljs-params">(</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">    Advised config, Method method, @Nullable Class&lt;?&gt; targetClass)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    List&lt;Object&gt; interceptorList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(config.getAdvisors().length);</span><br><span class="line">    Class&lt;?&gt; actualClass = (targetClass != <span class="hljs-keyword">null</span> ? targetClass : method.getDeclaringClass());</span><br><span class="line">    <span class="hljs-comment">//查看是否包含IntroductionAdvisor</span></span><br><span class="line">    <span class="hljs-keyword">boolean</span> hasIntroductions = hasMatchingIntroductions(config, actualClass);</span><br><span class="line">    <span class="hljs-comment">//这里实际上注册一系列AdvisorAdapter,用于将Advisor转化成MethodInterceptor</span></span><br><span class="line">    AdvisorAdapterRegistry registry = GlobalAdvisorAdapterRegistry.getInstance();</span><br><span class="line">	<span class="hljs-comment">//....</span></span><br><span class="line">    <span class="hljs-keyword">return</span> interceptorList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>GlobalAdvisorAdapterRegistry</code> 负责拦截器的适配和注册过程。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GlobalAdvisorAdapterRegistry</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Keep track of a single instance so we can return it to classes that request it.</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line">	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> AdvisorAdapterRegistry instance = <span class="hljs-keyword">new</span> DefaultAdvisorAdapterRegistry();</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Return the singleton &#123;<span class="hljs-doctag">@link</span> DefaultAdvisorAdapterRegistry&#125; instance.</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> AdvisorAdapterRegistry <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Reset the singleton &#123;<span class="hljs-doctag">@link</span> DefaultAdvisorAdapterRegistry&#125;, removing any</span></span><br><span class="line"><span class="hljs-comment">	 * &#123;<span class="hljs-doctag">@link</span> AdvisorAdapterRegistry#registerAdvisorAdapter(AdvisorAdapter) registered&#125;</span></span><br><span class="line"><span class="hljs-comment">	 * adapters.</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reset</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		instance = <span class="hljs-keyword">new</span> DefaultAdvisorAdapterRegistry();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而 <code>GlobalAdvisorAdapterRegistry</code> 起到了适配器和单例模式的作用，提供了一个<code>DefaultAdvisorAdapterRegistry</code>，它用来完成各种通知的适配和注册过程。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultAdvisorAdapterRegistry</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">AdvisorAdapterRegistry</span>, <span class="hljs-title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> List&lt;AdvisorAdapter&gt; adapters = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Create a new DefaultAdvisorAdapterRegistry, registering well-known adapters.</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DefaultAdvisorAdapterRegistry</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		registerAdvisorAdapter(<span class="hljs-keyword">new</span> MethodBeforeAdviceAdapter());</span><br><span class="line">		registerAdvisorAdapter(<span class="hljs-keyword">new</span> AfterReturningAdviceAdapter());</span><br><span class="line">		registerAdvisorAdapter(<span class="hljs-keyword">new</span> ThrowsAdviceAdapter());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> Advisor <span class="hljs-title">wrap</span><span class="hljs-params">(Object adviceObject)</span> <span class="hljs-keyword">throws</span> UnknownAdviceTypeException </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">if</span> (adviceObject <span class="hljs-keyword">instanceof</span> Advisor) &#123;</span><br><span class="line">			<span class="hljs-keyword">return</span> (Advisor) adviceObject;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-keyword">if</span> (!(adviceObject <span class="hljs-keyword">instanceof</span> Advice)) &#123;</span><br><span class="line">			<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnknownAdviceTypeException(adviceObject);</span><br><span class="line">		&#125;</span><br><span class="line">		Advice advice = (Advice) adviceObject;</span><br><span class="line">		<span class="hljs-keyword">if</span> (advice <span class="hljs-keyword">instanceof</span> MethodInterceptor) &#123;</span><br><span class="line">			<span class="hljs-comment">// So well-known it doesn't even need an adapter.</span></span><br><span class="line">			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultPointcutAdvisor(advice);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-keyword">for</span> (AdvisorAdapter adapter : <span class="hljs-keyword">this</span>.adapters) &#123;</span><br><span class="line">			<span class="hljs-comment">// Check that it is supported.</span></span><br><span class="line">			<span class="hljs-keyword">if</span> (adapter.supportsAdvice(advice)) &#123;</span><br><span class="line">				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultPointcutAdvisor(advice);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnknownAdviceTypeException(advice);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-keyword">public</span> MethodInterceptor[] getInterceptors(Advisor advisor) <span class="hljs-keyword">throws</span> UnknownAdviceTypeException &#123;</span><br><span class="line">		List&lt;MethodInterceptor&gt; interceptors = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">3</span>);</span><br><span class="line">		Advice advice = advisor.getAdvice();</span><br><span class="line">		<span class="hljs-keyword">if</span> (advice <span class="hljs-keyword">instanceof</span> MethodInterceptor) &#123;</span><br><span class="line">			interceptors.add((MethodInterceptor) advice);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-keyword">for</span> (AdvisorAdapter adapter : <span class="hljs-keyword">this</span>.adapters) &#123;</span><br><span class="line">			<span class="hljs-keyword">if</span> (adapter.supportsAdvice(advice)) &#123;</span><br><span class="line">				interceptors.add(adapter.getInterceptor(advisor));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-keyword">if</span> (interceptors.isEmpty()) &#123;</span><br><span class="line">			<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnknownAdviceTypeException(advisor.getAdvice());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="hljs-keyword">return</span> interceptors.toArray(<span class="hljs-keyword">new</span> MethodInterceptor[interceptors.size()]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">registerAdvisorAdapter</span><span class="hljs-params">(AdvisorAdapter adapter)</span> </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">this</span>.adapters.add(adapter);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>DefaultAdvisorAdapterRegistry</code> 设置了一系列的是配置，正是这些适配器的实现，为Spring AOP 提供了编织能力。下面以 <code>MethodBeforeAdviceAdapter</code> 为例，看具体的实现：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MethodBeforeAdviceAdapter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">AdvisorAdapter</span>, <span class="hljs-title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">supportsAdvice</span><span class="hljs-params">(Advice advice)</span> </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> (advice <span class="hljs-keyword">instanceof</span> MethodBeforeAdvice);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> MethodInterceptor <span class="hljs-title">getInterceptor</span><span class="hljs-params">(Advisor advisor)</span> </span>&#123;</span><br><span class="line">		MethodBeforeAdvice advice = (MethodBeforeAdvice) advisor.getAdvice();</span><br><span class="line">		<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MethodBeforeAdviceInterceptor(advice);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Spring AOP 为了实现 advice 的织入，设计了特定的拦截器对这些功能进行了封装。我们接着看 <code>MethodBeforeAdviceInterceptor</code> 如何完成封装的？</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MethodBeforeAdviceInterceptor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MethodInterceptor</span>, <span class="hljs-title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">private</span> MethodBeforeAdvice advice;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MethodBeforeAdviceInterceptor</span><span class="hljs-params">(MethodBeforeAdvice advice)</span> </span>&#123;</span><br><span class="line">		Assert.notNull(advice, <span class="hljs-string">"Advice must not be null"</span>);</span><br><span class="line">		<span class="hljs-keyword">this</span>.advice = advice;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(MethodInvocation mi)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">this</span>.advice.before(mi.getMethod(), mi.getArguments(), mi.getThis() );</span><br><span class="line">		<span class="hljs-keyword">return</span> mi.proceed();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，invoke 方法中，首先触发了 advice 的 before 回调，然后才是 proceed。<code>AfterReturningAdviceInterceptor</code> 的源码：</p>
+<p>同理, <code>AfterReturningAdviceInterceptor</code>源码, 则先执行proceed:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AfterReturningAdviceInterceptor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MethodInterceptor</span>, <span class="hljs-title">AfterAdvice</span>, <span class="hljs-title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AfterReturningAdvice advice;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">    * Create a new AfterReturningAdviceInterceptor for the given advice.</span></span><br><span class="line"><span class="hljs-comment">    * <span class="hljs-doctag">@param</span> advice the AfterReturningAdvice to wrap</span></span><br><span class="line"><span class="hljs-comment">    */</span></span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AfterReturningAdviceInterceptor</span><span class="hljs-params">(AfterReturningAdvice advice)</span> </span>&#123;</span><br><span class="line">      Assert.notNull(advice, <span class="hljs-string">"Advice must not be null"</span>);</span><br><span class="line">      <span class="hljs-keyword">this</span>.advice = advice;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-meta">@Override</span></span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(MethodInvocation mi)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">      Object retVal = mi.proceed();</span><br><span class="line">      <span class="hljs-keyword">this</span>.advice.afterReturning(retVal, mi.getMethod(), mi.getArguments(), mi.getThis());</span><br><span class="line">      <span class="hljs-keyword">return</span> retVal;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>ThrowsAdviceInterceptor</code> 的源码:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThrowsAdviceInterceptor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MethodInterceptor</span>, <span class="hljs-title">AfterAdvice</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String AFTER_THROWING = <span class="hljs-string">"afterThrowing"</span>;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Log logger = LogFactory.getLog(ThrowsAdviceInterceptor.class);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Object throwsAdvice;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-comment">/** Methods on throws advice, keyed by exception class */</span></span><br><span class="line">   <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;Class&lt;?&gt;, Method&gt; exceptionHandlerMap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ThrowsAdviceInterceptor</span><span class="hljs-params">(Object throwsAdvice)</span> </span>&#123;</span><br><span class="line">      Assert.notNull(throwsAdvice, <span class="hljs-string">"Advice must not be null"</span>);</span><br><span class="line">      <span class="hljs-keyword">this</span>.throwsAdvice = throwsAdvice;</span><br><span class="line"></span><br><span class="line">      Method[] methods = throwsAdvice.getClass().getMethods();</span><br><span class="line">      <span class="hljs-keyword">for</span> (Method method : methods) &#123;</span><br><span class="line">         <span class="hljs-keyword">if</span> (method.getName().equals(AFTER_THROWING) &amp;&amp;</span><br><span class="line">               (method.getParameterCount() == <span class="hljs-number">1</span> || method.getParameterCount() == <span class="hljs-number">4</span>) &amp;&amp;</span><br><span class="line">               Throwable.class.isAssignableFrom(method.getParameterTypes()[method.getParameterCount() - <span class="hljs-number">1</span>])</span><br><span class="line">            ) &#123;</span><br><span class="line">            <span class="hljs-comment">// Have an exception handler</span></span><br><span class="line">            <span class="hljs-keyword">this</span>.exceptionHandlerMap.put(method.getParameterTypes()[method.getParameterCount() - <span class="hljs-number">1</span>], method);</span><br><span class="line">            <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">               logger.debug(<span class="hljs-string">"Found exception handler method: "</span> + method);</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.exceptionHandlerMap.isEmpty()) &#123;</span><br><span class="line">         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(</span><br><span class="line">               <span class="hljs-string">"At least one handler method must be found in class ["</span> + throwsAdvice.getClass() + <span class="hljs-string">"]"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getHandlerMethodCount</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.exceptionHandlerMap.size();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-meta">@Nullable</span></span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">private</span> Method <span class="hljs-title">getExceptionHandler</span><span class="hljs-params">(Throwable exception)</span> </span>&#123;</span><br><span class="line">      Class&lt;?&gt; exceptionClass = exception.getClass();</span><br><span class="line">      <span class="hljs-keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">         logger.trace(<span class="hljs-string">"Trying to find handler for exception of type ["</span> + exceptionClass.getName() + <span class="hljs-string">"]"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      Method handler = <span class="hljs-keyword">this</span>.exceptionHandlerMap.get(exceptionClass);</span><br><span class="line">      <span class="hljs-keyword">while</span> (handler == <span class="hljs-keyword">null</span> &amp;&amp; exceptionClass != Throwable.class) &#123;</span><br><span class="line">         exceptionClass = exceptionClass.getSuperclass();</span><br><span class="line">         handler = <span class="hljs-keyword">this</span>.exceptionHandlerMap.get(exceptionClass);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">if</span> (handler != <span class="hljs-keyword">null</span> &amp;&amp; logger.isDebugEnabled()) &#123;</span><br><span class="line">         logger.debug(<span class="hljs-string">"Found handler for exception of type ["</span> + exceptionClass.getName() + <span class="hljs-string">"]: "</span> + handler);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">return</span> handler;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-meta">@Override</span></span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(MethodInvocation mi)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">      <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">         <span class="hljs-keyword">return</span> mi.proceed();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">         Method handlerMethod = getExceptionHandler(ex);</span><br><span class="line">         <span class="hljs-keyword">if</span> (handlerMethod != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            invokeHandlerMethod(mi, ex, handlerMethod);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="hljs-keyword">throw</span> ex;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">invokeHandlerMethod</span><span class="hljs-params">(MethodInvocation mi, Throwable ex, Method method)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">      Object[] handlerArgs;</span><br><span class="line">      <span class="hljs-keyword">if</span> (method.getParameterCount() == <span class="hljs-number">1</span>) &#123;</span><br><span class="line">         handlerArgs = <span class="hljs-keyword">new</span> Object[] &#123; ex &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">         handlerArgs = <span class="hljs-keyword">new</span> Object[] &#123;mi.getMethod(), mi.getArguments(), mi.getThis(), ex&#125;;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">         method.invoke(<span class="hljs-keyword">this</span>.throwsAdvice, handlerArgs);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">catch</span> (InvocationTargetException targetEx) &#123;</span><br><span class="line">         <span class="hljs-keyword">throw</span> targetEx.getTargetException();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至此，我们知道了对目标对象的增强是通过拦截器实现的，最后还是上时序图:</p>
+<img src="/2019/08/22/Spring-2019-08-渐入Spring-AOP/spring_aop_Timing.jpg">
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.svg" alt="ZhiCheng Miao">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        ZhiCheng Miao
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Java 软件工程师
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>广东省深圳市</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        26
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        25
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/Miaozc" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/Miaozc">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/Miaozc" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">github</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/qq_30566157" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">csdn</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
+            <span class="level-start">
+                <span class="level-item">Spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/建站笔记/">
+            <span class="level-start">
+                <span class="level-item">建站笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/设计模式/">
+            <span class="level-start">
+                <span class="level-item">设计模式</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/DI/" style="font-size: 12px;">DI</a> <a href="/tags/IOC/" style="font-size: 12px;">IOC</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Spring/" style="font-size: 16px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 10px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/事务/" style="font-size: 10px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-27T09:28:26.000Z">2019-08-27</time></div>
+                    <a href="/2019/08/27/Spring-2019-08-Spring事务/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring事务</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-25T11:10:42.000Z">2019-08-25</time></div>
+                    <a href="/2019/08/25/Spring-2019-08-渐入Spring-MVC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-MVC</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time></div>
+                    <a href="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring、IOC、DI、AOP时序图</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
+                    <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
+                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">19</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AOP/">
+                        <span class="tag">AOP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DI/">
+                        <span class="tag">DI</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IOC/">
+                        <span class="tag">IOC</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MVC/">
+                        <span class="tag">MVC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring/">
+                        <span class="tag">Spring</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-AOP/">
+                        <span class="tag">Spring AOP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-DI/">
+                        <span class="tag">Spring DI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-IOC/">
+                        <span class="tag">Spring IOC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">17</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/transaction/">
+                        <span class="tag">transaction</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/事务/">
+                        <span class="tag">事务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/代理/">
+                        <span class="tag">代理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/单例/">
+                        <span class="tag">单例</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原型模式/">
+                        <span class="tag">原型模式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/委派/">
+                        <span class="tag">委派</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/模板方法/">
+                        <span class="tag">模板方法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/策略/">
+                        <span class="tag">策略</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/装饰者/">
+                        <span class="tag">装饰者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/观察者/">
+                        <span class="tag">观察者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/设计模式/">
+                        <span class="tag">设计模式</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/适配器/">
+                        <span class="tag">适配器</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+                                 
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-27T09:28:26.000Z">2019-08-27</time></div>
+                    <a href="/2019/08/27/Spring-2019-08-Spring事务/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring事务</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-25T11:10:42.000Z">2019-08-25</time></div>
+                    <a href="/2019/08/25/Spring-2019-08-渐入Spring-MVC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-MVC</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time></div>
+                    <a href="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring、IOC、DI、AOP时序图</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T16:03:34.000Z">2019-08-22</time></div>
+                    <a href="/2019/08/22/Spring-2019-08-渐入Spring-AOP/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-AOP</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
+                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">19</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AOP/">
+                        <span class="tag">AOP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DI/">
+                        <span class="tag">DI</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IOC/">
+                        <span class="tag">IOC</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MVC/">
+                        <span class="tag">MVC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring/">
+                        <span class="tag">Spring</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-AOP/">
+                        <span class="tag">Spring AOP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-DI/">
+                        <span class="tag">Spring DI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-IOC/">
+                        <span class="tag">Spring IOC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">17</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ssh/">
+                        <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/transaction/">
+                        <span class="tag">transaction</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/事务/">
+                        <span class="tag">事务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/代理/">
+                        <span class="tag">代理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/单例/">
+                        <span class="tag">单例</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原型模式/">
+                        <span class="tag">原型模式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/委派/">
+                        <span class="tag">委派</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/模板方法/">
+                        <span class="tag">模板方法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/策略/">
+                        <span class="tag">策略</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/装饰者/">
+                        <span class="tag">装饰者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/观察者/">
+                        <span class="tag">观察者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/设计模式/">
+                        <span class="tag">设计模式</span>
+                        <span class="tag is-grey">11</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/适配器/">
+                        <span class="tag">适配器</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/mzc_logo.svg" alt="ZhiCheng&#39;s Blog" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 ZhiCheng Miao&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

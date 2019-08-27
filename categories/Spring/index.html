@@ -152,6 +152,281 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-27T09:28:26.000Z">2019-08-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    22 分钟 读完 (大约 3339 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/27/Spring-2019-08-Spring事务/">Spring事务</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="事务配置"><a href="#事务配置" class="headerlink" title="事务配置"></a>事务配置</h3><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">xmlns:tx</span>=<span class="hljs-string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">xmlns:aop</span>=<span class="hljs-string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="hljs-tag"> <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans </span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">						http://www.springframework.org/schema/beans/spring-beans-4.3.xsd</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">						http://www.springframework.org/schema/tx </span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">						http://www.springframework.org/schema/tx/spring-tx-4.3.xsd</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">						http://www.springframework.org/schema/aop </span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">						http://www.springframework.org/schema/aop/spring-aop-4.3.xsd"</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">aop:aspectj-autoproxy</span> <span class="hljs-attr">proxy-target-class</span>=<span class="hljs-string">"true"</span>/&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"transactionManager"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dataSource"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"dataSource"</span>/&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">&lt;!-- 配置事务通知属性 --&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">tx:advice</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"transactionAdvice"</span> <span class="hljs-attr">transaction-manager</span>=<span class="hljs-string">"transactionManager"</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">tx:attributes</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"add*"</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">"REQUIRED"</span> <span class="hljs-attr">rollback-for</span>=<span class="hljs-string">"Exception,RuntimeException,SQLException"</span>/&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"remove*"</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">"REQUIRED"</span> <span class="hljs-attr">rollback-for</span>=<span class="hljs-string">"Exception,RuntimeException,SQLException"</span>/&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"edit*"</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">"REQUIRED"</span> <span class="hljs-attr">rollback-for</span>=<span class="hljs-string">"Exception,RuntimeException,SQLException"</span>/&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"login"</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">"NOT_SUPPORTED"</span>/&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"query*"</span> <span class="hljs-attr">read-only</span>=<span class="hljs-string">"true"</span>/&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;/<span class="hljs-name">tx:attributes</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">tx:advice</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">aop:config</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">aop:advisor</span> <span class="hljs-attr">advice-ref</span>=<span class="hljs-string">"transactionAdvice"</span> <span class="hljs-attr">pointcut-ref</span>=<span class="hljs-string">"transactionPointcut"</span>/&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">aop:aspect</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"dataSource"</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">aop:pointcut</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"transactionPointcut"</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">"execution(public * com.xxx..*.service..*Service.*(..))"</span> /&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">aop:aspect</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">aop:config</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="事务原理"><a href="#事务原理" class="headerlink" title="事务原理"></a>事务原理</h3><h4 id="事务基本概念"><a href="#事务基本概念" class="headerlink" title="事务基本概念"></a>事务基本概念</h4><p>事务(Transaction)是访问并可能更新数据库中各种数据项的一个程序执行单元(unit)。 特点：事务是恢复和并发控制的基本单位。事务应该具有 4 个属性：原子性、一致性、 隔离性、持久性。这四个属性通常称为 ACID 特性。</p>
+<ol>
+<li><p><code>原子性（Automicity）</code>: 一个事务是一个不可分割的工作单位，事务中包括的诸操作要么都做，要么都不做。</p>
+</li>
+<li><p><code>一致性（Consistency）</code>: 事务必须是使数据库从一个一致性状态变到另一个一致性状态。 一致性与原子性是密切相关的。</p>
+</li>
+<li><p><code>隔离性（Isolation）</code>: 一个事务的执行不能被其他事务干扰。即一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰。</p>
+</li>
+<li><p><code>持久性（Durability）</code>: 持久性也称永久性（Permanence），指一个事务一旦提交，它对数据库中数据的改变就应该是永久性的。接下来的其他操作或故障不应该对其有任何 </p>
+<p>影响。</p>
+</li>
+</ol>
+<h4 id="事务基本原理"><a href="#事务基本原理" class="headerlink" title="事务基本原理"></a>事务基本原理</h4><p>Spring 事务的本质其实就是数据库对事务的支持，没有数据库的事务支持，Spring 是无法提供事务功能的。对于纯 JDBC 操作数据库，想要用到事务，可以按照以下步骤进行： </p>
+<p>1、获取连接 Connection con = DriverManager.getConnection() </p>
+<p>2、开启事务 con.setAutoCommit(true/false); </p>
+<p>3、执行 CRUD </p>
+<p>4、提交事务/回滚事务 con.commit() / con.rollback(); </p>
+<p>5、关闭连接 conn.close(); </p>
+<p>使用 Spring 的事务管理功能后，我们可以不再写步骤 2 和 4 的代码，而是由 Spirng 自动完成。 那么 Spring 是如何在我们书写的 CRUD 之前和之后开启事务和关闭事务的 呢？解决这个问题，也就可以从整体上理解 Spring 的事务管理实现原理了。下面简单地介绍下，注解方式为例子</p>
+<p>配置文件开启注解驱动，在相关的类和方法上通过注解<code>@Transactional</code> 标识。 Spring 在启动的时候会去解析生成相关的 bean，这时候会查看拥有相关注解的类和方法，并且为这些类和方法生成代理，并根据@Transaction的相关参数进行相关配置注入， 这样就在代理中为我们把相关的事务处理掉了（开启正常提交事务，异常回滚事务）。 真正的数据库层的事务提交和回滚是通过 <code>binlog</code> 或者 <code>redo log</code> 实现的。</p>
+<h4 id="Spring事务的传播属性"><a href="#Spring事务的传播属性" class="headerlink" title="Spring事务的传播属性"></a>Spring事务的传播属性</h4><p>所谓 spring 事务的传播属性，就是定义在存在多个事务同时存在的时候，spring 应该如何处理这些事务的行为。这些属性在 TransactionDefinition 中定义，具体常量的解释见下表： </p>
+<table>
+<thead>
+<tr>
+<th>常量名称</th>
+<th>常量解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROPAGATION_REQUIRED</td>
+<td>支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择，也是 Spring默认的事务的传播。</td>
+</tr>
+<tr>
+<td>PROPAGATION_REQUIRES_NEW</td>
+<td>新建事务，如果当前存在事务，把当前事务挂起。新建的事务将和被挂起的事务没有任何关系，是两个独立的事务，外层事务失败回滚之后，不能回滚内层事务执行的结果， 内层事务失败抛出异常，外层事务捕获，也可以不处理回滚操作</td>
+</tr>
+<tr>
+<td>PROPAGATION_SUPPORTS</td>
+<td>支持当前事务，如果当前没有事务，就以非事务方式执行。</td>
+</tr>
+<tr>
+<td>PROPAGATION_MANDATORY</td>
+<td>支持当前事务，如果当前没有事务，就抛出异常。</td>
+</tr>
+<tr>
+<td>PROPAGATION_NOT_SUPPORTED</td>
+<td>以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</td>
+</tr>
+<tr>
+<td>PROPAGATION_NEVER</td>
+<td>以非事务方式执行，如果当前存在事务，则抛出异常。</td>
+</tr>
+<tr>
+<td>PROPAGATION_NESTED</td>
+<td>如果一个活动的事务存在，则运行在一个嵌套的事务中。如果没有活动事务，则按REQUIRED属性执行。它使用了一个单独的事务，这个事务拥有多个可以回滚的保存点。内部事务的回滚不会对外部事务造成影响。它只对DataSourceTransactionManager事务管理器起效。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="数据库隔离级别"><a href="#数据库隔离级别" class="headerlink" title="数据库隔离级别"></a>数据库隔离级别</h4><table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>导致的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read-Uncommitted</td>
+<td>导致脏读</td>
+</tr>
+<tr>
+<td>Read-Committed</td>
+<td>避免脏读，允许不可重复读和幻读</td>
+</tr>
+<tr>
+<td>Repeatable-Read</td>
+<td>避免脏读，不可重复读，允许幻读</td>
+</tr>
+<tr>
+<td>Serializable</td>
+<td>串行化读，事务只能一个一个执行，避免了脏读、不可重复读、幻读。执行效率慢，使用时慎重</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>脏读：一事务对数据进行了增删改，但未提交，另一事务可以读取到未提交的数据。如果第一个事务这时候回滚了，那么第二个事务就读到了脏数据。 </li>
+<li>不可重复读：一个事务中发生了两次读操作，第一次读操作和第二次操作之间，另外一个事务对数据进行了修改，这时候两次读取的数据是不一致的。 </li>
+<li>幻读：第一个事务对一定范围的数据进行批量修改，第二个事务在这个范围增加一条数据，这时候第一个事务就会丢失对新增数据的修改。</li>
+</ul>
+<p>隔离级别越高，越能保证数据的完整性和一致性，但是对并发性能的影响也越大。大多数的数据库默认隔离级别为 Read Commited，比如 SqlServer、Oracle 少数数据库默认隔离级别为：Repeatable Read 比如： MySQL InnoDB</p>
+<h4 id="Spring-中的隔离级别"><a href="#Spring-中的隔离级别" class="headerlink" title="Spring 中的隔离级别"></a>Spring 中的隔离级别</h4><table>
+<thead>
+<tr>
+<th>常量</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISOLATION_DEFAULT</td>
+<td>这是个PlatfromTransactionManager默认的隔离级别，使用数据库默认的事务隔离级别。另外四个与JDBC的隔离级别相对应。</td>
+</tr>
+<tr>
+<td>ISOLATION_READ_UNCOMMITTED</td>
+<td>这是事务最低的隔离级别，它允许另外一个事务可以看到这个事务未提交的数据。这种隔离级别会产生脏读，不可重复读和幻像读。</td>
+</tr>
+<tr>
+<td>ISOLATION_READ_COMMITTED</td>
+<td>保证一个事务修改的数据提交后才能被另外一个事务读取。另外一个事务不能读取该事务未提交的数据。</td>
+</tr>
+<tr>
+<td>ISOLATION_REPEATABLE_READ</td>
+<td>这种事务隔离级别可以防止脏读，不可重复读。但是可能出现幻像读。</td>
+</tr>
+<tr>
+<td>ISOLATION_SERIALIZABLE</td>
+<td>这是花费最高代价但是最可靠的事务隔离级别。事务被处理为顺序执行。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="事务的嵌套"><a href="#事务的嵌套" class="headerlink" title="事务的嵌套"></a>事务的嵌套</h4><p>我们通过分析一些嵌套事务的场景，来深入理解 Spring 事务传播的机制。假设外层事务 Service A 的 Method A() 调用内层 Service B 的 Method B() </p>
+<h5 id="PROPAGATION-REQUIRED-Spring-默认"><a href="#PROPAGATION-REQUIRED-Spring-默认" class="headerlink" title="PROPAGATION_REQUIRED(Spring 默认)"></a><code>PROPAGATION_REQUIRED(Spring 默认)</code></h5><p>如果 ServiceB.MethodB() 的事务级别定义为 PROPAGATION_REQUIRED，那么执行ServiceA.MethodA() 的时候 Spring 已经起了事务，这时调用 ServiceB.MethodB()， ServiceB.MethodB() 看到自己已经运行在 ServiceA.MethodA() 的事务内部，就<code>不再起新的事务</code>。 假如 ServiceB.MethodB() 运行的时候发现自己没有在事务中，他就会为自己分配一个事务。这样，<code>在 ServiceA.MethodA() 或者在 ServiceB.MethodB() 内的任何地方出现异常， 事务都会被回滚</code>。</p>
+<h5 id="PROPAGATION-REQUIRES-NEW"><a href="#PROPAGATION-REQUIRES-NEW" class="headerlink" title="PROPAGATION_REQUIRES_NEW"></a><code>PROPAGATION_REQUIRES_NEW</code></h5><p>比如我们设计 ServiceA.MethodA() 的事务级别为 PROPAGATION_REQUIRED， ServiceB.MethodB() 的事务级别为 PROPAGATION_REQUIRES_NEW。 那么当执行到 ServiceB.MethodB() 的时候，ServiceA.MethodA() 所在的事务就会挂起，ServiceB.MethodB() 会起一个新的事务，等待 ServiceB.MethodB() 的事务完成以后，它才继续执行。他与PROPAGATION_REQUIRED的事务区别在于事务的回滚程度, 因为ServiceB.MethodB()是一个新起的事务,那么就是存在两个不同的事务, 如果ServiceB.MethodB()已经提交, 那么<code>ServiceA.MethodA()失败回滚ServiceB.MethodB()是不会回滚的</code>. 如果ServiceB.MethodB()失败回滚, 如果他<code>抛出异常被ServiceA.MethodA()捕获, ServiceA.MethodA()事务仍然可能提交</code>(主要看 B 抛出的异常是不是 A 会回滚的异常)。 </p>
+<h5 id="PROPAGATION-SUPPORTS"><a href="#PROPAGATION-SUPPORTS" class="headerlink" title="PROPAGATION_SUPPORTS"></a><code>PROPAGATION_SUPPORTS</code></h5><p>假设 ServiceB.MethodB() 的事务级别为 PROPAGATION_SUPPORTS，那么当执行到ServiceB.MethodB()时，如果发现 ServiceA.MethodA()已经开启了一个事务，则加入当前的事务，如果发现 ServiceA.MethodA()没有开启事务，则自己也不开启事务。这种时候，<code>内部方法的事务性完全依赖于最外层的事务</code>。</p>
+<h5 id="PROPAGATION-NESTED"><a href="#PROPAGATION-NESTED" class="headerlink" title="PROPAGATION_NESTED"></a><code>PROPAGATION_NESTED</code></h5><p>现在的情况就变得比较复杂了, ServiceB.MethodB()的事务属性被配置为PROPAGATION_NESTED, 此时两者之间又将如何协作呢? ServiceB.MethodB() 如果 rollback, 那么内部事务(即 ServiceB.MethodB()) 将回滚到它执行前的 SavePoint 而外部事务(即 ServiceA.MethodA()) 可以有以下两种处理方式: </p>
+<ol>
+<li>捕获异常，执行异常分支逻辑</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MethodA</span><span class="hljs-params">()</span> </span>&#123; </span><br><span class="line">    <span class="hljs-keyword">try</span> &#123; </span><br><span class="line">        ServiceB.MethodB(); </span><br><span class="line">    &#125; <span class="hljs-keyword">catch</span> (SomeException) &#123; </span><br><span class="line">        <span class="hljs-comment">// 执行其他业务, 如 ServiceC.MethodC(); </span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式也是嵌套事务最右价值的地方, 它起到了分之执行的效果, 如果ServiceB.MethodB()失败, 那么执行 ServiceC.MethodC(), 而 ServiceB.MethodB() 已经回滚到它执行之前的 SavePoint, 所以不会产生脏数据(相当于此方法从未执行过), 这种特性可以用在某些特殊的业务中, 而 PROPAGATION_REQUIRED 和PROPAGATION_REQUIRES_NEW 都没有办法做到这一点。</p>
+<ol start="2">
+<li>外部事务回滚/提交 代码不做任何修改</li>
+</ol>
+<p>那么如果内部事务(ServiceB.MethodB()) rollback, 那么首先 ServiceB.MethodB() 回滚到它执行之前的SavePoint(在任何情况下都会如此), 外部事务(即 ServiceA.MethodA()) 将根据具体的配置决定自己是commit 还是 rollback。 </p>
+<h3 id="浅谈分布式事务"><a href="#浅谈分布式事务" class="headerlink" title="浅谈分布式事务"></a>浅谈分布式事务</h3><p>现今互联网界，分布式系统和微服务架构盛行。一个简单操作，在服务端非常可能是由多个服务和数据库实例协同完成的。在一致性要求较高的场景下，多个独立操作之间的一致性问题显得格外棘手。 基于水平扩容能力和成本考虑，传统的强一致的解决方案（e.g.单机事务）纷纷被抛弃。 其理论依据就是响当当的 CAP 原理。往往为了可用性和分区容错性，忍痛放弃强一致支持，转而追求最终一致性。</p>
+<h4 id="分布式系统的特性"><a href="#分布式系统的特性" class="headerlink" title="分布式系统的特性"></a>分布式系统的特性</h4><p>在分布式系统中，同时满足 CAP 定律中的一致性 Consistency、可用性 Availability 和分区容错性 Partition Tolerance 三者是不可能的。在绝大多数的场景，都需要牺牲强一致性来换取系统的高可用性，系统往往只需要保证最终一致性。 </p>
+<p>分布式事务服务（Distributed Transaction Service，DTS）是一个分布式事务框架，用来保障在大规模分布式环境下事务的最终一致性。 CAP 理论告诉我们在分布式存储系统中，最多只能实现上面的两点。而由于当前的网络 硬件肯定会出现延迟丢包等问题，所以分区容忍性是我们必须需要实现的，所以我们只能在一致性和可用性之间进行权衡。 为了保障系统的可用性，互联网系统大多将强一致性需求转换成最终一致性的需求，并通过系统执行幂等性的保证，保证数据的最终一致性。</p>
+<h4 id="数据一致性"><a href="#数据一致性" class="headerlink" title="数据一致性"></a>数据一致性</h4><ul>
+<li><code>强一致性</code> : 当更新操作完成之后，任何多个后续进程或者线程的访问都会返回最新的更新过的值。这种是对用户最友好的，就是用户上一次写什么，下一次就保证能读到什么。 根据 CAP 理论，这种实现需要牺牲可用性。</li>
+<li><code>弱一致性</code> : 系统并不保证后续进程或者线程的访问都会返回最新的更新过的值。系统在数据写入成功之后，不承诺立即可以读到最新写入的值，也不会具体的承诺多久之后可以读到。 </li>
+<li><code>最终一致性</code> : 弱一致性的特定形式。系统保证在没有后续更新的前提下，系统最终返回上一次更新操作的值。在没有故障发生的前提下，不一致窗口的时间主要受通信延迟， 系统负载和复制副本的个数影响。DNS 是一个典型的最终一致性系统。</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-25T11:10:42.000Z">2019-08-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    32 分钟 读完 (大约 4751 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/25/Spring-2019-08-渐入Spring-MVC/">渐入Spring-MVC</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="Spring-MVC-初体验"><a href="#Spring-MVC-初体验" class="headerlink" title="Spring MVC 初体验"></a>Spring MVC 初体验</h3><h4 id="初探-Spring-MVC-请求处理流程"><a href="#初探-Spring-MVC-请求处理流程" class="headerlink" title="初探 Spring MVC 请求处理流程"></a>初探 Spring MVC 请求处理流程</h4><p>Spring MVC 相对于前面的章节算是比较简单的，我们首先引用《Spring in Action》上的一张图来了解 Spring MVC 的核心组件和大致处理流程：</p>
+<img src="/2019/08/25/Spring-2019-08-渐入Spring-MVC/SpringMVC处理流程.jpg">
+<p>从上图中看到</p>
+<p>①、DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controller),负责接收 Request 并将 Request 转发给对应的处理组件。<br>② 、 HanlerMapping 是 SpringMVC 中 完 成 url 到 Controller 映 射 的 组 件 。DispatcherServlet 接收 Request,然后从 HandlerMapping 查找处理 Request 的Controller。<br>③、Controller 处理 Request,并返回 ModelAndView 对象,Controller 是 SpringMVC中负责处理 Request 的组件(类似于 Struts2 中的 Action),ModelAndView 是封装结果视图的组件。<br>④、⑤、⑥视图解析器解析 ModelAndView 对象并返回对应的视图给客户端。容器初始化时会建立所有 url 和 Controller 中的Method 的对应关系，保存到 HandlerMapping 中，用户请求是根据 Request 请求的url 快速定位到 Controller 中的某个方法。在 Spring 中先将 url 和 Controller 的对应关系,保存到 Map&lt;url,Controller&gt;中。Web 容器启动时会通知 Spring 初始化容器(加载Bean 的定义信息和初始化所有单例 Bean),然后 SpringMVC 会遍历容器中的 Bean，获取每一个 Controller 中的所有方法访问的 url，然后将 url 和 Controller 保存到一个 Map<br>中；这样就可以根据 Request 快速定位到 Controller，因为最终处理 Request 的是Controller 中的方法，Map 中只保留了 url 和 Controller 中的对应关系，所以要根据Request 的 url 进一步确认 Controller 中的 Method，这一步工作的原理就是拼接Controller 的 url(Controller 上@RequestMapping 的值)和方法的 url(Method 上@RequestMapping 的值)，与 request 的 url 进行匹配，找到匹配的那个方法；确定处理请求的 Method 后，接下来的任务就是参数绑定，把 Request 中参数绑定到方法的形式参数上，这一步是整个请求处理过程中最复杂的一个步骤。</p>
+<h4 id="Spring-MVC-九大组件"><a href="#Spring-MVC-九大组件" class="headerlink" title="Spring MVC 九大组件"></a>Spring MVC 九大组件</h4><h5 id="HandlerMappings"><a href="#HandlerMappings" class="headerlink" title="HandlerMappings"></a>HandlerMappings</h5><p>HandlerMapping 是用来查找 Handler 的，也就是处理器，具体的表现形式可以是类也可以是方法。比如，标注了@RequestMapping 的每个 method 都可以看成是一个Handler，由 Handler 来负责实际的请求处理。 HandlerMapping 在请求到达之后，它的作用便是找到请求相应的处理器 Handler 和 Interceptors。</p>
+<h5 id="HandlerAdapters"><a href="#HandlerAdapters" class="headerlink" title="HandlerAdapters"></a>HandlerAdapters</h5><p>从名字上看，这是一个适配器。因为 Spring MVC 中 Handler 可以是任意形式的，只要能够处理请求便行, 但是把请求交给 Servlet 的时候，由于 Servlet 的方法结构都是如doService(HttpServletRequest req, HttpServletResponse resp) 这样的形式，让固定的 Servlet 处理方法调用 Handler 来进行处理，这一步工作便是 HandlerAdapter 要做的事。</p>
+<h5 id="HandlerExceptionResolvers"><a href="#HandlerExceptionResolvers" class="headerlink" title="HandlerExceptionResolvers"></a>HandlerExceptionResolvers</h5><p>从这个组件的名字上看，这个就是用来处理 Handler 过程中产生的异常情况的组件。 具体来说，此组件的作用是根据异常设置 ModelAndView, 之后再交给 render()方法进行渲 染 ， 而 render() 便 将 ModelAndView 渲 染 成 页 面 。 不 过 有 一 点 ，HandlerExceptionResolver 只是用于解析对请求做处理阶段产生的异常，而渲染阶段的<br>异常则不归他管了，这也是 Spring MVC 组件设计的一大原则分工明确互不干涉。</p>
+<h5 id="ViewResolvers"><a href="#ViewResolvers" class="headerlink" title="ViewResolvers"></a>ViewResolvers</h5><p>视图解析器，相信大家对这个应该都很熟悉了。因为通常在 SpringMVC 的配置文件中，都会配上一个该接口的实现类来进行视图的解析。 这个组件的主要作用，便是将 String类型的视图名和Locale解析为View类型的视图。这个接口只有一个resolveViewName()方法。从方法的定义就可以看出，Controller 层返回的 String 类型的视图名 viewName，最终会在这里被解析成为 View。View 是用来渲染页面的，也就是说，它会将程序返回的参数和数据填入模板中，最终生成 html 文件。ViewResolver 在这个过程中，主要做两件大事，即，ViewResolver 会找到渲染所用的模板（使用什么模板来渲染？）和所用的技术（其实也就是视图的类型，如 JSP 啊还是其他什么 Blabla 的）填入参数。默认情况下，Spring MVC 会为我们自动配置一个 InternalResourceViewResolver，这个是针对 JSP 类型视图的。</p>
+<h5 id="RequestToViewNameTranslator"><a href="#RequestToViewNameTranslator" class="headerlink" title="RequestToViewNameTranslator"></a>RequestToViewNameTranslator</h5><p>这个组件的作用，在于从 Request 中获取 viewName. 因为ViewResolver 是根据ViewName 查找 View, 但有的 Handler 处理完成之后，没有设置 View 也没有设置ViewName， 便要通过这个组件来从 Request 中查找 viewName。</p>
+<h5 id="LocaleResolver"><a href="#LocaleResolver" class="headerlink" title="LocaleResolver"></a>LocaleResolver</h5><p>在上面我们有看到 ViewResolver 的 resolveViewName()方法，需要两个参数。那么第二个参数 Locale 是从哪来的呢，这就是 LocaleResolver 要做的事了。 LocaleResolver用于从 request 中解析出 Locale, 在中国大陆地区，Locale 当然就会是 zh-CN 之类，用来表示一个区域。这个类也是 i18n 的基础。</p>
+<h5 id="ThemeResolver"><a href="#ThemeResolver" class="headerlink" title="ThemeResolver"></a>ThemeResolver</h5><p>从名字便可看出，这个类是用来解析主题的。主题，就是样式，图片以及它们所形成的显示效果的集合。Spring MVC 中一套主题对应一个 properties 文件，里面存放着跟当前主题相关的所有资源，如图片，css 样式等。创建主题非常简单，只需准备好资源，然后新建一个 “主题名.properties” 并将资源设置进去，放在 classpath 下，便可以在页面中使用了。 Spring MVC 中跟主题有关的类有 ThemeResolver, ThemeSource 和Theme。 ThemeResolver 负责从 request 中解析出主题名， ThemeSource 则根据主题名找到具体的主题， 其抽象也就是 Theme, 通过 Theme 来获取主题和具体的资源。</p>
+<h5 id="MultipartResolver"><a href="#MultipartResolver" class="headerlink" title="MultipartResolver"></a>MultipartResolver</h5><p>其实这是一个大家很熟悉的组件，MultipartResolver 用于处理上传请求，通过将普通的<br>Request 包装成 MultipartHttpServletRequest来实现。MultipartHttpServletRequest<br>可以通过 getFile() 直接获得文件，如果是多个文件上传，还可以通过调用 getFileMap<br>得到 Map&lt;FileName, File&gt; 这样的结构。MultipartResolver 的作用就是用来封装普通<br>的 request，使其拥有处理文件上传的功能。</p>
+<h5 id="FlashMapManager"><a href="#FlashMapManager" class="headerlink" title="FlashMapManager"></a>FlashMapManager</h5><p>说到 FlashMapManager，就得先提一下 FlashMap。FlashMap 用于重定向 Redirect 时的参数数据传递，比如，在处理用户订单提交时，为了避免重复提交，可以处理完 post 请求后 redirect 到一个 get 请求，这个 get 请求可以用来显示订单详情之类的信息。这样做虽然可以规避用户刷新重新提交表单的问题，但是在这个页面上要显示订单的信息，那这些数据从哪里去获取呢，因为 redirect 重定向是没有传递参数这一功能的，如果不想把参数写进 url(其实也不推荐这么做，url 有长度限制不说，把参数都直接暴露，感觉也不安全)， 那么就可以通过 flashMap 来传递。只需 要 在 redirect 之 前 ， 将 要 传 递 的 数 据 写 入 request （ 可 以 通 过ServletRequestAttributes.getRequest() 获 得 ） 的 属 性OUTPUT_FLASH_MAP_ATTRIBUTE 中，这样在 redirect 之后的 handler 中 Spring 就会自动将其设置到 Model 中，在显示订单信息的页面上，就可以直接从 Model 中取得数据了。而 FlashMapManager 就是用来管理 FlashMap 的。</p>
+<h4 id="Spring-MVC-源码分析"><a href="#Spring-MVC-源码分析" class="headerlink" title="Spring MVC 源码分析"></a>Spring MVC 源码分析</h4><p>根据上面分析的 Spring MVC 工作机制，从三个部分来分析 Spring MVC 的源代码。<br>其一，ApplicationContext 初始化时用 Map 保存所有 url 和 Controller 类的对应关系；<br>其二，根据请求 url 找到对应的 Controller，并从 Controller 中找到处理请求的方法;<br>其三，Request 参数绑定到方法的形参，执行方法处理请求，并返回结果视图。</p>
+<h5 id="初始化阶段"><a href="#初始化阶段" class="headerlink" title="初始化阶段"></a>初始化阶段</h5><p>我们首先找到 <code>DispatcherServlet</code> 这个类，必然是寻找 init()方法。然后，我们发现其 init方法其实在父类 HttpServletBean 中，其源码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">        logger.debug(<span class="hljs-string">"Initializing servlet '"</span> + getServletName() + <span class="hljs-string">"'"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Set bean properties from init parameters.</span></span><br><span class="line">    PropertyValues pvs = <span class="hljs-keyword">new</span> ServletConfigPropertyValues(getServletConfig(), <span class="hljs-keyword">this</span>.requiredProperties);</span><br><span class="line">    <span class="hljs-keyword">if</span> (!pvs.isEmpty()) &#123;</span><br><span class="line">        <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">            <span class="hljs-comment">//定位资源</span></span><br><span class="line">            BeanWrapper bw = PropertyAccessorFactory.forBeanPropertyAccess(<span class="hljs-keyword">this</span>);</span><br><span class="line">            <span class="hljs-comment">//加载配置信息</span></span><br><span class="line">            ResourceLoader resourceLoader = <span class="hljs-keyword">new</span> ServletContextResourceLoader(getServletContext());</span><br><span class="line">            bw.registerCustomEditor(Resource.class, <span class="hljs-keyword">new</span> ResourceEditor(resourceLoader, getEnvironment()));</span><br><span class="line">            initBeanWrapper(bw);</span><br><span class="line">            bw.setPropertyValues(pvs, <span class="hljs-keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (logger.isErrorEnabled()) &#123;</span><br><span class="line">                logger.error(<span class="hljs-string">"Failed to set bean properties on servlet '"</span> + getServletName() + <span class="hljs-string">"'"</span>, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">throw</span> ex;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Let subclasses do whatever initialization they like.</span></span><br><span class="line">    initServletBean();</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">        logger.debug(<span class="hljs-string">"Servlet '"</span> + getServletName() + <span class="hljs-string">"' configured successfully"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>FrameworkSERvlet</code>实现了<code>initServletBean()</code></p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initServletBean</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">    getServletContext().log(<span class="hljs-string">"Initializing Spring FrameworkServlet '"</span> + getServletName() + <span class="hljs-string">"'"</span>);</span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.logger.isInfoEnabled()) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">"FrameworkServlet '"</span> + getServletName() + <span class="hljs-string">"': initialization started"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">long</span> startTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">this</span>.webApplicationContext = initWebApplicationContext();</span><br><span class="line">        initFrameworkServlet();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (ServletException ex) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.logger.error(<span class="hljs-string">"Context initialization failed"</span>, ex);</span><br><span class="line">        <span class="hljs-keyword">throw</span> ex;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (RuntimeException ex) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.logger.error(<span class="hljs-string">"Context initialization failed"</span>, ex);</span><br><span class="line">        <span class="hljs-keyword">throw</span> ex;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.logger.isInfoEnabled()) &#123;</span><br><span class="line">        <span class="hljs-keyword">long</span> elapsedTime = System.currentTimeMillis() - startTime;</span><br><span class="line">        <span class="hljs-keyword">this</span>.logger.info(<span class="hljs-string">"FrameworkServlet '"</span> + getServletName() + <span class="hljs-string">"': initialization completed in "</span> +</span><br><span class="line">                         elapsedTime + <span class="hljs-string">" ms"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码中最主要的逻辑就是初始化 IOC 容器，最终会调用 refresh()方法，IOC 容器初始化之后，最后有调用了 onRefresh()方法。这个方法最终是在DisptcherServlet 中实现，来看源码：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRefresh</span><span class="hljs-params">(ApplicationContext context)</span> </span>&#123;</span><br><span class="line">    initStrategies(context);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Initialize the strategy objects that this servlet uses.</span></span><br><span class="line"><span class="hljs-comment">	 * &lt;p&gt;May be overridden in subclasses in order to initialize further strategy objects.</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line"><span class="hljs-comment">//初始化策略</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initStrategies</span><span class="hljs-params">(ApplicationContext context)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">//多文件上传的组件</span></span><br><span class="line">    initMultipartResolver(context);</span><br><span class="line">    <span class="hljs-comment">//初始化本地语言环境</span></span><br><span class="line">    initLocaleResolver(context);</span><br><span class="line">    <span class="hljs-comment">//初始化模板处理器</span></span><br><span class="line">    initThemeResolver(context);</span><br><span class="line">    <span class="hljs-comment">//handlerMapping</span></span><br><span class="line">    initHandlerMappings(context);</span><br><span class="line">    <span class="hljs-comment">//初始化参数适配器</span></span><br><span class="line">    initHandlerAdapters(context);</span><br><span class="line">    <span class="hljs-comment">//初始化异常拦截器</span></span><br><span class="line">    initHandlerExceptionResolvers(context);</span><br><span class="line">    <span class="hljs-comment">//初始化视图预处理器</span></span><br><span class="line">    initRequestToViewNameTranslator(context);</span><br><span class="line">    <span class="hljs-comment">//初始化视图转换器</span></span><br><span class="line">    initViewResolvers(context);</span><br><span class="line">    <span class="hljs-comment">//</span></span><br><span class="line">    initFlashMapManager(context);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这一步就完成了Spring MVC的九大组件的初始化。接下来，我们来看url和Controller的关系是如何建立的HandlerMapping 的子类AbstractDetectingUrlHandlerMapping 实现了 initApplicationContext()方法，所以我们直接看子类中的初始化容器方法。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initApplicationContext</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> ApplicationContextException </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">super</span>.initApplicationContext();</span><br><span class="line">    detectHandlers();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Register all handlers found in the current ApplicationContext.</span></span><br><span class="line"><span class="hljs-comment">	 * &lt;p&gt;The actual URL determination for a handler is up to the concrete</span></span><br><span class="line"><span class="hljs-comment">	 * &#123;<span class="hljs-doctag">@link</span> #determineUrlsForHandler(String)&#125; implementation. A bean for</span></span><br><span class="line"><span class="hljs-comment">	 * which no such URLs could be determined is simply not considered a handler.</span></span><br><span class="line"><span class="hljs-comment">	 * <span class="hljs-doctag">@throws</span> org.springframework.beans.BeansException if the handler couldn't be registered</span></span><br><span class="line"><span class="hljs-comment">	 * <span class="hljs-doctag">@see</span> #determineUrlsForHandler(String)</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * 建立当前ApplicationContext中的所有controller和url的对应关系</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">detectHandlers</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">    ApplicationContext applicationContext = obtainApplicationContext();</span><br><span class="line">    <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">        logger.debug(<span class="hljs-string">"Looking for URL mappings in application context: "</span> + applicationContext);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">// 获取ApplicationContext容器中所有bean的Name</span></span><br><span class="line">    String[] beanNames = (<span class="hljs-keyword">this</span>.detectHandlersInAncestorContexts ?</span><br><span class="line">                          BeanFactoryUtils.beanNamesForTypeIncludingAncestors(applicationContext, Object.class) :</span><br><span class="line">                          applicationContext.getBeanNamesForType(Object.class));</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Take any bean name that we can determine URLs for.</span></span><br><span class="line">    <span class="hljs-comment">// 遍历beanNames,并找到这些bean对应的url</span></span><br><span class="line">    <span class="hljs-keyword">for</span> (String beanName : beanNames) &#123;</span><br><span class="line">        <span class="hljs-comment">// 找bean上的所有url(controller上的url+方法上的url),该方法由对应的子类实现</span></span><br><span class="line">        String[] urls = determineUrlsForHandler(beanName);</span><br><span class="line">        <span class="hljs-keyword">if</span> (!ObjectUtils.isEmpty(urls)) &#123;</span><br><span class="line">            <span class="hljs-comment">// URL paths found: Let's consider it a handler.</span></span><br><span class="line">            <span class="hljs-comment">// 保存urls和beanName的对应关系,put it to Map&lt;urls,beanName&gt;,该方法在父类AbstractUrlHandlerMapping中实现</span></span><br><span class="line">            registerHandler(urls, beanName);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">                logger.debug(<span class="hljs-string">"Rejected bean name '"</span> + beanName + <span class="hljs-string">"': no URL paths identified"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Determine the URLs for the given handler bean.</span></span><br><span class="line"><span class="hljs-comment">	 * <span class="hljs-doctag">@param</span> beanName the name of the candidate bean</span></span><br><span class="line"><span class="hljs-comment">	 * <span class="hljs-doctag">@return</span> the URLs determined for the bean, or an empty array if none</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line"><span class="hljs-comment">/** 获取controller中所有方法的url,由子类实现,典型的模板模式 **/</span></span><br><span class="line"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> String[] determineUrlsForHandler(String beanName);</span><br></pre></td></tr></table></figure>
+<p>determineUrlsForHandler(String beanName)方法的作用是获取每个 Controller 中的url，不同的子类有不同的实现，这是一个典型的模板设计模式。因为开发中我们用的最多的就是用注解来配置 Controller 中的 url，BeanNameUrlHandlerMapping 是AbstractDetectingUrlHandlerMapping的子类,处理注解形式的url映射.所以我们这里以<code>BeanNameUrlHandlerMapping</code>进行分析我们看<code>BeanNameUrlHandlerMapping</code> 是如何查 beanName 上所有映射的 url。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">protected</span> String[] determineUrlsForHandler(String beanName) &#123;</span><br><span class="line">    List&lt;String&gt; urls = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="hljs-keyword">if</span> (beanName.startsWith(<span class="hljs-string">"/"</span>)) &#123;</span><br><span class="line">        urls.add(beanName);</span><br><span class="line">    &#125;</span><br><span class="line">    String[] aliases = obtainApplicationContext().getAliases(beanName);</span><br><span class="line">    <span class="hljs-keyword">for</span> (String alias : aliases) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (alias.startsWith(<span class="hljs-string">"/"</span>)) &#123;</span><br><span class="line">            urls.add(alias);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> StringUtils.toStringArray(urls);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这里 HandlerMapping 组件就已经建立所有 url 和 Controller 的对应关系。</p>
+<h4 id="运行调用阶段"><a href="#运行调用阶段" class="headerlink" title="运行调用阶段"></a>运行调用阶段</h4><p>这一步步是由请求触发的，所以入口为 DispatcherServlet 的核心方法为 doService()，doService()中的核心逻辑由 doDispatch()实现，源代码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/** 中央控制器,控制请求的转发 **/</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doDispatch</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    HttpServletRequest processedRequest = request;</span><br><span class="line">    HandlerExecutionChain mappedHandler = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-keyword">boolean</span> multipartRequestParsed = <span class="hljs-keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        ModelAndView mv = <span class="hljs-keyword">null</span>;</span><br><span class="line">        Exception dispatchException = <span class="hljs-keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">            <span class="hljs-comment">// 1.检查是否是文件上传的请求</span></span><br><span class="line">            processedRequest = checkMultipart(request);</span><br><span class="line">            multipartRequestParsed = (processedRequest != request);</span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment">// Determine handler for the current request.</span></span><br><span class="line">            <span class="hljs-comment">// 2.取得处理当前请求的controller,这里也称为hanlder,处理器,</span></span><br><span class="line">            <span class="hljs-comment">// 	 第一个步骤的意义就在这里体现了.这里并不是直接返回controller,</span></span><br><span class="line">            <span class="hljs-comment">//	 而是返回的HandlerExecutionChain请求处理器链对象,</span></span><br><span class="line">            <span class="hljs-comment">//	 该对象封装了handler和interceptors.</span></span><br><span class="line">            mappedHandler = getHandler(processedRequest);</span><br><span class="line">            <span class="hljs-comment">// 如果handler为空,则返回404</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (mappedHandler == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                noHandlerFound(processedRequest, response);</span><br><span class="line">                <span class="hljs-keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment">// Determine handler adapter for the current request.</span></span><br><span class="line">            <span class="hljs-comment">//3. 获取处理request的处理器适配器handler adapter</span></span><br><span class="line">            HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());</span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment">// Process last-modified header, if supported by the handler.</span></span><br><span class="line">            <span class="hljs-comment">// 处理 last-modified 请求头</span></span><br><span class="line">            String method = request.getMethod();</span><br><span class="line">            <span class="hljs-keyword">boolean</span> isGet = <span class="hljs-string">"GET"</span>.equals(method);</span><br><span class="line">            <span class="hljs-keyword">if</span> (isGet || <span class="hljs-string">"HEAD"</span>.equals(method)) &#123;</span><br><span class="line">                <span class="hljs-keyword">long</span> lastModified = ha.getLastModified(request, mappedHandler.getHandler());</span><br><span class="line">                <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">                    logger.debug(<span class="hljs-string">"Last-Modified value for ["</span> + getRequestUri(request) + <span class="hljs-string">"] is: "</span> + lastModified);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span> ServletWebRequest(request, response).checkNotModified(lastModified) &amp;&amp; isGet) &#123;</span><br><span class="line">                    <span class="hljs-keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="hljs-keyword">if</span> (!mappedHandler.applyPreHandle(processedRequest, response)) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment">// Actually invoke the handler.</span></span><br><span class="line">            <span class="hljs-comment">// 4.实际的处理器处理请求,返回结果视图对象</span></span><br><span class="line">            mv = ha.handle(processedRequest, response, mappedHandler.getHandler());</span><br><span class="line"></span><br><span class="line">            <span class="hljs-keyword">if</span> (asyncManager.isConcurrentHandlingStarted()) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="hljs-comment">// 结果视图对象的处理</span></span><br><span class="line">            applyDefaultViewName(processedRequest, mv);</span><br><span class="line">            mappedHandler.applyPostHandle(processedRequest, response, mv);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">            dispatchException = ex;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">catch</span> (Throwable err) &#123;</span><br><span class="line">            <span class="hljs-comment">// As of 4.3, we're processing Errors thrown from handler methods as well,</span></span><br><span class="line">            <span class="hljs-comment">// making them available for @ExceptionHandler methods and other scenarios.</span></span><br><span class="line">            dispatchException = <span class="hljs-keyword">new</span> NestedServletException(<span class="hljs-string">"Handler dispatch failed"</span>, err);</span><br><span class="line">        &#125;</span><br><span class="line">        processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">        triggerAfterCompletion(processedRequest, response, mappedHandler, ex);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">catch</span> (Throwable err) &#123;</span><br><span class="line">        triggerAfterCompletion(processedRequest, response, mappedHandler,</span><br><span class="line">                               <span class="hljs-keyword">new</span> NestedServletException(<span class="hljs-string">"Handler processing failed"</span>, err));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">finally</span> &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (asyncManager.isConcurrentHandlingStarted()) &#123;</span><br><span class="line">            <span class="hljs-comment">// Instead of postHandle and afterCompletion</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (mappedHandler != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                <span class="hljs-comment">// 请求成功响应之后的方法</span></span><br><span class="line">                mappedHandler.applyAfterConcurrentHandlingStarted(processedRequest, response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-comment">// Clean up any resources used by a multipart request.</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (multipartRequestParsed) &#123;</span><br><span class="line">                cleanupMultipart(processedRequest);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>getHandler(processedRequest)</code>方法实际上就是从 HandlerMapping 中找到 url 和Controller 的对应关系。也就是 <code>Map&lt;url,Controller&gt;</code>。我们知道，最终处理 Request的是 Controller 中的方法，我们现在只是知道了 Controller，我们如何确认 Controller中处理 Request 的方法呢？继续往下看。</p>
+<p>从 Map&lt;urls,beanName&gt;中取得 Controller 后，经过拦截器的预处理方法，再通过反射获取该方法上的注解和参数，解析方法和参数上的注解，然后反射调用方法获取ModelAndView 结果视图。最后，调用的就是RequestMappingHandlerAdapter 的handle()中的核心逻辑由 <code>handleInternal(request, response, handler)</code>实现。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> ModelAndView <span class="hljs-title">handleInternal</span><span class="hljs-params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">                                      HttpServletResponse response, HandlerMethod handlerMethod)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    ModelAndView mav;</span><br><span class="line">    checkRequest(request);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Execute invokeHandlerMethod in synchronized block if required.</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.synchronizeOnSession) &#123;</span><br><span class="line">        HttpSession session = request.getSession(<span class="hljs-keyword">false</span>);</span><br><span class="line">        <span class="hljs-keyword">if</span> (session != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            Object mutex = WebUtils.getSessionMutex(session);</span><br><span class="line">            <span class="hljs-keyword">synchronized</span> (mutex) &#123;</span><br><span class="line">                mav = invokeHandlerMethod(request, response, handlerMethod);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-comment">// No HttpSession available -&gt; no mutex necessary</span></span><br><span class="line">            mav = invokeHandlerMethod(request, response, handlerMethod);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-comment">// No synchronization on session demanded at all...</span></span><br><span class="line">        mav = invokeHandlerMethod(request, response, handlerMethod);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">if</span> (!response.containsHeader(HEADER_CACHE_CONTROL)) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (getSessionAttributesHandler(handlerMethod).hasSessionAttributes()) &#123;</span><br><span class="line">            applyCacheSeconds(response, <span class="hljs-keyword">this</span>.cacheSecondsForSessionAttributeHandlers);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            prepareResponse(response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> mav;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>整个处理过程中最核心的逻辑其实就是拼接 Controller 的 url 和方法的 url，与 Request的 url 进行匹配，找到匹配的方法。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> HandlerMethod <span class="hljs-title">getHandlerInternal</span><span class="hljs-params">(HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line">   String lookupPath = getUrlPathHelper().getLookupPathForRequest(request);</span><br><span class="line">   <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">      logger.debug(<span class="hljs-string">"Looking up handler method for path "</span> + lookupPath);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="hljs-keyword">this</span>.mappingRegistry.acquireReadLock();</span><br><span class="line">   <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">      HandlerMethod handlerMethod = lookupHandlerMethod(lookupPath, request);</span><br><span class="line">      <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">         <span class="hljs-keyword">if</span> (handlerMethod != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            logger.debug(<span class="hljs-string">"Returning handler method ["</span> + handlerMethod + <span class="hljs-string">"]"</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            logger.debug(<span class="hljs-string">"Did not find handler method for ["</span> + lookupPath + <span class="hljs-string">"]"</span>);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">return</span> (handlerMethod != <span class="hljs-keyword">null</span> ? handlerMethod.createWithResolvedBean() : <span class="hljs-keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="hljs-keyword">finally</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">this</span>.mappingRegistry.releaseReadLock();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的代码分析，已经可以找到处理 Request 的 Controller 中的方法了，现在看如何解析该方法上的参数，并反射调用该方法。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/** 获取处理请求的方法,执行并返回结果视图 **/</span></span><br><span class="line"><span class="hljs-meta">@Nullable</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">protected</span> ModelAndView <span class="hljs-title">invokeHandlerMethod</span><span class="hljs-params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">      HttpServletResponse response, HandlerMethod handlerMethod)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">   ServletWebRequest webRequest = <span class="hljs-keyword">new</span> ServletWebRequest(request, response);</span><br><span class="line">   <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">      WebDataBinderFactory binderFactory = getDataBinderFactory(handlerMethod);</span><br><span class="line">      ModelFactory modelFactory = getModelFactory(handlerMethod, binderFactory);</span><br><span class="line"></span><br><span class="line">      ServletInvocableHandlerMethod invocableMethod = createInvocableHandlerMethod(handlerMethod);</span><br><span class="line">      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.argumentResolvers != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">         invocableMethod.setHandlerMethodArgumentResolvers(<span class="hljs-keyword">this</span>.argumentResolvers);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.returnValueHandlers != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">         invocableMethod.setHandlerMethodReturnValueHandlers(<span class="hljs-keyword">this</span>.returnValueHandlers);</span><br><span class="line">      &#125;</span><br><span class="line">      invocableMethod.setDataBinderFactory(binderFactory);</span><br><span class="line">      invocableMethod.setParameterNameDiscoverer(<span class="hljs-keyword">this</span>.parameterNameDiscoverer);</span><br><span class="line"></span><br><span class="line">      ModelAndViewContainer mavContainer = <span class="hljs-keyword">new</span> ModelAndViewContainer();</span><br><span class="line">      mavContainer.addAllAttributes(RequestContextUtils.getInputFlashMap(request));</span><br><span class="line">      modelFactory.initModel(webRequest, mavContainer, invocableMethod);</span><br><span class="line">      mavContainer.setIgnoreDefaultModelOnRedirect(<span class="hljs-keyword">this</span>.ignoreDefaultModelOnRedirect);</span><br><span class="line"></span><br><span class="line">      AsyncWebRequest asyncWebRequest = WebAsyncUtils.createAsyncWebRequest(request, response);</span><br><span class="line">      asyncWebRequest.setTimeout(<span class="hljs-keyword">this</span>.asyncRequestTimeout);</span><br><span class="line"></span><br><span class="line">      WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);</span><br><span class="line">      asyncManager.setTaskExecutor(<span class="hljs-keyword">this</span>.taskExecutor);</span><br><span class="line">      asyncManager.setAsyncWebRequest(asyncWebRequest);</span><br><span class="line">      asyncManager.registerCallableInterceptors(<span class="hljs-keyword">this</span>.callableInterceptors);</span><br><span class="line">      asyncManager.registerDeferredResultInterceptors(<span class="hljs-keyword">this</span>.deferredResultInterceptors);</span><br><span class="line"></span><br><span class="line">      <span class="hljs-keyword">if</span> (asyncManager.hasConcurrentResult()) &#123;</span><br><span class="line">         Object result = asyncManager.getConcurrentResult();</span><br><span class="line">         mavContainer = (ModelAndViewContainer) asyncManager.getConcurrentResultContext()[<span class="hljs-number">0</span>];</span><br><span class="line">         asyncManager.clearConcurrentResult();</span><br><span class="line">         <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">            logger.debug(<span class="hljs-string">"Found concurrent result value ["</span> + result + <span class="hljs-string">"]"</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         invocableMethod = invocableMethod.wrapConcurrentResult(result);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      invocableMethod.invokeAndHandle(webRequest, mavContainer);</span><br><span class="line">      <span class="hljs-keyword">if</span> (asyncManager.isConcurrentHandlingStarted()) &#123;</span><br><span class="line">         <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="hljs-keyword">return</span> getModelAndView(mavContainer, modelFactory, webRequest);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="hljs-keyword">finally</span> &#123;</span><br><span class="line">      webRequest.requestCompleted();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">invokeAndHandle</span><span class="hljs-params">(ServletWebRequest webRequest, ModelAndViewContainer mavContainer,</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">      Object... providedArgs)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">   Object returnValue = invokeForRequest(webRequest, mavContainer, providedArgs);</span><br><span class="line">   setResponseStatus(webRequest);</span><br><span class="line"></span><br><span class="line">   <span class="hljs-keyword">if</span> (returnValue == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">      <span class="hljs-keyword">if</span> (isRequestNotModified(webRequest) || getResponseStatus() != <span class="hljs-keyword">null</span> || mavContainer.isRequestHandled()) &#123;</span><br><span class="line">         mavContainer.setRequestHandled(<span class="hljs-keyword">true</span>);</span><br><span class="line">         <span class="hljs-keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (StringUtils.hasText(getResponseStatusReason())) &#123;</span><br><span class="line">      mavContainer.setRequestHandled(<span class="hljs-keyword">true</span>);</span><br><span class="line">      <span class="hljs-keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   mavContainer.setRequestHandled(<span class="hljs-keyword">false</span>);</span><br><span class="line">   Assert.state(<span class="hljs-keyword">this</span>.returnValueHandlers != <span class="hljs-keyword">null</span>, <span class="hljs-string">"No return value handlers"</span>);</span><br><span class="line">   <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">this</span>.returnValueHandlers.handleReturnValue(</span><br><span class="line">            returnValue, getReturnValueType(returnValue), mavContainer, webRequest);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="hljs-keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">      <span class="hljs-keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">         logger.trace(getReturnValueHandlingErrorMessage(<span class="hljs-string">"Error handling return value"</span>, returnValue), ex);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="hljs-keyword">throw</span> ex;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>invocableMethod.invokeAndHandle()</code>最终要实现的目的就是：完成 Request 中的参数和方法参数上数据的绑定。Spring MVC 中提供两种 Request 参数到方法中参数的绑定方式：</p>
+<ol>
+<li>通过注解进行绑定，@RequestParam。</li>
+<li>通过参数名称进行绑定。</li>
+</ol>
+<p>使用注解进行绑定，我们只要在方法参数前面声明<code>@RequestParam(&quot;name&quot;)</code>，就可以将 request 中参数 name 的值绑定到方法的该参数上。使用参数名称进行绑定的前提是必须要获取方法中参数的名称，Java 反射只提供了获取方法的参数的类型，并没有提供获取参数名称的方法。SpringMVC 解决这个问题的方法是用 asm 框架读取字节码文件，来获取方法的参数名称。asm 框架是一个字节码操作框架，关于 asm 更多介绍可以参考其官网。个人建议，使用注解来完成参数绑定，这样就可以省去 asm 框架的读取字节码的操作。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invokeForRequest</span><span class="hljs-params">(NativeWebRequest request, @Nullable ModelAndViewContainer mavContainer,</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-params">                               Object... providedArgs)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    Object[] args = getMethodArgumentValues(request, mavContainer, providedArgs);</span><br><span class="line">    <span class="hljs-keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">        logger.trace(<span class="hljs-string">"Invoking '"</span> + ClassUtils.getQualifiedMethodName(getMethod(), getBeanType()) +</span><br><span class="line">                     <span class="hljs-string">"' with arguments "</span> + Arrays.toString(args));</span><br><span class="line">    &#125;</span><br><span class="line">    Object returnValue = doInvoke(args);</span><br><span class="line">    <span class="hljs-keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">        logger.trace(<span class="hljs-string">"Method ["</span> + ClassUtils.getQualifiedMethodName(getMethod(), getBeanType()) +</span><br><span class="line">                     <span class="hljs-string">"] returned ["</span> + returnValue + <span class="hljs-string">"]"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> returnValue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">	 * Get the method argument values for the current request.</span></span><br><span class="line"><span class="hljs-comment">	 */</span></span><br><span class="line"><span class="hljs-keyword">private</span> Object[] getMethodArgumentValues(NativeWebRequest request, <span class="hljs-meta">@Nullable</span> ModelAndViewContainer mavContainer,</span><br><span class="line">                                         Object... providedArgs) <span class="hljs-keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">    MethodParameter[] parameters = getMethodParameters();</span><br><span class="line">    Object[] args = <span class="hljs-keyword">new</span> Object[parameters.length];</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; parameters.length; i++) &#123;</span><br><span class="line">        MethodParameter parameter = parameters[i];</span><br><span class="line">        parameter.initParameterNameDiscovery(<span class="hljs-keyword">this</span>.parameterNameDiscoverer);</span><br><span class="line">        args[i] = resolveProvidedArgument(parameter, providedArgs);</span><br><span class="line">        <span class="hljs-keyword">if</span> (args[i] != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.argumentResolvers.supportsParameter(parameter)) &#123;</span><br><span class="line">            <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                args[i] = <span class="hljs-keyword">this</span>.argumentResolvers.resolveArgument(</span><br><span class="line">                    parameter, mavContainer, request, <span class="hljs-keyword">this</span>.dataBinderFactory);</span><br><span class="line">                <span class="hljs-keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">                <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">                    logger.debug(getArgumentResolutionErrorMessage(<span class="hljs-string">"Failed to resolve"</span>, i), ex);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="hljs-keyword">throw</span> ex;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (args[i] == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">"Could not resolve method parameter at index "</span> +</span><br><span class="line">                                            parameter.getParameterIndex() + <span class="hljs-string">" in "</span> + parameter.getExecutable().toGenericString() +</span><br><span class="line">                                            <span class="hljs-string">": "</span> + getArgumentResolutionErrorMessage(<span class="hljs-string">"No suitable resolver for"</span>, i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> args;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这里,方法的参数值列表也获取到了,就可以直接进行方法的调用了。整个请求过程中最复杂的一步就是在这里了。到这里整个请求处理过程的关键步骤都已了解。理解了Spring MVC 中的请求处理流程,整个代码还是比较清晰的。最后我们再来梳理一下Spring MVC 核心组件的关联关系（如下图）：</p>
+<img src="/2019/08/25/Spring-2019-08-渐入Spring-MVC/SpringMVC关联关系.png">
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time>
                 
                 <div class="level-item">
@@ -947,7 +1222,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        26
                     </p>
                 </div>
             </div>
@@ -967,7 +1242,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        25
                     </p>
                 </div>
             </div>
@@ -1089,7 +1364,7 @@
                 <span class="level-item">Spring</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">8</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
@@ -1119,7 +1394,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Spring/" style="font-size: 16px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 12px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 14px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 14px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/DI/" style="font-size: 12px;">DI</a> <a href="/tags/IOC/" style="font-size: 12px;">IOC</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Spring/" style="font-size: 16px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 10px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/事务/" style="font-size: 10px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -1138,10 +1413,23 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-27T09:28:26.000Z">2019-08-27</time></div>
+                    <a href="/2019/08/27/Spring-2019-08-Spring事务/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring事务</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-25T11:10:42.000Z">2019-08-25</time></div>
                     <a href="/2019/08/25/Spring-2019-08-渐入Spring-MVC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-MVC</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
                 </div>
             </div>
@@ -1186,19 +1474,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:23:32.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-IOC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-IOC</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1217,7 +1492,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">18</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -1258,6 +1533,27 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/AOP/">
+                        <span class="tag">AOP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DI/">
+                        <span class="tag">DI</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IOC/">
+                        <span class="tag">IOC</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Linux/">
                         <span class="tag">Linux</span>
                         <span class="tag is-grey">6</span>
@@ -1265,30 +1561,37 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/MVC/">
+                        <span class="tag">MVC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-AOP/">
                         <span class="tag">Spring AOP</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-DI/">
                         <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-IOC/">
                         <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1309,13 +1612,27 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">15</span>
+                        <span class="tag is-grey">17</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/ssh/">
                         <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/transaction/">
+                        <span class="tag">transaction</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/事务/">
+                        <span class="tag">事务</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1418,10 +1735,23 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-27T09:28:26.000Z">2019-08-27</time></div>
+                    <a href="/2019/08/27/Spring-2019-08-Spring事务/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring事务</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-25T11:10:42.000Z">2019-08-25</time></div>
                     <a href="/2019/08/25/Spring-2019-08-渐入Spring-MVC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-MVC</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
                     </p>
                 </div>
             </div>
@@ -1466,19 +1796,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T17:23:32.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-IOC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-IOC</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1497,7 +1814,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">18</span>
+                    <span class="level-item tag">19</span>
                 </span>
             </a>
         </li>
@@ -1538,6 +1855,27 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/AOP/">
+                        <span class="tag">AOP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DI/">
+                        <span class="tag">DI</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IOC/">
+                        <span class="tag">IOC</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Linux/">
                         <span class="tag">Linux</span>
                         <span class="tag is-grey">6</span>
@@ -1545,30 +1883,37 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/MVC/">
+                        <span class="tag">MVC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
-                        <span class="tag is-grey">6</span>
+                        <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-AOP/">
                         <span class="tag">Spring AOP</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-DI/">
                         <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Spring-IOC/">
                         <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1589,13 +1934,27 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
-                        <span class="tag is-grey">15</span>
+                        <span class="tag is-grey">17</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/ssh/">
                         <span class="tag">ssh</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/transaction/">
+                        <span class="tag">transaction</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/事务/">
+                        <span class="tag">事务</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
