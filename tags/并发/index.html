@@ -2,14 +2,14 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: Spring DI - ZhiCheng&#39;s Blog</title>
+<title>标签: 并发 - ZhiCheng&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="ZhiCheng&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Spring-DI/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/并发/index.html">
 <meta property="og:site_name" content="ZhiCheng&#39;s Blog">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
@@ -139,7 +139,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Spring DI</a></li>
+            <li class="is-active"><a href="#" aria-current="page">并发</a></li>
         </ul>
         </nav>
     </div>
@@ -151,17 +151,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-23T07:59:47.000Z">2019-08-23</time>
+                <time class="level-item has-text-grey" datetime="2019-08-30T09:35:27.000Z">2019-08-30</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                <a class="has-link-grey -link" href="/categories/并发编程/">并发编程</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 48 个字)
+                    31 分钟 读完 (大约 4580 个字)
                 </span>
                 
                 
@@ -170,14 +170,133 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/">Spring、IOC、DI、AOP时序图</a>
+                <a class="has-link-black-ter" href="/2019/08/30/concurrency-2019-08-并发编程基础篇/">并发编程基础篇</a>
             
         </h1>
         <div class="content">
-            <h3 id="Spring-IOC时序图"><a href="#Spring-IOC时序图" class="headerlink" title="Spring IOC时序图"></a>Spring IOC时序图</h3><img src="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/SpringIOC时序图.png">
-<h3 id="Spring-DI时序图"><a href="#Spring-DI时序图" class="headerlink" title="Spring DI时序图"></a>Spring DI时序图</h3><img src="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/SpringDI时序图.png">
-<h3 id="Spring-AOP时序图"><a href="#Spring-AOP时序图" class="headerlink" title="Spring AOP时序图"></a>Spring AOP时序图</h3><img src="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/SpringAop时序图.png">
-<h3 id="Spring-MVC时序图"><a href="#Spring-MVC时序图" class="headerlink" title="Spring MVC时序图"></a>Spring MVC时序图</h3><img src="/2019/08/23/Spring-2019-08-Spring、IOC、DI、AOP时序图/SpringMVC时序图.png">
+            <h3 id="线程的基本使用"><a href="#线程的基本使用" class="headerlink" title="线程的基本使用"></a>线程的基本使用</h3><h4 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h4><blockquote>
+<p>因为是接口, 相比Thread类的实现更加灵活</p>
+</blockquote>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JavaRunnable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"Runnable run..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread runnable  = <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> JavaRunnable());</span><br><span class="line">        runnable.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="继承Thread"><a href="#继承Thread" class="headerlink" title="继承Thread"></a>继承Thread</h4><blockquote>
+<p>实现了Runnable接口</p>
+</blockquote>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JavaThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="hljs-string">"Thread run...."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Thread thread = <span class="hljs-keyword">new</span> JavaThread();</span><br><span class="line">    thread.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Callable-Future"><a href="#Callable-Future" class="headerlink" title="Callable/Future"></a>Callable/Future</h4><blockquote>
+<p>这组组合优势在于可以拿到线程返回值</p>
+<p>FutureTask实现了Runnable和Future</p>
+</blockquote>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Callable&lt;Integer&gt; callable = <span class="hljs-keyword">new</span> Callable&lt;Integer&gt;() &#123;</span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">call</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">100</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    FutureTask&lt;Integer&gt; future = <span class="hljs-keyword">new</span> FutureTask&lt;Integer&gt;(callable);</span><br><span class="line">    <span class="hljs-keyword">new</span> Thread(future).start();</span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">        System.out.println(future.get());</span><br><span class="line">    &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="hljs-keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ThreadPool"><a href="#ThreadPool" class="headerlink" title="ThreadPool"></a>ThreadPool</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService es = Executors.newFixedThreadPool(<span class="hljs-number">2</span>);</span><br><span class="line">es.submit(runnable);</span><br><span class="line">es.submit(thread);</span><br><span class="line">es.submit(callable);</span><br></pre></td></tr></table></figure>
+<h3 id="线程的状态和生命周期"><a href="#线程的状态和生命周期" class="headerlink" title="线程的状态和生命周期"></a>线程的状态和生命周期</h3><h5 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h5><p>引用Thread类内部枚举<code>State</code>的注释:</p>
+<blockquote>
+<p> A thread state. A thread can be in one of the following states:</p>
+<ul>
+<li><strong>NEW</strong> A thread that has not yet started is in this state.//初始状态,创建了线程,但没有调用start()方法启动</li>
+<li><strong>RUNNABLE</strong> A thread executing in the Java virtual machine is in this state.//运行中状态(该状态还有两个子状态: 1.就绪 2.运行), 虚拟机中正在运行的线程,不代表在系统中当前时间片正在执行</li>
+<li><strong>BLOCKED</strong> A thread that is blocked waiting for a monitor lock is in this state.//阻塞状态,等待锁被阻塞的线程</li>
+<li><strong>WAITING</strong> A thread that is waiting indefinitely for another thread to perform a particular action is in this state.//等待状态,无限期等待另一个线程执行操作(通知或中断)的线程</li>
+<li><strong>TIMED_WAITING</strong> A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.//超时等待状态, 限时等待另一个线程执行操作的线程</li>
+<li><strong>TERMINATED</strong> A thread that has exited is in this state.//终止状态,已退出线程, 等待JVM回收</li>
+</ul>
+</blockquote>
+<h5 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h5><blockquote>
+<p>图片摘自《Java并发编程的艺术》</p>
+</blockquote>
+<img src="/2019/08/30/concurrency-2019-08-并发编程基础篇/线程的生命周期.png">
+<h3 id="线程常见方法"><a href="#线程常见方法" class="headerlink" title="线程常见方法"></a>线程常见方法</h3><h5 id="线程启动"><a href="#线程启动" class="headerlink" title="线程启动"></a>线程启动</h5><ul>
+<li><code>thread.start()</code> 启动一个线程, 状态由NEW变成READY, 如果没有线程竞争的话</li>
+</ul>
+<h5 id="线程终止"><a href="#线程终止" class="headerlink" title="线程终止"></a>线程终止</h5><ul>
+<li><code>Thread.currentThread().stop()</code> 已过时,不建议使用. 暴力终止, 相当于linux <code>kill -9</code></li>
+<li><code>Thread.currentThread().interrupt()</code> 软终止, 给当前线程添加中断标识, 但不会立即中断, 中断逻辑交由run()逻辑决定</li>
+<li><code>Thread.interrupted()</code> 获取中断状态并复位, 如果当前线程正处于阻塞状态(wait,join,sleep)会复位并且抛出InterruptedException</li>
+<li><code>Thread.currentThread().isInterrupted()</code>判断是否中断, 默认返回false. 不代表线程已经结束, 该标识只是告诉程序, 线程已经被标记为已中断. </li>
+</ul>
+<h5 id="线程等待"><a href="#线程等待" class="headerlink" title="线程等待"></a>线程等待</h5><ul>
+<li><code>Thread.currentThread().join()</code> 等待指定线程执行完毕, 等待过程处于WAITING状态</li>
+<li><code>TimeUnit.MILLISECONDS.sleep(10)</code>线程睡眠,睡眠过程处于WAITING状态, 释放CPU资源,不会释放锁资源</li>
+<li><code>object.wait()</code>借助object具体对象对当前线程进行等待, 并且释放锁, 进入等待队列</li>
+<li><code>LockSupport.park()</code>与其说是阻塞,更喜欢用挂起来形容park方法, 因为他需要得到<code>unpark()</code>的许可才可以解除阻塞状态</li>
+</ul>
+<h5 id="线程唤醒"><a href="#线程唤醒" class="headerlink" title="线程唤醒"></a>线程唤醒</h5><ul>
+<li><code>object.notify()</code> 随机唤醒处于等待队列的一个线程, 此后object对象如果获取到锁则进入READY状态.</li>
+<li><code>object.notifyAll()</code> 唤醒所有处于等待队列的线程,唤醒后多个线程竞争同一个锁, 得到锁的线程处于READY状态,其他线程移步同步队列,处于BLOCKED状态</li>
+<li><code>LockSupport.unpark()</code>为当前线程的<code>park()</code>提供一个许可从而唤醒线程,许可只能用一次. 也只会用一次.</li>
+</ul>
+<h3 id="Java中的锁"><a href="#Java中的锁" class="headerlink" title="Java中的锁"></a>Java中的锁</h3><h4 id="synchronized的基本使用"><a href="#synchronized的基本使用" class="headerlink" title="synchronized的基本使用"></a>synchronized的基本使用</h4><ol>
+<li>对象级别: 作用在实例方法, 指定类同一个实例才会进入锁机制</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//法1: 修饰实例方法</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">	<span class="hljs-comment">//TODO        </span></span><br><span class="line">    <span class="hljs-comment">//实例方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//法2:修饰实例代码块</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>类级别: 作用在全局, 指定类的所有实例都会进入锁机制</li>
+</ol>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//法1: 修饰静态方法</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-comment">//TODO</span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="hljs-comment">//法2:修饰实例代码块</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">synchronized</span>(Object.class)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="锁的存储"><a href="#锁的存储" class="headerlink" title="锁的存储"></a>锁的存储</h4><p>在 Hotspot 虚拟机中，对象在内存中的存储布局，可以分为三个区域:对象头(Header %}、实例数据(Instance Data)、对齐填充(Padding)</p>
+<img src="/2019/08/30/concurrency-2019-08-并发编程基础篇/锁的存储.png">
+<p>当我们在 Java 代码中，使用 new 创建一个对象实例的时候，（hotspot 虚拟机）JVM 层面实际上会创建一个<br>instanceOopDesc 对象。Hotspot 虚拟机采用 OOP-Klass 模型来描述 Java 对象实例，OOP(Ordinary Object Point)指的是普通对象指针，Klass 用来描述对象实例的具体类型。Hotspot 采用instanceOopDesc 和 arrayOopDesc 来描述对象头，arrayOopDesc 对象用来描述数组类型instanceOopDesc 的定义在 Hotspot 源码中的instanceOop.hpp 文件中，另外，arrayOopDesc 的定义对应 arrayOop.hpp从 instanceOopDesc 代码中可以看到 instanceOopDesc继承自 oopDesc，oopDesc 的定义载 Hotspot 源码中的oop.hpp 文件中在普通实例对象中，oopDesc 的定义包含两个成员，分别是 _mark 和 _metadata_mark 表示对象标记、属于 markOop 类型，也就是接下来要讲解的 <code>Mark World</code>，它记录了对象和锁有关的信息_metadata 表示类元信息，类元信息存储的是对象指向它的类元数据(Klass)的首地址，其中 Klass 表示普通指针、_compressed_klass 表示压缩类指针</p>
+<h5 id="MarkWord-对象头"><a href="#MarkWord-对象头" class="headerlink" title="MarkWord(对象头 %}"></a>MarkWord(对象头 %}</h5><p>Mark word 记录了对象和锁有关的信息，当某个对象被synchronized 关键字当成同步锁时，那么围绕这个锁的一<br>系列操作都和 Mark word 有关系。Mark Word 在 32 位虚拟机的长度是 32bit、在 64 位虚拟机的长度是 64bit。<br>Mark Word里面存储的数据会随着锁标志位的变化而变化，Mark Word 可能变化为存储以下 5 中情况</p>
+<img src="/2019/08/30/concurrency-2019-08-并发编程基础篇/MarkWord.png">
+<h5 id="为什么任何对象都可以实现锁"><a href="#为什么任何对象都可以实现锁" class="headerlink" title="为什么任何对象都可以实现锁?"></a>为什么任何对象都可以实现锁?</h5><ol>
+<li>Java 中的每个对象都派生自 Object 类，而每个Java Object 在 JVM 内部都有一个 native 的 C++对象<br>oop/oopDesc 进行对应。</li>
+<li>线程在获取锁的时候，实际上就是获得一个监视器对象(monitor) ,monitor 可以认为是一个同步对象，所有的Java 对象是天生携带 monitor。多个线程访问同步代码块时，相当于去争抢对象监视器修改对象中的锁标识,hotspot 源码的markOop.hpp 文件中ObjectMonitor这个对象和线程争抢锁的逻辑有密切的关系</li>
+</ol>
+<h5 id="synchronized锁升级"><a href="#synchronized锁升级" class="headerlink" title="synchronized锁升级"></a>synchronized锁升级</h5><h6 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h6><p>大部分情况下，锁不仅仅不存在多线程竞争，而是总是由同一个线程多次获得，为了让线程获取锁的代价更低就引入了偏向锁的概念。当一个线程访问加了同步锁的代码块时，会在对象头中存储当前线程的 ID，后续这个线程进入和退出这段加了同步锁的代码块时，不需要再次加锁和释放锁。而是直接比较对象头里面是否存储了指向当前线程的偏向锁。如果相等表示偏向锁是偏向于当前线程的，就不需要再尝试获得锁了</p>
+<p>在我们的应用开发中，绝大部分情况下一定会存在 2 个以上的线程竞争，那么如果开启偏向锁，反而会提升获取锁的资源消耗。所以可以通过 jvm 参数UseBiasedLocking 来设置开启或关闭偏向锁</p>
+<p>为什么偏向锁只有撤销,没有释放? </p>
+<blockquote>
+<p>当处于全局安全点( 没有线程执行指令)的时候, 会进行批量撤销,升级eopch的值, 撤销并且重新偏向</p>
+</blockquote>
+<p>什么是CAS?</p>
+<blockquote>
+<p>CAS的全称为Compare-And-Swap，是一条CPU的原子指令，其作用是让CPU比较后原子地更新某个位置的值，经过调查发现，其实现方式是基于硬件平台的汇编指令，就是说CAS是靠硬件实现的，JVM只是封装了汇编调用，那些AtomicInteger类便是使用了这些封装后的接口。</p>
+</blockquote>
+<img src="/2019/08/30/concurrency-2019-08-并发编程基础篇/偏向锁升级和撤销.png">
+<h6 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h6><p>适用于绝大数线程获得锁之后, 会在非常短的时间内释放线程. </p>
+<p>轻量级锁在加锁过程中，用到了<code>自旋锁</code>所谓自旋，就是指当有另外一个线程来竞争锁时，这个线程会在原地循环等待，而不是把该线程给阻塞，直到那个获得锁的线程释放锁之后，这个线程就可以马上获得锁的。注意，锁在原地循环的时候，是会消耗 cpu 的，就相当于在执行一个啥也没有的 for 循环。所以，轻量级锁适用于那些同步代码块执行的很快的场景，这样，线程原地等待很短的时间就能够获得锁了。自旋锁的使用，其实也是有一定的概率背景，在大部分同步代码块执行的时间都是很短的。所以通过看似无异议的循环反而能提升锁的性能。但是自旋必须要有一定的条件控制，否则如果一个线程执行同步代码块的时间很长，那么这个线程不断的循环反而会消耗 CPU 资源。默认情况下自旋的次数是 10 次，可以通过 preBlockSpin 来修改在 JDK1.6 之后，引入了自适应自旋锁，自适应意味着自旋的次数不是固定不变的，而是根据前一次在同一个锁上自旋的时间以及锁的拥有者的状态来决定。如果在同一个锁对象上，自旋等待刚刚成功获得过锁，并且持有锁的线程正在运行中，那么虚拟机就会认为这次自旋也是很有可能再次成功，进而它将允许自旋等待持续相对更长的时间。如果对于某个锁，自旋很少成功获得过，那在以后尝试获取这个锁时将可能省略掉自旋过程，直接阻塞线程，避免浪费处理器资源</p>
+<p>轻量级锁的锁释放逻辑其实就是获得锁的逆向逻辑，通过CAS 操作把线程栈帧中的 LockRecord 替换回到锁对象的<br>MarkWord 中，如果成功表示没有竞争。如果失败，表示当前锁存在竞争，那么轻量级锁就会膨胀成为重量级锁</p>
+<img src="/2019/08/30/concurrency-2019-08-并发编程基础篇/轻量级锁.png">
+<h6 id="重量级锁"><a href="#重量级锁" class="headerlink" title="重量级锁"></a>重量级锁</h6><p>当轻量级锁膨胀到重量级锁之后，意味着线程只能被挂起阻塞(BLOCKED %}来等待被唤醒了。加了同步代码块以后,在字节码中会看到一个monitorenter 和 monitorexit。每一个 JAVA 对象都会与一个监视器 monitor 关联，我们<br>可以把它理解成为一把锁，当一个线程想要执行一段被synchronized 修饰的同步方法或者代码块时，该线程得先<br>获取到 synchronized 修饰的对象对应的 monitor。monitorenter 表示去获得一个对象监视器。monitorexit 表<br>示释放 monitor 监视器的所有权，使得其他被阻塞的线程可以尝试去获得这个监视器monitor 依赖操作系统的 MutexLock(互斥锁)来实现的, 线程被阻塞后便进入内核（Linux）调度状态，这个会导致系统在用户态与内核态之间来回切换，严重影响锁的性能</p>
+<img src="/2019/08/30/concurrency-2019-08-并发编程基础篇/重量级锁.png">
+<h3 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h3><p>在多线程中, 保证跨线程之间的可见性.但不保证原子性。 被volatile修饰的属性/对象,编译后会新增一条lock的汇编指令, 从而实现基于总线锁/缓存锁的可见性. </p>
+<h4 id="缓存一致性协议-MESI"><a href="#缓存一致性协议-MESI" class="headerlink" title="缓存一致性协议(MESI)"></a>缓存一致性协议(MESI)</h4><p>为了达到数据访问的一致，需要各个处理器在访问缓存时遵循一些协议，在读写时根据协议来操作，常见的协议有  MSI，MESI，MOSI 等。最常见的就是 MESI 协议。MESI 表示缓存行的四种状态，分别是</p>
+<ol>
+<li>M(Modify) 表示共享数据只缓存在当前 CPU 缓存中，并且是被修改状态，也就是缓存的数据和主内存中的数据不一致</li>
+<li>E(Exclusive) 表示缓存的独占状态，数据只缓存在当前CPU 缓存中，并且没有被修改</li>
+<li>S(Shared) 表示数据可能被多个 CPU 缓存，并且各个缓存中的数据和主内存数据一致</li>
+<li>I(Invalid) 表示缓存已经失效在 MESI 协议中，每个缓存的缓存控制器不仅知道自己的读写操作，而且也监听(snoop)其它 Cache 的读写操作</li>
+</ol>
+<p>对于 MESI 协议，从 CPU 读写角度来说会遵循以下原则：CPU 读请求：缓存处于 M、E、S 状态都可以被读取，I 状态 CPU 只能从主存中读取数据CPU 写请求：缓存处于 M、E 状态才可以被写。对于 S 状态的写，需要将其他 CPU 中缓存行置为无效才可写使用总线锁和缓存锁机制之后，CPU 对于内存的操作大概可以抽象成下面这样的结构。从而达到缓存一致性效果</p>
+<img src="/2019/08/30/concurrency-2019-08-并发编程基础篇/缓存一致性协议.png">
+<h3 id="JMM-Java抽象内存模型"><a href="#JMM-Java抽象内存模型" class="headerlink" title="JMM(Java抽象内存模型)"></a>JMM(Java抽象内存模型)</h3><h4 id="JMM简介"><a href="#JMM简介" class="headerlink" title="JMM简介"></a>JMM简介</h4><p>全称Java Memory Model. 在Java中导致可见性问题的根本原因是缓存以及重排序而 JMM 实际上就是提供了合理的禁用缓存以及禁止重排序的方法。所以它最核心的价值在于解决可见性和有序性。</p>
+<p>JMM 抽象模型分为主内存、工作内存；主内存是所有线程共享的，一般是实例对象、静态字段、数组对象等存储在堆内存中的变量。工作内存是每个线程独占的，线程对变量的所有操作都必须在工作内存中进行，不能直接读写主内存中的变量，线程之间的共享变量值的传递都是基于主内存来完成</p>
+<p>Java 内存模型底层实现可以简单的认为：通过内存屏障(memory barrier)禁止重排序，即时编译器根据具体的底层体系架构，将这些内存屏障替换成具体的 CPU 指令。对于编译器而言，内存屏障将限制它所能做的重排序优化。而对于处理器而言，内存屏障将会导致缓存的刷新操作。比如，对于 volatile，编译器将在 volatile 字段的读写操作前后各插入一些内存屏障。</p>
+<p>为了提高程序的执行性能，编译器和处理器都会对指令做重排序，其中处理器的重排序在前面已经分析过了。所谓<br>的重排序其实就是指执行的指令顺序。编译器的重排序指的是程序编写的指令在编译之后，指令可能会产生重排序来优化程序的执行性能。从源代码到最终执行的指令，可能会经过三种重排序。</p>
+<blockquote>
+<ol>
+<li>源代码↓</li>
+<li>编译器优化重排序↓</li>
+<li>指令级并行重排序↓</li>
+<li>内存系统重排序↓</li>
+<li>最终执行的指令序列</li>
+</ol>
+</blockquote>
+<p>2 和 3 属于处理器重排序。这些重排序可能会导致可见性问题。编译器的重排序，JMM 提供了禁止特定类型的编译器重排序。处理器重排序，JMM 会要求编译器生成指令时，会插入内存屏障来禁止处理器重排序</p>
+<p>JMM在程序中的应用形式: volatile、synchronized、final；</p>
+<h4 id="HappenBefore规则"><a href="#HappenBefore规则" class="headerlink" title="HappenBefore规则"></a>HappenBefore规则</h4><p>它的意思表示的是前一个操作的结果对于后续操作是可见的，所以它是一种表达多个线程之间对于内存的可见性。<br>所以我们可以认为在 JMM 中，如果一个操作执行的结果需要对另一个操作课件，那么这两个操作必须要存在happens-before 关系。这两个操作可以是同一个线程，也可以是不同的线程</p>
+<h5 id="JMM中建立的happen-before规则"><a href="#JMM中建立的happen-before规则" class="headerlink" title="JMM中建立的happen-before规则"></a>JMM中建立的happen-before规则</h5><blockquote>
+<ol>
+<li>程序顺序规则: 一个线程中的每个操作，happens-before 于该线程中的任意后续操作; 可以简单认为是 as-if-serial。 单个线程中的代码顺序不管怎么变，对于结果来说是不变的</li>
+<li>监视器锁规则: 对于一个锁的解锁, happen-before于随后对这个锁的加锁</li>
+<li>volatile变量规则: 对一个volatile 域的写, happen-before于任意后续对这个volatile域的读</li>
+<li>传递性: 如果A happen-before B, 且 B happen-before C ,那么A happen-before C</li>
+<li>start()规则: 如果线程A执行操作ThreadB.start(). 那么A线程的ThreadB.start()操作happen-before 于线程B中的任意操作</li>
+<li>join()规则: 如果线程A执行操作ThreadB.join()并成功返回, 那么线程B中的任意操作happen-before于线程A从ThreadB.join()操作成功返回</li>
+</ol>
+</blockquote>
+<p>as-if-serial语义给编写单线程程序的程序员创造了一个幻境: 单线程程序是按程序的顺序来执行的. </p>
+<p>happen-before关系给编写正确同步的多线程程序的程序员创造了一个幻境: 正确同步的多线程程序是按happen-before指定的顺序来执行的</p>
+
         </div>
         
         
@@ -235,7 +354,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        26
+                        27
                     </p>
                 </div>
             </div>
@@ -245,7 +364,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -255,7 +374,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        24
                     </p>
                 </div>
             </div>
@@ -380,6 +499,14 @@
                 <span class="level-item tag">8</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/并发编程/">
+            <span class="level-start">
+                <span class="level-item">并发编程</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
             <span class="level-start">
                 <span class="level-item">建站笔记</span>
@@ -407,7 +534,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/DI/" style="font-size: 12px;">DI</a> <a href="/tags/IOC/" style="font-size: 12px;">IOC</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Spring/" style="font-size: 16px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 10px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/事务/" style="font-size: 10px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/AOP/" style="font-size: 11.67px;">AOP</a> <a href="/tags/DI/" style="font-size: 13.33px;">DI</a> <a href="/tags/IOC/" style="font-size: 13.33px;">IOC</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/事务/" style="font-size: 10px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -421,6 +548,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-30T09:35:27.000Z">2019-08-30</time></div>
+                    <a href="/2019/08/30/concurrency-2019-08-并发编程基础篇/" class="title has-link-black-ter is-size-6 has-text-weight-normal">并发编程基础篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/并发编程/">并发编程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -474,19 +614,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -505,7 +632,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">19</span>
+                    <span class="level-item tag">20</span>
                 </span>
             </a>
         </li>
@@ -548,21 +675,21 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AOP/">
                         <span class="tag">AOP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/DI/">
                         <span class="tag">DI</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/IOC/">
                         <span class="tag">IOC</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -584,27 +711,6 @@
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
                         <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-AOP/">
-                        <span class="tag">Spring AOP</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-DI/">
-                        <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-IOC/">
-                        <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -679,6 +785,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/并发/">
+                        <span class="tag">并发</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/模板方法/">
                         <span class="tag">模板方法</span>
                         <span class="tag is-grey">1</span>
@@ -688,6 +801,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/策略/">
                         <span class="tag">策略</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/线程/">
+                        <span class="tag">线程</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -748,6 +868,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-30T09:35:27.000Z">2019-08-30</time></div>
+                    <a href="/2019/08/30/concurrency-2019-08-并发编程基础篇/" class="title has-link-black-ter is-size-6 has-text-weight-normal">并发编程基础篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/并发编程/">并发编程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-27T09:28:26.000Z">2019-08-27</time></div>
                     <a href="/2019/08/27/Spring-2019-08-Spring事务/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring事务</a>
                     <p class="is-size-7 is-uppercase">
@@ -796,19 +929,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -827,7 +947,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">19</span>
+                    <span class="level-item tag">20</span>
                 </span>
             </a>
         </li>
@@ -870,21 +990,21 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AOP/">
                         <span class="tag">AOP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/DI/">
                         <span class="tag">DI</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/IOC/">
                         <span class="tag">IOC</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -906,27 +1026,6 @@
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
                         <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-AOP/">
-                        <span class="tag">Spring AOP</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-DI/">
-                        <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-IOC/">
-                        <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1001,6 +1100,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/并发/">
+                        <span class="tag">并发</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/模板方法/">
                         <span class="tag">模板方法</span>
                         <span class="tag is-grey">1</span>
@@ -1010,6 +1116,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/策略/">
                         <span class="tag">策略</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/线程/">
+                        <span class="tag">线程</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

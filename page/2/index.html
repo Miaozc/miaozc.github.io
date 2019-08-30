@@ -141,6 +141,70 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-08T09:03:44.000Z">2019-08-08</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 524 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/08/design-2019-08-设计模式（八）：策略模式/">设计模式（八）：策略模式</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式（Strategy Pattern）是指定义了算法家族、分别封装起来，让它们之间可以互相替换，此模式让算法的变化不会影响到使用算法的用户。</p>
+<h3 id="策略模式的应用场景"><a href="#策略模式的应用场景" class="headerlink" title="策略模式的应用场景"></a>策略模式的应用场景</h3><p>1、假如系统中有很多类，而他们的区别仅仅在于他们的行为不同。 </p>
+<p>2、一个系统需要动态地在几种算法中选择一种。 </p>
+<h3 id="策略模式在-JDK-源码中的体现"><a href="#策略模式在-JDK-源码中的体现" class="headerlink" title="策略模式在 JDK 源码中的体现"></a>策略模式在 JDK 源码中的体现</h3><p>首先来看一个比较常用的比较器 Comparator 接口，我们看到的一个大家常用的compare()方法，就是一个策略抽象实现：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">T</span>&gt; </span>&#123; </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(T o1, T o2)</span></span>; </span><br><span class="line">    ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Comparator 抽象下面有非常多的实现类，我们经常会把 Comparator 作为参数传入作为排序策略，例如 Arrays 类的 parallelSort 方法等：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Arrays</span> </span>&#123; </span><br><span class="line">    ... </span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">parallelSort</span><span class="hljs-params">(T[] a, <span class="hljs-keyword">int</span> fromIndex, <span class="hljs-keyword">int</span> toIndex, Comparator&lt;? <span class="hljs-keyword">super</span> T&gt; cmp)</span> </span>&#123;</span><br><span class="line">    ... </span><br><span class="line">    &#125;</span><br><span class="line">    ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="策略模式在-Spring-源码中的应用"><a href="#策略模式在-Spring-源码中的应用" class="headerlink" title="策略模式在 Spring 源码中的应用"></a>策略模式在 Spring 源码中的应用</h3><p>Spring 的初始化也采用了策略模式，不同的类型的类采用不同的初始化策略。</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">InstantiationStrategy</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function">Object <span class="hljs-title">instantiate</span><span class="hljs-params">(RootBeanDefinition var1, @Nullable String var2, BeanFactory var3)</span> <span class="hljs-keyword">throws</span> BeansException</span>;</span><br><span class="line">    <span class="hljs-function">Object <span class="hljs-title">instantiate</span><span class="hljs-params">(RootBeanDefinition var1, @Nullable String var2, BeanFactory var3, Constructor&lt;?&gt; var4, @Nullable Object... var5)</span> <span class="hljs-keyword">throws</span> BeansException</span>;</span><br><span class="line">    <span class="hljs-function">Object <span class="hljs-title">instantiate</span><span class="hljs-params">(RootBeanDefinition var1, @Nullable String var2, BeanFactory var3, @Nullable Object var4, Method var5, @Nullable Object... var6)</span> <span class="hljs-keyword">throws</span> BeansException</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>顶层的策略抽象非常简单，但是它下面有两种策略 SimpleInstantiationStrategy 和CglibSubclassingInstantiationStrategy</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleInstantiationStrategy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InstantiationStrategy</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CglibSubclassingInstantiationStrategy</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SimpleInstantiationStrategy</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说明在实际应用中多种策略之间还可以继承使用</p>
+<h3 id="策略模式的优缺点"><a href="#策略模式的优缺点" class="headerlink" title="策略模式的优缺点"></a>策略模式的优缺点</h3><p>优点： </p>
+<p>1、策略模式符合开闭原则。 </p>
+<p>2、避免使用多重条件转移语句，如 if…else…语句、switch 语句 </p>
+<p>3、使用策略模式可以提高算法的保密性和安全性。 </p>
+<p>缺点： </p>
+<p>1、客户端必须知道所有的策略，并且自行决定使用哪一个策略类。 </p>
+<p>2、代码中会产生非常多策略类，增加维护难度。 </p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-08-08T09:01:24.000Z">2019-08-08</time>
                 
                 <div class="level-item">
@@ -852,95 +916,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-05-06T06:22:52.000Z">2019-05-06</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 327 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/05/06/linux-2019-05-Linux学习（六）：其他命令/">Linux学习（六）：其他命令</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="which-查看命令位置"><a href="#which-查看命令位置" class="headerlink" title="which 查看命令位置"></a><code>which</code> 查看命令位置</h2><blockquote>
-<p><code>which zip</code> 查看<code>zip</code>命令的可执行文件所在位置，但无法查找<code>cd</code>这样的shell类型命令。</p>
-</blockquote>
-<h2 id="su-切换账号"><a href="#su-切换账号" class="headerlink" title="su 切换账号"></a><code>su</code> 切换账号</h2><blockquote>
-<p><code>su</code> Centos下切换到root用户命令<br><code>su test</code> 切换到test用户<br>   root切换其他用户不用输入密码，反之要输入密码。</p>
-</blockquote>
-<h2 id="passwd-重置密码"><a href="#passwd-重置密码" class="headerlink" title="passwd 重置密码"></a><code>passwd</code> 重置密码</h2><blockquote>
-<p><code>passwd</code> 修改当前用户密码，密码有复杂度要求<br><code>passwd test</code> 切换到root后执行该命令，修改test用户密码，无强制要求密码复杂度</p>
-</blockquote>
-<h2 id="exit-退出当前用户"><a href="#exit-退出当前用户" class="headerlink" title="exit 退出当前用户"></a><code>exit</code> 退出当前用户</h2><blockquote>
-<p> 注意：如果使用<code>su</code> 登录root后再使用<code>exit</code> 只是退出root，当前窗口不会关闭。</p>
-</blockquote>
-<h2 id="who-查看当前登录的客户端，或者当前登录的命令终端"><a href="#who-查看当前登录的客户端，或者当前登录的命令终端" class="headerlink" title="who 查看当前登录的客户端，或者当前登录的命令终端"></a><code>who</code> 查看当前登录的客户端，或者当前登录的命令终端</h2><blockquote>
-<p>“pts”代表终端<br>“tty”代表用户登录了操作系统<br><code>pkill -kill -t tty1</code> 杀死一个客户端连接</p>
-</blockquote>
-<h2 id="reboot、shutdown-重启、关机"><a href="#reboot、shutdown-重启、关机" class="headerlink" title="reboot、shutdown 重启、关机"></a><code>reboot、shutdown</code> 重启、关机</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>reboot</code></td>
-<td>重新启动操作系统</td>
-</tr>
-<tr>
-<td><code>shutdown -r now</code></td>
-<td>重启操作系统，shutdown会给别的用户提示</td>
-</tr>
-<tr>
-<td><code>shutdown -h now</code></td>
-<td>立刻关机，其中now代表时间为0的状态</td>
-</tr>
-<tr>
-<td><code>shutdown -h 20:35</code></td>
-<td>系统在今天的20:35会关机</td>
-</tr>
-<tr>
-<td><code>shutdown -h +10</code></td>
-<td>系统在十分钟之后自动关机 ，要取消则按<code>ctrl+c</code></td>
-</tr>
-</tbody>
-</table>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -1005,7 +980,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        26
+                        27
                     </p>
                 </div>
             </div>
@@ -1015,7 +990,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -1025,7 +1000,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        24
                     </p>
                 </div>
             </div>
@@ -1150,6 +1125,14 @@
                 <span class="level-item tag">8</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/并发编程/">
+            <span class="level-start">
+                <span class="level-item">并发编程</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/建站笔记/">
             <span class="level-start">
                 <span class="level-item">建站笔记</span>
@@ -1177,7 +1160,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/AOP/" style="font-size: 10px;">AOP</a> <a href="/tags/DI/" style="font-size: 12px;">DI</a> <a href="/tags/IOC/" style="font-size: 12px;">IOC</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Spring/" style="font-size: 16px;">Spring</a> <a href="/tags/Spring-AOP/" style="font-size: 10px;">Spring AOP</a> <a href="/tags/Spring-DI/" style="font-size: 10px;">Spring DI</a> <a href="/tags/Spring-IOC/" style="font-size: 10px;">Spring IOC</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/事务/" style="font-size: 10px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
+        <a href="/tags/AOP/" style="font-size: 11.67px;">AOP</a> <a href="/tags/DI/" style="font-size: 13.33px;">DI</a> <a href="/tags/IOC/" style="font-size: 13.33px;">IOC</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/transaction/" style="font-size: 10px;">transaction</a> <a href="/tags/事务/" style="font-size: 10px;">事务</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/原型模式/" style="font-size: 10px;">原型模式</a> <a href="/tags/委派/" style="font-size: 10px;">委派</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/模板方法/" style="font-size: 10px;">模板方法</a> <a href="/tags/策略/" style="font-size: 10px;">策略</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/装饰者/" style="font-size: 10px;">装饰者</a> <a href="/tags/观察者/" style="font-size: 10px;">观察者</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a> <a href="/tags/适配器/" style="font-size: 10px;">适配器</a>
     </div>
 </div>
 
@@ -1191,6 +1174,19 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-30T09:35:27.000Z">2019-08-30</time></div>
+                    <a href="/2019/08/30/concurrency-2019-08-并发编程基础篇/" class="title has-link-black-ter is-size-6 has-text-weight-normal">并发编程基础篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/并发编程/">并发编程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1244,19 +1240,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1275,7 +1258,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">19</span>
+                    <span class="level-item tag">20</span>
                 </span>
             </a>
         </li>
@@ -1318,21 +1301,21 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AOP/">
                         <span class="tag">AOP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/DI/">
                         <span class="tag">DI</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/IOC/">
                         <span class="tag">IOC</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1354,27 +1337,6 @@
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
                         <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-AOP/">
-                        <span class="tag">Spring AOP</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-DI/">
-                        <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-IOC/">
-                        <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1449,6 +1411,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/并发/">
+                        <span class="tag">并发</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/模板方法/">
                         <span class="tag">模板方法</span>
                         <span class="tag is-grey">1</span>
@@ -1458,6 +1427,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/策略/">
                         <span class="tag">策略</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/线程/">
+                        <span class="tag">线程</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1518,6 +1494,19 @@
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-30T09:35:27.000Z">2019-08-30</time></div>
+                    <a href="/2019/08/30/concurrency-2019-08-并发编程基础篇/" class="title has-link-black-ter is-size-6 has-text-weight-normal">并发编程基础篇</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/并发编程/">并发编程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-27T09:28:26.000Z">2019-08-27</time></div>
                     <a href="/2019/08/27/Spring-2019-08-Spring事务/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Spring事务</a>
                     <p class="is-size-7 is-uppercase">
@@ -1566,19 +1555,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-21T07:23:04.000Z">2019-08-21</time></div>
-                    <a href="/2019/08/21/Spring-2019-08-渐入Spring-DI/" class="title has-link-black-ter is-size-6 has-text-weight-normal">渐入Spring-DI</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1597,7 +1573,7 @@
                     <span class="level-item">八月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">19</span>
+                    <span class="level-item tag">20</span>
                 </span>
             </a>
         </li>
@@ -1640,21 +1616,21 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/AOP/">
                         <span class="tag">AOP</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/DI/">
                         <span class="tag">DI</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/IOC/">
                         <span class="tag">IOC</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1676,27 +1652,6 @@
                     <a class="tags has-addons" href="/tags/Spring/">
                         <span class="tag">Spring</span>
                         <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-AOP/">
-                        <span class="tag">Spring AOP</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-DI/">
-                        <span class="tag">Spring DI</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Spring-IOC/">
-                        <span class="tag">Spring IOC</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1771,6 +1726,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/并发/">
+                        <span class="tag">并发</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/模板方法/">
                         <span class="tag">模板方法</span>
                         <span class="tag is-grey">1</span>
@@ -1780,6 +1742,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/策略/">
                         <span class="tag">策略</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/线程/">
+                        <span class="tag">线程</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
